@@ -1,0 +1,6 @@
+framework module Pods_AccessbilitySampleAppTests {
+  umbrella header "Pods-AccessbilitySampleAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
