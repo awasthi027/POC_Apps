@@ -14,3 +14,4 @@ Creating swiftUI sample app for accessibility Testing
 
 # Created POC NFC Tag reading.
   
+# Added UITest basic architecture app.
