@@ -23,6 +23,13 @@ class NFCConnectionManager: NSObject, ObservableObject {
     var isSupportingNFCScaning: Bool {
         return NFCNDEFReaderSession.readingAvailable
     }
+
+    var iOStagConnectionManager = NFCISO14443ConnectionManager()
+
+    func startiOSTagPolling() {
+        self.iOStagConnectionManager.delegate = self
+        self.iOStagConnectionManager.startSession()
+    }
 }
 
 extension NFCNDEFMessage {
@@ -37,6 +44,7 @@ extension NFCConnectionManager: NFCNDEFReaderSessionDelegate {
 
     /// - Tag: sessionBecomeActive
     /// This method will called when NFC session become active
+    /// Tells the delegate that the session detected NFC tags with NDEF messages.
     func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
           debugPrint("NFC session become active======")
     }
@@ -57,6 +65,7 @@ extension NFCConnectionManager: NFCNDEFReaderSessionDelegate {
 
     /// - Tag: processingNDEFTag
     /// if This method is not implement then only   func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) will call
+    /// Tells the delegate that the session detected NFC tags with NDEF messages and enables read-write capability for the session.
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
         if tags.count > 1 {
             // Restart polling in 500ms
@@ -109,7 +118,20 @@ extension NFCConnectionManager: NFCNDEFReaderSessionDelegate {
     }
 
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        print("Error: \(error.localizedDescription)")
+        debugPrint("Error: \(error.localizedDescription)")
+    }
+}
+
+extension NFCConnectionManager:  NFCPollingConnectionCallBack {
+
+    func didConnectNFC(manager: NFCISO14443ConnectionManager,
+                       connectionState: NFCConnectionState, error: String) {
+        debugPrint("Command:- ConnectionSuccess")
+        manager.selectApplication { serialNumber, error in
+            debugPrint("Command:- Serial Call back")
+            debugPrint("Command:- Serial Number: \(serialNumber), error: \(String(describing: error))")
+            manager.invalidateNFCSession()
+        }
     }
 
 }

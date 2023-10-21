@@ -5,6 +5,11 @@
 //  Created by Ashish Awasthi on 16/10/23.
 //
 
+/*
+
+ https://hpkaushik121.medium.com/understanding-apdu-commands-emv-transaction-flow-part-2-d4e8df07eec
+
+ */
 import SwiftUI
 import CoreNFC
 
@@ -13,6 +18,7 @@ struct ContentView: View {
     //
     @State var isNeedToDisplayAlert: Bool = false
   
+   
     var body: some View {
         VStack {
             List(self.viewModel.detectedMessages, id: \.length) { item in
@@ -22,13 +28,19 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .padding(.horizontal, 20)
+//            Button {
+//                if !self.viewModel.isSupportingNFCScaning {
+//                    self.isNeedToDisplayAlert = true
+//                }
+//                self.viewModel.startNFCSession()
+//            } label: {
+//                Text("Scan Device")
+//            }
+
             Button {
-                if !self.viewModel.isSupportingNFCScaning {
-                    self.isNeedToDisplayAlert = true
-                }
-                self.viewModel.startNFCSession()
+                self.viewModel.startiOSTagPolling()
             } label: {
-                Text("Scan Device")
+                Text("SCAN iOS Tag polling")
             }
 
         }
@@ -44,7 +56,6 @@ struct ContentView: View {
         }
     }
 }
-
 
 
 #Preview {
