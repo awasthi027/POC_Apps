@@ -24,22 +24,22 @@ class NFCConnectionController {
     }
 
     func execute(command: APDU, handler: @escaping CommandHandler) {
-        self.execute(command: command, 
+        self.execute(command: command,
                      timeOut: NFCConnectionDefaultTimeout,
                      handler: handler)
     }
 
-    func execute(command: APDU,
+   private func execute(command: APDU,
                  timeOut: TimeInterval,
                  handler: @escaping CommandHandler) {
-        debugPrint("Command:- - Start command...")
+        debugPrint("NFCCommand:- - Start command...")
         self.dispatchBlockOnCommunicationQueue { operation in
             if operation.isCancelled {
                 return
             }
-            guard let tag = self.tag, 
+            guard let tag = self.tag,
                     tag.isAvailable else {
-                debugPrint("Command:- Tag is not available.")
+                debugPrint("NFCCommand:- Tag is not available.")
                 handler(nil, nil, self.errorObject(errorCode: .connectionLost))
                 return
             }
@@ -50,15 +50,15 @@ class NFCConnectionController {
 
             if case .iso7816(let nfcISO7816Tag) = tag,
                let nfcISO7816APDU = NFCISO7816APDU(data: command.apduData) {
-                debugPrint("Hex Value: \(command.apduData.hexDescription)")
-                debugPrint("Command:- - Send command...")
+                debugPrint("NFCCommand:- Hex Value: \(command.apduData.hexDescription)")
+                debugPrint("NFCCommand:- Send command...")
                 let semaphore = DispatchSemaphore(value: 0)
 
                 nfcISO7816Tag.sendCommand(apdu: nfcISO7816APDU) { result in
-                    debugPrint("Command:- result")
+                    debugPrint("NFCCommand:- result")
                     switch result {
                     case .success(let item):
-                        debugPrint("Command:- Success: word1: \(item.statusWord1),  word2: \(item.statusWord2)")
+                        debugPrint("NFCCommand:- Success: word1: \(item.statusWord1),  word2: \(item.statusWord2)")
                         var fullResponse = Data(item.payload ?? Data())
                         fullResponse.appendUInt8(item.statusWord1)
                         fullResponse.appendUInt8(item.statusWord2)
@@ -67,15 +67,16 @@ class NFCConnectionController {
                         break
 
                     case .failure(let error):
-                        debugPrint("Command:- failed")
+                        debugPrint("NFCCommand:- failed")
                         executionError = error
                         semaphore.signal()
                         return
 
                     }
                 }
-                semaphore.wait()
+                let _ = semaphore.wait(timeout: DispatchTime.now() + timeOut)
             }
+
             if operation.isCancelled {
                 return
             }

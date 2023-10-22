@@ -23,13 +23,6 @@ class NFCConnectionManager: NSObject, ObservableObject {
     var isSupportingNFCScaning: Bool {
         return NFCNDEFReaderSession.readingAvailable
     }
-
-    var iOStagConnectionManager = NFCISO14443ConnectionManager()
-
-    func startiOSTagPolling() {
-        self.iOStagConnectionManager.delegate = self
-        self.iOStagConnectionManager.startSession()
-    }
 }
 
 extension NFCNDEFMessage {
@@ -122,16 +115,3 @@ extension NFCConnectionManager: NFCNDEFReaderSessionDelegate {
     }
 }
 
-extension NFCConnectionManager:  NFCPollingConnectionCallBack {
-
-    func didConnectNFC(manager: NFCISO14443ConnectionManager,
-                       connectionState: NFCConnectionState, error: String) {
-        debugPrint("Command:- ConnectionSuccess")
-        manager.selectApplication { serialNumber, error in
-            debugPrint("Command:- Serial Call back")
-            debugPrint("Command:- Serial Number: \(serialNumber), error: \(String(describing: error))")
-            manager.invalidateNFCSession()
-        }
-    }
-
-}

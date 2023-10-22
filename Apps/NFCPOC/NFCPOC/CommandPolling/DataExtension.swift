@@ -10,7 +10,7 @@ import Foundation
 extension Data {
   /* Append 8 bit values between 0 .....255 */
     public mutating func appendUInt8(_ value: UInt8) {
-        let array:[UInt8] = [value]
+        let array: [UInt8] = [value]
         let data = NSData(bytes: array, length:MemoryLayout<UInt8>.size)
         self.append(data as Data)
     }
