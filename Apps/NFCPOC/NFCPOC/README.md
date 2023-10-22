@@ -34,3 +34,8 @@ https://hpkaushik121.medium.com/understanding-apdu-commands-emv-transaction-flow
 ** 2.Complete list of APDU responses code and explanation 
 
 https://www.eftlab.com/knowledge-base/complete-list-of-apdu-responses
+
+
+Few links 
+
+https://developer.apple.com/forums/thread/120496

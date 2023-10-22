@@ -14,33 +14,39 @@ import SwiftUI
 import CoreNFC
 
 struct ContentView: View {
-    @StateObject var viewModel: NFCConnectionManager  = NFCConnectionManager()
+
+    @StateObject  var viewModel: ContentViewViewModel  = ContentViewViewModel()
     //
     @State var isNeedToDisplayAlert: Bool = false
-  
-   
+
     var body: some View {
-        VStack {
-            List(self.viewModel.detectedMessages, id: \.length) { item in
+        VStack (spacing: 20) {
+            List(self.viewModel.nfcConnectionManager.detectedMessages, id: \.length) { item in
                 NavigationLink(value: item) {
                     Text(item.displayMessage)
                 }
             }
             .listStyle(.plain)
             .padding(.horizontal, 20)
-//            Button {
-//                if !self.viewModel.isSupportingNFCScaning {
-//                    self.isNeedToDisplayAlert = true
-//                }
-//                self.viewModel.startNFCSession()
-//            } label: {
-//                Text("Scan Device")
-//            }
+            Button {
+                if !self.viewModel.nfcConnectionManager.isSupportingNFCScaning {
+                    self.isNeedToDisplayAlert = true
+                }
+                self.viewModel.startNFCSession()
+            } label: {
+                Text("Scan Device and read tag")
+            }
 
             Button {
                 self.viewModel.startiOSTagPolling()
             } label: {
-                Text("SCAN iOS Tag polling")
+                Text("Scan Device By Polling and Read and Write data")
+            }
+
+            Button {
+                self.viewModel.startObservingCardConnection()
+            } label: {
+                Text("Connect Smart Card")
             }
 
         }
