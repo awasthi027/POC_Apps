@@ -8,8 +8,8 @@
 import Foundation
 
 
-class ContentViewViewModel: NSObject, ObservableObject {
-    
+class NFCScannerViewModel: NSObject, ObservableObject {
+
     // MARK: NFC Tag Reader
     var nfcConnectionManager: NFCConnectionManager = NFCConnectionManager()
 
@@ -33,7 +33,7 @@ class ContentViewViewModel: NSObject, ObservableObject {
 }
 
 //MARK: Polling scanning....
-extension ContentViewViewModel: NFCPollingConnectionCallBack {
+extension NFCScannerViewModel: NFCPollingConnectionCallBack {
 
     func didConnectNFC(manager: NFCISO14443ConnectionManager,
                        connectionState: NFCConnectionState, error: String) {
@@ -47,7 +47,7 @@ extension ContentViewViewModel: NFCPollingConnectionCallBack {
 }
 
 //MARK: Smart Card
-extension ContentViewViewModel: SmartCardConnectionManagerCallBack {
+extension NFCScannerViewModel: SmartCardConnectionManagerCallBack {
 
     func didConnectSmartCard(connection: SmartCardConnectionManager) {
         debugPrint("SmartCardCommand:- ConnectionSuccess")

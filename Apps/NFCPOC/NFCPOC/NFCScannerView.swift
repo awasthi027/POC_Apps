@@ -13,13 +13,14 @@
 import SwiftUI
 import CoreNFC
 
-struct ContentView: View {
+struct NFCScannerView: View {
 
-    @StateObject  var viewModel: ContentViewViewModel  = ContentViewViewModel()
+    @StateObject  var viewModel: NFCScannerViewModel = NFCScannerViewModel()
     //
     @State var isNeedToDisplayAlert: Bool = false
 
     var body: some View {
+
         VStack (spacing: 20) {
             List(self.viewModel.nfcConnectionManager.detectedMessages, id: \.length) { item in
                 NavigationLink(value: item) {
@@ -28,6 +29,7 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .padding(.horizontal, 20)
+            
             Button {
                 if !self.viewModel.nfcConnectionManager.isSupportingNFCScaning {
                     self.isNeedToDisplayAlert = true
@@ -65,5 +67,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView()
+    NFCScannerView()
 }
