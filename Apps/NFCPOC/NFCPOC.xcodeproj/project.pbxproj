@@ -13,7 +13,7 @@
 		C838309B2AE294BC00C0BDA2 /* NFCTagDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838309A2AE294BC00C0BDA2 /* NFCTagDescription.swift */; };
 		C838309D2AE2972400C0BDA2 /* NFCConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C838309C2AE2972400C0BDA2 /* NFCConnectionController.swift */; };
 		C881CBDB2ADD24DA00C2BF26 /* NFCPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881CBDA2ADD24DA00C2BF26 /* NFCPOCApp.swift */; };
-		C881CBDD2ADD24DA00C2BF26 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881CBDC2ADD24DA00C2BF26 /* ContentView.swift */; };
+		C881CBDD2ADD24DA00C2BF26 /* NFCScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881CBDC2ADD24DA00C2BF26 /* NFCScannerView.swift */; };
 		C881CBDF2ADD24DB00C2BF26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C881CBDE2ADD24DB00C2BF26 /* Assets.xcassets */; };
 		C881CBE22ADD24DB00C2BF26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C881CBE12ADD24DB00C2BF26 /* Preview Assets.xcassets */; };
 		C881CBED2ADD275D00C2BF26 /* NFCConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881CBEC2ADD275D00C2BF26 /* NFCConnectionManager.swift */; };
@@ -21,6 +21,7 @@
 		C8EE5B262AE4F2F6002A7DEC /* SmartCardConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B252AE4F2F6002A7DEC /* SmartCardConnectionManager.swift */; };
 		C8EE5B282AE4F329002A7DEC /* SmartCardConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B272AE4F329002A7DEC /* SmartCardConnectionController.swift */; };
 		C8EE5B2A2AE50468002A7DEC /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B292AE50468002A7DEC /* ContentViewViewModel.swift */; };
+		C8EE5B2C2AE65FDD002A7DEC /* SharedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B2B2AE65FDD002A7DEC /* SharedScreen.swift */; };
 		C8FBD4EC2AE2DF1500D6C061 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FBD4EB2AE2DF1500D6C061 /* DataExtension.swift */; };
 		C8FBD4EE2AE2DF2900D6C061 /* BinaryPacket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FBD4ED2AE2DF2900D6C061 /* BinaryPacket.swift */; };
 		C8FBD4F02AE2DF5D00D6C061 /* APDU.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FBD4EF2AE2DF5D00D6C061 /* APDU.swift */; };
@@ -35,7 +36,7 @@
 		C838309C2AE2972400C0BDA2 /* NFCConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCConnectionController.swift; sourceTree = "<group>"; };
 		C881CBD72ADD24DA00C2BF26 /* NFCPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NFCPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C881CBDA2ADD24DA00C2BF26 /* NFCPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCPOCApp.swift; sourceTree = "<group>"; };
-		C881CBDC2ADD24DA00C2BF26 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C881CBDC2ADD24DA00C2BF26 /* NFCScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScannerView.swift; sourceTree = "<group>"; };
 		C881CBDE2ADD24DB00C2BF26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C881CBE12ADD24DB00C2BF26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C881CBE82ADD24F000C2BF26 /* NFCPOC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NFCPOC.entitlements; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		C8EE5B252AE4F2F6002A7DEC /* SmartCardConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCardConnectionManager.swift; sourceTree = "<group>"; };
 		C8EE5B272AE4F329002A7DEC /* SmartCardConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCardConnectionController.swift; sourceTree = "<group>"; };
 		C8EE5B292AE50468002A7DEC /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
+		C8EE5B2B2AE65FDD002A7DEC /* SharedScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedScreen.swift; sourceTree = "<group>"; };
 		C8FBD4EB2AE2DF1500D6C061 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		C8FBD4ED2AE2DF2900D6C061 /* BinaryPacket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryPacket.swift; sourceTree = "<group>"; };
 		C8FBD4EF2AE2DF5D00D6C061 /* APDU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APDU.swift; sourceTree = "<group>"; };
@@ -85,8 +87,9 @@
 				C8FBD4EA2AE2DEF500D6C061 /* CommandPolling */,
 				C881CBE92ADD252000C2BF26 /* Info.plist */,
 				C881CBE82ADD24F000C2BF26 /* NFCPOC.entitlements */,
+				C8EE5B2B2AE65FDD002A7DEC /* SharedScreen.swift */,
 				C881CBDA2ADD24DA00C2BF26 /* NFCPOCApp.swift */,
-				C881CBDC2ADD24DA00C2BF26 /* ContentView.swift */,
+				C881CBDC2ADD24DA00C2BF26 /* NFCScannerView.swift */,
 				C83830942AE12EAF00C0BDA2 /* NFCTagDetailsView.swift */,
 				C8EE5B292AE50468002A7DEC /* ContentViewViewModel.swift */,
 				C83830962AE12EBB00C0BDA2 /* NFCTagDetailsViewModel.swift */,
@@ -201,12 +204,13 @@
 			files = (
 				C83830992AE277AF00C0BDA2 /* NFCISO14443ConnectionManager.swift in Sources */,
 				C838309B2AE294BC00C0BDA2 /* NFCTagDescription.swift in Sources */,
-				C881CBDD2ADD24DA00C2BF26 /* ContentView.swift in Sources */,
+				C881CBDD2ADD24DA00C2BF26 /* NFCScannerView.swift in Sources */,
 				C838309D2AE2972400C0BDA2 /* NFCConnectionController.swift in Sources */,
 				C8EE5B282AE4F329002A7DEC /* SmartCardConnectionController.swift in Sources */,
 				C83830972AE12EBB00C0BDA2 /* NFCTagDetailsViewModel.swift in Sources */,
 				C881CBDB2ADD24DA00C2BF26 /* NFCPOCApp.swift in Sources */,
 				C8EE5B2A2AE50468002A7DEC /* ContentViewViewModel.swift in Sources */,
+				C8EE5B2C2AE65FDD002A7DEC /* SharedScreen.swift in Sources */,
 				C8FBD4EE2AE2DF2900D6C061 /* BinaryPacket.swift in Sources */,
 				C8EE5B262AE4F2F6002A7DEC /* SmartCardConnectionManager.swift in Sources */,
 				C83830952AE12EAF00C0BDA2 /* NFCTagDetailsView.swift in Sources */,
