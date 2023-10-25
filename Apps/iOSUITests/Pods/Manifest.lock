@@ -1,5 +1,5 @@
 PODS:
-  - CloudService (1.0.8)
+  - CloudService (1.0.9)
 
 DEPENDENCIES:
   - CloudService
@@ -9,8 +9,8 @@ SPEC REPOS:
     - CloudService
 
 SPEC CHECKSUMS:
-  CloudService: 768254426c2fdaa324101e29801a88414950baec
+  CloudService: 26202210f5fb50cac36ab54dacf3ef17da7c9cf2
 
-PODFILE CHECKSUM: 10a78f6932c83b4add41cc5afcb0868e42755744
+PODFILE CHECKSUM: 8624901a36152de4bf0b3ef1d596dd7207be5eaf
 
 COCOAPODS: 1.12.1
