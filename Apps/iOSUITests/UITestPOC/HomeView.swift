@@ -25,6 +25,9 @@ struct HomeViewScreen: View {
                 }
             }
             .accessibilityIdentifier("loginButton")
+
+            Text("User took action")
+            .accessibility(identifier: "userActionTextField")
         }
         .navigationDestination(for: HomeOptionType.self) { item in
             LoginView()

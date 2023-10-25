@@ -78,6 +78,6 @@ public class UITestApp: TestApplicationProtocol {
     }
     open lazy var homeScreen: HomeViewScreen = HomeViewScreen(application: self.application)
     open lazy var loginScreen: LoginViewScreen = LoginViewScreen(application: self.application)
-    open lazy var movieListScreen: MovieListViewScreen = MovieListViewScreen(application: self.application)
-    open lazy var movieDetailsScreen: MovieDetailsScreen = MovieDetailsScreen(application: self.application)
+    open lazy var productListScreen:ProductListViewScreen = ProductListViewScreen(application: self.application)
+    open lazy var productDetailsScreen: ProductDetailsScreen = ProductDetailsScreen(application: self.application)
 }

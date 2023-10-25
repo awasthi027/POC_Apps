@@ -1,5 +1,5 @@
 //
-//  MovieListView.swift
+//  ProductListView.swift
 //  UITestPOC
 //
 //  Created by Ashish Awasthi on 17/10/23.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MovieListView: View {
-    
-    @StateObject var viewModel = MovieListViewModel()
+struct ProductListView: View {
+
+    @StateObject var viewModel = ProductListViewModel()
     @Environment(\.currentRootView) var rootView
 
     var body: some View {
@@ -17,12 +17,12 @@ struct MovieListView: View {
             List(viewModel.list, id: \.id) { item in
                 NavigationLink(value: item) {
                     ContentViewRow(model: item)
-                    .accessibility(identifier: "movie_item_\(item.id)")
+                    .accessibility(identifier: "product_item_\(item.id)")
                 }
             }
             .listStyle(.plain)
             .padding(.horizontal, 20)
-            .accessibility(identifier: "movieListView")
+            .accessibility(identifier: "productListView")
             .onAppear {
                 self.viewModel.publishListModel()
             }
@@ -36,21 +36,24 @@ struct MovieListView: View {
             .accessibilityIdentifier("logoutButton")
              Spacer()
         }
-        .navigationBarTitle("Movie List", displayMode: .inline)
-        .navigationDestination(for: ListModel.self) { content in
-            MovieDetailsView(content: content)
+        .navigationBarTitle("Product List", displayMode: .inline)
+        .navigationDestination(for: Product.self) { content in
+            ProductDetailsView(content: content)
         }
-    }
-    
-    func detailsView(content: ListModel) -> some View {
-       return MovieDetailsView(content: content)
+        .onAppear {
+            self.viewModel.productList { isSuccess, error in
+                DispatchQueue.main.async {
+                    self.viewModel.publishListModel()
+                }
+            }
+        }
     }
 }
 
 struct ContentViewRow: View {
-    let model: ListModel
+    let model: Product
     var body: some View {
-        Text(model.text)
+        Text(model.title)
             .accessibility(identifier: "CONTENT_ROW_TEXT")
     }
 }

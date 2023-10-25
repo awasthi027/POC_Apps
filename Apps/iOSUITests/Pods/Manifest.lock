@@ -1,0 +1,16 @@
+PODS:
+  - CloudService (1.0.8)
+
+DEPENDENCIES:
+  - CloudService
+
+SPEC REPOS:
+  trunk:
+    - CloudService
+
+SPEC CHECKSUMS:
+  CloudService: 768254426c2fdaa324101e29801a88414950baec
+
+PODFILE CHECKSUM: 10a78f6932c83b4add41cc5afcb0868e42755744
+
+COCOAPODS: 1.12.1

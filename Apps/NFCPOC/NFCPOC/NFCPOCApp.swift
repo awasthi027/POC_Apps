@@ -57,7 +57,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             ndefMessage.records[0].typeNameFormat != .empty else {
                 return false
         }
-        
+       // self.rootView = .details(ndefMessage)
         return true
     }
 }

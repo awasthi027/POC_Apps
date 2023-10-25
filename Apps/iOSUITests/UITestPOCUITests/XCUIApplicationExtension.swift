@@ -30,7 +30,14 @@ extension XCUIApplication {
         XCTAssertTrue(element.waitForExistence(timeout: timeout))
         return element
     }
-    
+
+    func textView(identifier: String,
+                timeout: TimeInterval = 2) -> XCUIElement {
+        let element = self.textViews[identifier]
+        XCTAssertTrue(element.waitForExistence(timeout: timeout))
+        return element
+    }
+
     func tableView(identifier: String,
                 timeout: TimeInterval = 2) -> XCUIElement {
         let pred = NSPredicate(format: "identifier == '\(identifier)'")
@@ -42,6 +49,13 @@ extension XCUIApplication {
     func navigationBackButton(identifier: String = "",
                               timeout: TimeInterval = 2) -> XCUIElement  {
         let element = self.navigationBars.buttons.element(boundBy: 0)
+        XCTAssertTrue(element.waitForExistence(timeout: timeout))
+        return element
+    }
+
+    func staticText(text: String,
+                    timeout: TimeInterval = 2) -> XCUIElement {
+        let element = self.staticTexts[text]
         XCTAssertTrue(element.waitForExistence(timeout: timeout))
         return element
     }

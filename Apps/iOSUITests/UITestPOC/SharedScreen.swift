@@ -9,7 +9,7 @@ import SwiftUI
 
 enum RootScreen  {
     case homeView
-    case movieList
+    case productList
 }
 
 struct CurrentRootKey: EnvironmentKey {

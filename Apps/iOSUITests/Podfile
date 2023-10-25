@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '15.0'
+
+target 'UITestPOC' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for UITestPOC
+
+     pod 'CloudService'
+
+  target 'UITestPOCTests' do
+    inherit! :search_paths
+    pod 'CloudService'
+    # Pods for testing
+  end
+
+  target 'UITestPOCUITests' do
+    # Pods for testing
+    pod 'CloudService'
+  end
+
+end
