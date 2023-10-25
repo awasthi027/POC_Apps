@@ -27,17 +27,28 @@ class StandaloneFlows {
 
     static func logOutFlow(uiTestApp: UITestApp) {
         describe("Doing logout and clearnig data..") {
-            uiTestApp.movieListScreen.actionONScreen(action: .logout)
+            uiTestApp.productListScreen.actionONScreen(action: .logout)
             XCTAssertFalse(UserDefaults.isUserLogin)
             XCTAssertTrue(uiTestApp.application.navigationBars.staticTexts["Home"].exists)
         }
     }
 
-    static func navigateOnMoviewDetials(uiTestApp: UITestApp) {
-        describe("Exploring movie list and details...") {
-            uiTestApp.movieListScreen.actionONScreen(action: .tableItem(5))
-            XCTAssertTrue(uiTestApp.application.navigationBars.staticTexts["Movie Details"].exists)
-            uiTestApp.movieDetailsScreen.actionONScreen(action: .back)
+    static func navigateOnProductDetials(uiTestApp: UITestApp) {
+        describe("Exploring product list and details...") {
+            uiTestApp.productListScreen.actionONScreen(action: .tableItem(5))
+            XCTAssertTrue(uiTestApp.application.navigationBars.staticTexts["Product Details"].exists)
+            let _ = uiTestApp.productDetailsScreen.actionONScreen(action: .back)//User took action
+        }
+    }
+
+    static func navigateOnProductDetialsClickMe(uiTestApp: UITestApp) {
+        describe("Exploring product list and details...") {
+            uiTestApp.productListScreen.actionONScreen(action: .tableItem(5))
+            XCTAssertTrue(uiTestApp.application.navigationBars.staticTexts["Product Details"].exists)
+            uiTestApp.productDetailsScreen.actionONScreen(action: .clickMe)
+            uiTestApp.productDetailsScreen.actionONScreen(action: .okButton)
+            uiTestApp.productDetailsScreen.actionONScreen(action: .userActionText)
+            uiTestApp.productDetailsScreen.actionONScreen(action: .back)
 
         }
     }

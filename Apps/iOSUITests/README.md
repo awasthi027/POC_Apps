@@ -1,2 +1,4 @@
 # iOSUITests
-Writing basic Skelton for UI Test cases.
+** How to run UITest with script 
+
+ 

@@ -1,0 +1,6 @@
+framework module CloudService {
+  umbrella header "CloudService-umbrella.h"
+
+  export *
+  module * { export * }
+}

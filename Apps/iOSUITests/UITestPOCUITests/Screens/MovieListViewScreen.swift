@@ -1,5 +1,5 @@
 //
-//  MovieListViewScreen.swift
+//  productListViewScreen.swift
 //  UITestPOCUITests
 //
 //  Created by Ashish Awasthi on 17/10/23.
@@ -10,7 +10,7 @@ import XCTest
 
 
 
-public enum MovieListAction {
+public enum ProductListAction {
     case logout
     case tableView
     case tableItem(Int)
@@ -18,21 +18,21 @@ public enum MovieListAction {
     var identifier: String {
         switch self {
         case .logout: return "logoutButton"
-        case .tableView: return "movieListView"
-        case .tableItem(let itemIndex): return "movie_item_\(itemIndex)"
+        case .tableView: return "productListView"
+        case .tableItem(let itemIndex): return "product_item_\(itemIndex)"
         }
     }
 }
 
-public final class MovieListViewScreen: SDKScreenProtocol {
+public final class ProductListViewScreen: SDKScreenProtocol {
 
     private var app: XCUIApplication
-    static let screenId: String = "Movie List"
-    private lazy var screenElement: XCUIElement = self.app.staticTexts[MovieListViewScreen.screenId]
+    static let screenId: String = "Product List"
+    private lazy var screenElement: XCUIElement = self.app.staticTexts[ProductListViewScreen.screenId]
 
     // MARK: Action Elements
-    private lazy var logoutButton: XCUIElement = self.app.button(identifier: MovieListAction.logout.identifier)
-    private lazy var tableView: XCUIElement = self.app.tableView(identifier: MovieListAction.tableView.identifier)
+    private lazy var logoutButton: XCUIElement = self.app.button(identifier: ProductListAction.logout.identifier)
+    private lazy var tableView: XCUIElement = self.app.tableView(identifier: ProductListAction.tableView.identifier)
 
 
     init(application: XCUIApplication) {
@@ -43,14 +43,14 @@ public final class MovieListViewScreen: SDKScreenProtocol {
         return self.screenElement.waitForExistence(timeout: time)
     }
 
-    public func actionONScreen(action: MovieListAction) {
+    public func actionONScreen(action: ProductListAction) {
         switch action {
         case .logout:
             self.logoutButton.tap()
         case .tableView:
             self.logoutButton.tap()
         case .tableItem(let itemIndex):
-            let cellItem = tableView.listItem(identifier: "movie_item_\(itemIndex)")
+            let cellItem = tableView.listItem(identifier: "product_item_\(itemIndex)")
             cellItem.tap()
         }
     }

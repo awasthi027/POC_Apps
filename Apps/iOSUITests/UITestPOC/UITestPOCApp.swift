@@ -11,7 +11,7 @@ import SwiftUI
 struct UITestPOCApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @State var rootView: RootScreen = UserDefaults.isUserLogin ? .movieList : .homeView
+    @State var rootView: RootScreen = UserDefaults.isUserLogin ? .productList : .homeView
 
     var body: some Scene {
         WindowGroup {
@@ -22,7 +22,7 @@ struct UITestPOCApp: App {
                     }
                 }else {
                     NavHandler {
-                        MovieListView()
+                        ProductListView()
                             .environment(\.currentRootView, self.$rootView)
                     }
             }

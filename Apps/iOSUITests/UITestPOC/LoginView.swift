@@ -31,7 +31,7 @@ struct LoginView: View {
                 .accessibilityIdentifier("passwordInputField")
             Button {
                 UserDefaults.isUserLogin = true
-                self.rootView.wrappedValue = .movieList
+                self.rootView.wrappedValue = .productList
             } label: {
               Text("Request Login")
             }
