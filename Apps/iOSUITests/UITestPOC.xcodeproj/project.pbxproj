@@ -20,6 +20,7 @@
 		C889BB732ADEA963005BD24A /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB722ADEA963005BD24A /* XCUIApplicationExtension.swift */; };
 		C889BB752ADEAACE005BD24A /* LoginViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB742ADEAACE005BD24A /* LoginViewScreen.swift */; };
 		C889BB782ADEB292005BD24A /* StandaloneFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB772ADEB292005BD24A /* StandaloneFlows.swift */; };
+		C8A4922E2AF7D79D00473638 /* NetWorkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4922D2AF7D79D00473638 /* NetWorkCall.swift */; };
 		C8B39A6C2ADFC763002E3247 /* SharedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39A6B2ADFC763002E3247 /* SharedScreen.swift */; };
 		C8B39A6D2ADFDAFB002E3247 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F72AF92ADEE689007E1BFD /* UserDefaults.swift */; };
 		C8B39A6E2ADFDAFD002E3247 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F72AF92ADEE689007E1BFD /* UserDefaults.swift */; };
@@ -79,6 +80,7 @@
 		C889BB722ADEA963005BD24A /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
 		C889BB742ADEAACE005BD24A /* LoginViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewScreen.swift; sourceTree = "<group>"; };
 		C889BB772ADEB292005BD24A /* StandaloneFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandaloneFlows.swift; sourceTree = "<group>"; };
+		C8A4922D2AF7D79D00473638 /* NetWorkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkCall.swift; sourceTree = "<group>"; };
 		C8B39A6B2ADFC763002E3247 /* SharedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedScreen.swift; sourceTree = "<group>"; };
 		C8B39A6F2ADFDD23002E3247 /* ProductListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListUITests.swift; sourceTree = "<group>"; };
 		C8B39A712ADFDEA4002E3247 /* MovieDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsScreen.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		C881CBF92ADD378F00C2BF26 /* UITestPOC */ = {
 			isa = PBXGroup;
 			children = (
+				C8A4922C2AF7D77B00473638 /* Protocols */,
 				C8B39A6B2ADFC763002E3247 /* SharedScreen.swift */,
 				C8F72AF92ADEE689007E1BFD /* UserDefaults.swift */,
 				C881CBFA2ADD378F00C2BF26 /* UITestPOCApp.swift */,
@@ -216,6 +219,14 @@
 				C8B39A712ADFDEA4002E3247 /* MovieDetailsScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		C8A4922C2AF7D77B00473638 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C8A4922D2AF7D79D00473638 /* NetWorkCall.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		EF161707A224E7E3FC562A05 /* Pods */ = {
@@ -488,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8A4922E2AF7D79D00473638 /* NetWorkCall.swift in Sources */,
 				C885EC882ADD3A9400B72673 /* LoginView.swift in Sources */,
 				C8F72AFE2ADEE925007E1BFD /* ProductDetailsView.swift in Sources */,
 				C8F72AFA2ADEE689007E1BFD /* UserDefaults.swift in Sources */,

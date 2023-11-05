@@ -20,7 +20,7 @@ import CloudService
 
 typealias APIHandler = (Bool, Error?) ->Void
 
-class ProductListViewModel: ObservableObject {
+class ProductListViewModel: NetWorkCall, ObservableObject {
 
     @Published var list: [Product] = []
     var allItems: [Product] = []
@@ -28,8 +28,6 @@ class ProductListViewModel: ObservableObject {
     func publishListModel() {
         self.list = allItems
     }
-    /// Using global cloud service to to inject Mock service call from Unit test
-    var cloudService = Cloud
 
     func productList(handler: @escaping APIHandler) {
 
