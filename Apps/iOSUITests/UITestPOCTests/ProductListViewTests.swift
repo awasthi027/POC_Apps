@@ -18,7 +18,6 @@ class ProductListViewTests: BaseTests {
         let viewModel = ProductListViewModel()
         mockCloudService.resultData = resultData
         viewModel.cloudService = mockCloudService
-
         let successExpection = expectation(description: "Expecting to success Product list api")
         viewModel.productList { isSuccess, error in
             guard isSuccess,
