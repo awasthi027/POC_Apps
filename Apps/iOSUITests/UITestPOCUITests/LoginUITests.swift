@@ -10,8 +10,8 @@ import XCTest
 final class LoginUITests: BaseUITestcase {
 
     func testLogin() throws {
-        StandaloneFlows.loginFlow(uiTestApp: self.uiTestApp)
-        StandaloneFlows.logOutFlow(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.loginFlow(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.logOutFlow(uiTestApp: self.uiTestApp)
     }
 }
 

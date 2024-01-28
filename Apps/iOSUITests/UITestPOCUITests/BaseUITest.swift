@@ -69,15 +69,3 @@ public class BaseUITestcase: XCTestCase{
     public lazy var application: XCUIApplication = uiTestApp.application
 }
 
-public class UITestApp: TestApplicationProtocol {
-
-    public var application: XCUIApplication {
-        let app = XCUIApplication()
-        app.launchArguments = ["isRunningUITests"]
-       return app
-    }
-    open lazy var homeScreen: HomeViewScreen = HomeViewScreen(application: self.application)
-    open lazy var loginScreen: LoginViewScreen = LoginViewScreen(application: self.application)
-    open lazy var productListScreen:ProductListViewScreen = ProductListViewScreen(application: self.application)
-    open lazy var productDetailsScreen: ProductDetailsScreen = ProductDetailsScreen(application: self.application)
-}
