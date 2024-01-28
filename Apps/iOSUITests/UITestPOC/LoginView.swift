@@ -22,12 +22,12 @@ struct LoginView: View {
             TextField("username", text: self.$userNameTxt)
                 .accessibilityIdentifier("usernameInputField")
             SecureField("secure password", text: self.$passwordTxt)
-                .onChange(of:  self.passwordTxt) {
-                    if !self.userNameTxt.isEmpty,
-                       !self.passwordTxt.isEmpty {
-                        self.isDiableLoginButton = false
-                    }
-                }
+//                .onChange(of:  self.passwordTxt) {
+//                    if !self.userNameTxt.isEmpty,
+//                       !self.passwordTxt.isEmpty {
+//                        self.isDiableLoginButton = false
+//                    }
+//                }
                 .accessibilityIdentifier("passwordInputField")
             Button {
                 UserDefaults.isUserLogin = true

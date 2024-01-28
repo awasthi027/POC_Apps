@@ -8,15 +8,22 @@
 import Foundation
 import XCTest
 
-class StandaloneFlows {
+class UITestPOCFlows {
 
     static func launchApplication(application: XCUIApplication ) {
         application.launch()
     }
+    
+    static func terminate(application: XCUIApplication ) {
+        describe("Describe: Pressing Home") {
+            XCUIDevice.shared.press(.home)
+        }
+        application.terminate()
+    }
 
     static func loginFlow(uiTestApp: UITestApp) {
         UserDefaults.isUserLogin = false
-        StandaloneFlows.launchApplication(application: uiTestApp.application)
+        UITestPOCFlows.launchApplication(application: uiTestApp.application)
         describe("Launch Home Screen") {
             uiTestApp.homeScreen.actionONScreen(action: .login)
         }
@@ -49,7 +56,6 @@ class StandaloneFlows {
             uiTestApp.productDetailsScreen.actionONScreen(action: .okButton)
             uiTestApp.productDetailsScreen.actionONScreen(action: .userActionText)
             uiTestApp.productDetailsScreen.actionONScreen(action: .back)
-
         }
     }
 }

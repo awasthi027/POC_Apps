@@ -10,15 +10,15 @@ import XCTest
 final class ProductListUITests: BaseUITestcase {
 
     func testProductDetails() throws {
-        StandaloneFlows.loginFlow(uiTestApp: self.uiTestApp)
-        StandaloneFlows.navigateOnProductDetials(uiTestApp: self.uiTestApp)
-        StandaloneFlows.logOutFlow(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.loginFlow(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.navigateOnProductDetials(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.logOutFlow(uiTestApp: self.uiTestApp)
     }
 
 
     func testProductDetailsClickMe() throws {
-        StandaloneFlows.loginFlow(uiTestApp: self.uiTestApp)
-        StandaloneFlows.navigateOnProductDetialsClickMe(uiTestApp: self.uiTestApp)
-        StandaloneFlows.logOutFlow(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.loginFlow(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.navigateOnProductDetialsClickMe(uiTestApp: self.uiTestApp)
+        UITestPOCFlows.logOutFlow(uiTestApp: self.uiTestApp)
     }
 }

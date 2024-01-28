@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		95C359142B805949D9BC53C1 /* Pods_UITestPOC_UITestPOCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B0C90C254B99D07B5C9D37 /* Pods_UITestPOC_UITestPOCUITests.framework */; };
+		C82EA2DE2B5AB66E008ABCAC /* SafariScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82EA2DD2B5AB66E008ABCAC /* SafariScreen.swift */; };
+		C82EA2E02B5AB747008ABCAC /* UITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82EA2DF2B5AB747008ABCAC /* UITestApp.swift */; };
+		C82EA2E22B5AB93B008ABCAC /* SafariAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82EA2E12B5AB93B008ABCAC /* SafariAppTests.swift */; };
+		C82EA2E42B5ABA01008ABCAC /* SafariApplicationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82EA2E32B5ABA01008ABCAC /* SafariApplicationFlow.swift */; };
+		C84D41832B5E66EA00DEC775 /* UILayoutViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84D41822B5E66EA00DEC775 /* UILayoutViews.swift */; };
+		C84D41852B5E686100DEC775 /* UILayoutViewsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84D41842B5E686100DEC775 /* UILayoutViewsScreen.swift */; };
+		C84D41872B5E6ECB00DEC775 /* UILayoutViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84D41862B5E6ECB00DEC775 /* UILayoutViewsTests.swift */; };
+		C84F29EE2B5A843B00B615A9 /* ActivityControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F29ED2B5A843B00B615A9 /* ActivityControllerTests.swift */; };
+		C84F29F02B5A847300B615A9 /* UIPasteBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F29EF2B5A847300B615A9 /* UIPasteBoardTests.swift */; };
 		C881CBFB2ADD378F00C2BF26 /* UITestPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881CBFA2ADD378F00C2BF26 /* UITestPOCApp.swift */; };
 		C881CBFD2ADD378F00C2BF26 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C881CBFC2ADD378F00C2BF26 /* HomeView.swift */; };
 		C881CBFF2ADD379000C2BF26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C881CBFE2ADD379000C2BF26 /* Assets.xcassets */; };
@@ -19,13 +28,15 @@
 		C889BB712ADEA4CD005BD24A /* HomeViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB702ADEA4CD005BD24A /* HomeViewScreen.swift */; };
 		C889BB732ADEA963005BD24A /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB722ADEA963005BD24A /* XCUIApplicationExtension.swift */; };
 		C889BB752ADEAACE005BD24A /* LoginViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB742ADEAACE005BD24A /* LoginViewScreen.swift */; };
-		C889BB782ADEB292005BD24A /* StandaloneFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB772ADEB292005BD24A /* StandaloneFlows.swift */; };
+		C889BB782ADEB292005BD24A /* UITestPOCFlows.swift in Sources */ = {isa = PBXBuildFile; fileRef = C889BB772ADEB292005BD24A /* UITestPOCFlows.swift */; };
+		C88D21932B513E9000D17BC1 /* TerminateAndRelaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88D21922B513E9000D17BC1 /* TerminateAndRelaunchUITests.swift */; };
 		C8A4922E2AF7D79D00473638 /* NetWorkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A4922D2AF7D79D00473638 /* NetWorkCall.swift */; };
 		C8B39A6C2ADFC763002E3247 /* SharedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39A6B2ADFC763002E3247 /* SharedScreen.swift */; };
 		C8B39A6D2ADFDAFB002E3247 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F72AF92ADEE689007E1BFD /* UserDefaults.swift */; };
 		C8B39A6E2ADFDAFD002E3247 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F72AF92ADEE689007E1BFD /* UserDefaults.swift */; };
 		C8B39A702ADFDD23002E3247 /* ProductListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39A6F2ADFDD23002E3247 /* ProductListUITests.swift */; };
 		C8B39A722ADFDEA4002E3247 /* MovieDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B39A712ADFDEA4002E3247 /* MovieDetailsScreen.swift */; };
+		C8C0D81D2B5A7A8A00D7140B /* ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0D81C2B5A7A8A00D7140B /* ActionSheetTests.swift */; };
 		C8EE5B4F2AE68EA5002A7DEC /* ProductListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B4E2AE68EA5002A7DEC /* ProductListViewTests.swift */; };
 		C8EE5B512AE690E0002A7DEC /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B502AE690E0002A7DEC /* BaseTests.swift */; };
 		C8EE5B532AE69182002A7DEC /* BundleFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EE5B522AE69182002A7DEC /* BundleFile.swift */; };
@@ -65,6 +76,15 @@
 		6320748B9AEC25568A11DF60 /* Pods-UITestPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITestPOC.release.xcconfig"; path = "Target Support Files/Pods-UITestPOC/Pods-UITestPOC.release.xcconfig"; sourceTree = "<group>"; };
 		ADD6EB1F5417499086273063 /* Pods_UITestPOC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITestPOC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DB2EAD916833D77C9A56C0 /* Pods_UITestPOCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITestPOCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82EA2DD2B5AB66E008ABCAC /* SafariScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariScreen.swift; sourceTree = "<group>"; };
+		C82EA2DF2B5AB747008ABCAC /* UITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestApp.swift; sourceTree = "<group>"; };
+		C82EA2E12B5AB93B008ABCAC /* SafariAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariAppTests.swift; sourceTree = "<group>"; };
+		C82EA2E32B5ABA01008ABCAC /* SafariApplicationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariApplicationFlow.swift; sourceTree = "<group>"; };
+		C84D41822B5E66EA00DEC775 /* UILayoutViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutViews.swift; sourceTree = "<group>"; };
+		C84D41842B5E686100DEC775 /* UILayoutViewsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutViewsScreen.swift; sourceTree = "<group>"; };
+		C84D41862B5E6ECB00DEC775 /* UILayoutViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutViewsTests.swift; sourceTree = "<group>"; };
+		C84F29ED2B5A843B00B615A9 /* ActivityControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityControllerTests.swift; sourceTree = "<group>"; };
+		C84F29EF2B5A847300B615A9 /* UIPasteBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPasteBoardTests.swift; sourceTree = "<group>"; };
 		C881CBF72ADD378F00C2BF26 /* UITestPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITestPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C881CBFA2ADD378F00C2BF26 /* UITestPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestPOCApp.swift; sourceTree = "<group>"; };
 		C881CBFC2ADD378F00C2BF26 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -79,11 +99,13 @@
 		C889BB702ADEA4CD005BD24A /* HomeViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewScreen.swift; sourceTree = "<group>"; };
 		C889BB722ADEA963005BD24A /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
 		C889BB742ADEAACE005BD24A /* LoginViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewScreen.swift; sourceTree = "<group>"; };
-		C889BB772ADEB292005BD24A /* StandaloneFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandaloneFlows.swift; sourceTree = "<group>"; };
+		C889BB772ADEB292005BD24A /* UITestPOCFlows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestPOCFlows.swift; sourceTree = "<group>"; };
+		C88D21922B513E9000D17BC1 /* TerminateAndRelaunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminateAndRelaunchUITests.swift; sourceTree = "<group>"; };
 		C8A4922D2AF7D79D00473638 /* NetWorkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkCall.swift; sourceTree = "<group>"; };
 		C8B39A6B2ADFC763002E3247 /* SharedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedScreen.swift; sourceTree = "<group>"; };
 		C8B39A6F2ADFDD23002E3247 /* ProductListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListUITests.swift; sourceTree = "<group>"; };
 		C8B39A712ADFDEA4002E3247 /* MovieDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsScreen.swift; sourceTree = "<group>"; };
+		C8C0D81C2B5A7A8A00D7140B /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
 		C8EE5B4E2AE68EA5002A7DEC /* ProductListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewTests.swift; sourceTree = "<group>"; };
 		C8EE5B502AE690E0002A7DEC /* BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		C8EE5B522AE69182002A7DEC /* BundleFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleFile.swift; sourceTree = "<group>"; };
@@ -170,6 +192,7 @@
 				C8F72AF52ADEE4E8007E1BFD /* MovieListView.swift */,
 				C8F72AFB2ADEE8A3007E1BFD /* MovieListViewModel.swift */,
 				C8F72AFD2ADEE925007E1BFD /* ProductDetailsView.swift */,
+				C84D41822B5E66EA00DEC775 /* UILayoutViews.swift */,
 				C881CBFE2ADD379000C2BF26 /* Assets.xcassets */,
 				C881CC002ADD379000C2BF26 /* Preview Content */,
 			);
@@ -200,12 +223,20 @@
 		C881CC142ADD379000C2BF26 /* UITestPOCUITests */ = {
 			isa = PBXGroup;
 			children = (
+				C889BB772ADEB292005BD24A /* UITestPOCFlows.swift */,
+				C82EA2DF2B5AB747008ABCAC /* UITestApp.swift */,
+				C82EA2E32B5ABA01008ABCAC /* SafariApplicationFlow.swift */,
 				C889BB762ADEAAD9005BD24A /* Screens */,
 				C885EC8B2ADD4F8400B72673 /* BaseUITest.swift */,
 				C885EC8D2ADD506E00B72673 /* LoginUITests.swift */,
 				C8B39A6F2ADFDD23002E3247 /* ProductListUITests.swift */,
 				C889BB722ADEA963005BD24A /* XCUIApplicationExtension.swift */,
-				C889BB772ADEB292005BD24A /* StandaloneFlows.swift */,
+				C88D21922B513E9000D17BC1 /* TerminateAndRelaunchUITests.swift */,
+				C8C0D81C2B5A7A8A00D7140B /* ActionSheetTests.swift */,
+				C84F29ED2B5A843B00B615A9 /* ActivityControllerTests.swift */,
+				C84F29EF2B5A847300B615A9 /* UIPasteBoardTests.swift */,
+				C82EA2E12B5AB93B008ABCAC /* SafariAppTests.swift */,
+				C84D41862B5E6ECB00DEC775 /* UILayoutViewsTests.swift */,
 			);
 			path = UITestPOCUITests;
 			sourceTree = "<group>";
@@ -217,6 +248,8 @@
 				C889BB742ADEAACE005BD24A /* LoginViewScreen.swift */,
 				C8F72AF72ADEE54B007E1BFD /* MovieListViewScreen.swift */,
 				C8B39A712ADFDEA4002E3247 /* MovieDetailsScreen.swift */,
+				C82EA2DD2B5AB66E008ABCAC /* SafariScreen.swift */,
+				C84D41842B5E686100DEC775 /* UILayoutViewsScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -501,6 +534,7 @@
 			files = (
 				C8A4922E2AF7D79D00473638 /* NetWorkCall.swift in Sources */,
 				C885EC882ADD3A9400B72673 /* LoginView.swift in Sources */,
+				C84D41832B5E66EA00DEC775 /* UILayoutViews.swift in Sources */,
 				C8F72AFE2ADEE925007E1BFD /* ProductDetailsView.swift in Sources */,
 				C8F72AFA2ADEE689007E1BFD /* UserDefaults.swift in Sources */,
 				C8F72AF62ADEE4E8007E1BFD /* MovieListView.swift in Sources */,
@@ -529,15 +563,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C885EC8C2ADD4F8400B72673 /* BaseUITest.swift in Sources */,
+				C82EA2DE2B5AB66E008ABCAC /* SafariScreen.swift in Sources */,
 				C889BB752ADEAACE005BD24A /* LoginViewScreen.swift in Sources */,
+				C84F29EE2B5A843B00B615A9 /* ActivityControllerTests.swift in Sources */,
+				C84D41872B5E6ECB00DEC775 /* UILayoutViewsTests.swift in Sources */,
 				C889BB732ADEA963005BD24A /* XCUIApplicationExtension.swift in Sources */,
 				C8B39A702ADFDD23002E3247 /* ProductListUITests.swift in Sources */,
+				C88D21932B513E9000D17BC1 /* TerminateAndRelaunchUITests.swift in Sources */,
+				C84F29F02B5A847300B615A9 /* UIPasteBoardTests.swift in Sources */,
 				C8B39A722ADFDEA4002E3247 /* MovieDetailsScreen.swift in Sources */,
-				C889BB782ADEB292005BD24A /* StandaloneFlows.swift in Sources */,
+				C82EA2E02B5AB747008ABCAC /* UITestApp.swift in Sources */,
+				C889BB782ADEB292005BD24A /* UITestPOCFlows.swift in Sources */,
 				C8B39A6D2ADFDAFB002E3247 /* UserDefaults.swift in Sources */,
 				C8F72AF82ADEE54B007E1BFD /* MovieListViewScreen.swift in Sources */,
 				C885EC8E2ADD506E00B72673 /* LoginUITests.swift in Sources */,
+				C84D41852B5E686100DEC775 /* UILayoutViewsScreen.swift in Sources */,
 				C889BB712ADEA4CD005BD24A /* HomeViewScreen.swift in Sources */,
+				C82EA2E22B5AB93B008ABCAC /* SafariAppTests.swift in Sources */,
+				C82EA2E42B5ABA01008ABCAC /* SafariApplicationFlow.swift in Sources */,
+				C8C0D81D2B5A7A8A00D7140B /* ActionSheetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +738,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,7 +770,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,7 +795,7 @@
 				DEVELOPMENT_TEAM = 9VL795556B;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.UITestPOCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -773,7 +817,7 @@
 				DEVELOPMENT_TEAM = 9VL795556B;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.UITestPOCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -794,7 +838,7 @@
 				DEVELOPMENT_TEAM = 9VL795556B;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.UITestPOCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -815,7 +859,7 @@
 				DEVELOPMENT_TEAM = 9VL795556B;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.UITestPOCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
