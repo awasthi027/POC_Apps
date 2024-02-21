@@ -7,7 +7,7 @@ target 'UITestPOC' do
 
   # Pods for UITestPOC
 
-     pod 'CloudService', '1.0.9'
+   pod 'CloudService', '1.0.9'
 
   target 'UITestPOCTests' do
     inherit! :search_paths

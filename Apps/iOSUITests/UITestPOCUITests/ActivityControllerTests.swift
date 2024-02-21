@@ -16,7 +16,7 @@ final class ActivityControllerTests: BaseUITestcase {
             uiTestApp.homeScreen.waitForScreen(time: 1)
             uiTestApp.homeScreen.actionONScreen(action: .uiLayoutView)
 
-            self.uiTestApp.uiLayoutViewsScreen.actionONScreen(action: .shareAction)
+            self.uiTestApp.uiLayoutViewsScreen.actionONScreen(action: .sharePDF)
            // self.uiTestApp.homeScreen.actionONScreen(action: .searchTextField)
         }
     }

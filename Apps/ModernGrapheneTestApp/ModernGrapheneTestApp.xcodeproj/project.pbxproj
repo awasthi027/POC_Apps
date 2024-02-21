@@ -1,0 +1,625 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C81C34CF2B71FBA500B3978F /* ModernGrapheneTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34CE2B71FBA500B3978F /* ModernGrapheneTestAppApp.swift */; };
+		C81C34D12B71FBA500B3978F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34D02B71FBA500B3978F /* ContentView.swift */; };
+		C81C34D32B71FBA700B3978F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81C34D22B71FBA700B3978F /* Assets.xcassets */; };
+		C81C34D62B71FBA700B3978F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81C34D52B71FBA700B3978F /* Preview Assets.xcassets */; };
+		C81C34E02B71FBA800B3978F /* ModernGrapheneTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34DF2B71FBA800B3978F /* ModernGrapheneTestAppTests.swift */; };
+		C81C34EA2B71FBA800B3978F /* ModernGrapheneTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34E92B71FBA800B3978F /* ModernGrapheneTestAppUITests.swift */; };
+		C81C34EC2B71FBA800B3978F /* ModernGrapheneTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34EB2B71FBA800B3978F /* ModernGrapheneTestAppUITestsLaunchTests.swift */; };
+		C81C34FC2B71FBF800B3978F /* ModernGraphenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34F82B71FBF800B3978F /* ModernGraphenFeature.swift */; };
+		C81C34FD2B71FBF800B3978F /* ModernGrapheneTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34F92B71FBF800B3978F /* ModernGrapheneTest.swift */; };
+		C81C34FE2B71FBF800B3978F /* GrapheneFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34FA2B71FBF800B3978F /* GrapheneFlow.swift */; };
+		C81C34FF2B71FBF800B3978F /* ModernGraphenScreenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C34FB2B71FBF800B3978F /* ModernGraphenScreenObject.swift */; };
+		C81C35022B71FC4B00B3978F /* ModernGrapheneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C35002B71FC4B00B3978F /* ModernGrapheneApp.swift */; };
+		C81C35032B71FC4B00B3978F /* ModernGrapheHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C35012B71FC4B00B3978F /* ModernGrapheHomeScreen.swift */; };
+		C81C35052B71FC9C00B3978F /* BaseUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C35042B71FC9C00B3978F /* BaseUITest.swift */; };
+		C81C35072B71FD0C00B3978F /* XCUIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C35062B71FD0C00B3978F /* XCUIApplicationExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C81C34DC2B71FBA800B3978F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C81C34C32B71FBA500B3978F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C81C34CA2B71FBA500B3978F;
+			remoteInfo = ModernGrapheneTestApp;
+		};
+		C81C34E62B71FBA800B3978F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C81C34C32B71FBA500B3978F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C81C34CA2B71FBA500B3978F;
+			remoteInfo = ModernGrapheneTestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C81C34CB2B71FBA500B3978F /* ModernGrapheneTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernGrapheneTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81C34CE2B71FBA500B3978F /* ModernGrapheneTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernGrapheneTestAppApp.swift; sourceTree = "<group>"; };
+		C81C34D02B71FBA500B3978F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C81C34D22B71FBA700B3978F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C81C34D52B71FBA700B3978F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C81C34DB2B71FBA800B3978F /* ModernGrapheneTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModernGrapheneTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81C34DF2B71FBA800B3978F /* ModernGrapheneTestAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernGrapheneTestAppTests.swift; sourceTree = "<group>"; };
+		C81C34E52B71FBA800B3978F /* ModernGrapheneTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModernGrapheneTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81C34E92B71FBA800B3978F /* ModernGrapheneTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernGrapheneTestAppUITests.swift; sourceTree = "<group>"; };
+		C81C34EB2B71FBA800B3978F /* ModernGrapheneTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernGrapheneTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C81C34F82B71FBF800B3978F /* ModernGraphenFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernGraphenFeature.swift; sourceTree = "<group>"; };
+		C81C34F92B71FBF800B3978F /* ModernGrapheneTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernGrapheneTest.swift; sourceTree = "<group>"; };
+		C81C34FA2B71FBF800B3978F /* GrapheneFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrapheneFlow.swift; sourceTree = "<group>"; };
+		C81C34FB2B71FBF800B3978F /* ModernGraphenScreenObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernGraphenScreenObject.swift; sourceTree = "<group>"; };
+		C81C35002B71FC4B00B3978F /* ModernGrapheneApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernGrapheneApp.swift; sourceTree = "<group>"; };
+		C81C35012B71FC4B00B3978F /* ModernGrapheHomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModernGrapheHomeScreen.swift; sourceTree = "<group>"; };
+		C81C35042B71FC9C00B3978F /* BaseUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITest.swift; sourceTree = "<group>"; };
+		C81C35062B71FD0C00B3978F /* XCUIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUIApplicationExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C81C34C82B71FBA500B3978F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81C34D82B71FBA800B3978F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81C34E22B71FBA800B3978F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C81C34C22B71FBA500B3978F = {
+			isa = PBXGroup;
+			children = (
+				C81C34CD2B71FBA500B3978F /* ModernGrapheneTestApp */,
+				C81C34DE2B71FBA800B3978F /* ModernGrapheneTestAppTests */,
+				C81C34E82B71FBA800B3978F /* ModernGrapheneTestAppUITests */,
+				C81C34CC2B71FBA500B3978F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C81C34CC2B71FBA500B3978F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C81C34CB2B71FBA500B3978F /* ModernGrapheneTestApp.app */,
+				C81C34DB2B71FBA800B3978F /* ModernGrapheneTestAppTests.xctest */,
+				C81C34E52B71FBA800B3978F /* ModernGrapheneTestAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C81C34CD2B71FBA500B3978F /* ModernGrapheneTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				C81C34CE2B71FBA500B3978F /* ModernGrapheneTestAppApp.swift */,
+				C81C34D02B71FBA500B3978F /* ContentView.swift */,
+				C81C34D22B71FBA700B3978F /* Assets.xcassets */,
+				C81C34D42B71FBA700B3978F /* Preview Content */,
+			);
+			path = ModernGrapheneTestApp;
+			sourceTree = "<group>";
+		};
+		C81C34D42B71FBA700B3978F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C81C34D52B71FBA700B3978F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C81C34DE2B71FBA800B3978F /* ModernGrapheneTestAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C81C34DF2B71FBA800B3978F /* ModernGrapheneTestAppTests.swift */,
+			);
+			path = ModernGrapheneTestAppTests;
+			sourceTree = "<group>";
+		};
+		C81C34E82B71FBA800B3978F /* ModernGrapheneTestAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C81C35062B71FD0C00B3978F /* XCUIApplicationExtension.swift */,
+				C81C35012B71FC4B00B3978F /* ModernGrapheHomeScreen.swift */,
+				C81C35002B71FC4B00B3978F /* ModernGrapheneApp.swift */,
+				C81C34FA2B71FBF800B3978F /* GrapheneFlow.swift */,
+				C81C34F92B71FBF800B3978F /* ModernGrapheneTest.swift */,
+				C81C34F82B71FBF800B3978F /* ModernGraphenFeature.swift */,
+				C81C34FB2B71FBF800B3978F /* ModernGraphenScreenObject.swift */,
+				C81C34E92B71FBA800B3978F /* ModernGrapheneTestAppUITests.swift */,
+				C81C34EB2B71FBA800B3978F /* ModernGrapheneTestAppUITestsLaunchTests.swift */,
+				C81C35042B71FC9C00B3978F /* BaseUITest.swift */,
+			);
+			path = ModernGrapheneTestAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C81C34CA2B71FBA500B3978F /* ModernGrapheneTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C81C34EF2B71FBA800B3978F /* Build configuration list for PBXNativeTarget "ModernGrapheneTestApp" */;
+			buildPhases = (
+				C81C34C72B71FBA500B3978F /* Sources */,
+				C81C34C82B71FBA500B3978F /* Frameworks */,
+				C81C34C92B71FBA500B3978F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ModernGrapheneTestApp;
+			productName = ModernGrapheneTestApp;
+			productReference = C81C34CB2B71FBA500B3978F /* ModernGrapheneTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C81C34DA2B71FBA800B3978F /* ModernGrapheneTestAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C81C34F22B71FBA800B3978F /* Build configuration list for PBXNativeTarget "ModernGrapheneTestAppTests" */;
+			buildPhases = (
+				C81C34D72B71FBA800B3978F /* Sources */,
+				C81C34D82B71FBA800B3978F /* Frameworks */,
+				C81C34D92B71FBA800B3978F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C81C34DD2B71FBA800B3978F /* PBXTargetDependency */,
+			);
+			name = ModernGrapheneTestAppTests;
+			productName = ModernGrapheneTestAppTests;
+			productReference = C81C34DB2B71FBA800B3978F /* ModernGrapheneTestAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C81C34E42B71FBA800B3978F /* ModernGrapheneTestAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C81C34F52B71FBA800B3978F /* Build configuration list for PBXNativeTarget "ModernGrapheneTestAppUITests" */;
+			buildPhases = (
+				C81C34E12B71FBA800B3978F /* Sources */,
+				C81C34E22B71FBA800B3978F /* Frameworks */,
+				C81C34E32B71FBA800B3978F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C81C34E72B71FBA800B3978F /* PBXTargetDependency */,
+			);
+			name = ModernGrapheneTestAppUITests;
+			productName = ModernGrapheneTestAppUITests;
+			productReference = C81C34E52B71FBA800B3978F /* ModernGrapheneTestAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C81C34C32B71FBA500B3978F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					C81C34CA2B71FBA500B3978F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					C81C34DA2B71FBA800B3978F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = C81C34CA2B71FBA500B3978F;
+					};
+					C81C34E42B71FBA800B3978F = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = C81C34CA2B71FBA500B3978F;
+					};
+				};
+			};
+			buildConfigurationList = C81C34C62B71FBA500B3978F /* Build configuration list for PBXProject "ModernGrapheneTestApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C81C34C22B71FBA500B3978F;
+			productRefGroup = C81C34CC2B71FBA500B3978F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C81C34CA2B71FBA500B3978F /* ModernGrapheneTestApp */,
+				C81C34DA2B71FBA800B3978F /* ModernGrapheneTestAppTests */,
+				C81C34E42B71FBA800B3978F /* ModernGrapheneTestAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C81C34C92B71FBA500B3978F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81C34D62B71FBA700B3978F /* Preview Assets.xcassets in Resources */,
+				C81C34D32B71FBA700B3978F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81C34D92B71FBA800B3978F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81C34E32B71FBA800B3978F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C81C34C72B71FBA500B3978F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81C34D12B71FBA500B3978F /* ContentView.swift in Sources */,
+				C81C34CF2B71FBA500B3978F /* ModernGrapheneTestAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81C34D72B71FBA800B3978F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81C34E02B71FBA800B3978F /* ModernGrapheneTestAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C81C34E12B71FBA800B3978F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C81C35052B71FC9C00B3978F /* BaseUITest.swift in Sources */,
+				C81C34FC2B71FBF800B3978F /* ModernGraphenFeature.swift in Sources */,
+				C81C34FF2B71FBF800B3978F /* ModernGraphenScreenObject.swift in Sources */,
+				C81C34EA2B71FBA800B3978F /* ModernGrapheneTestAppUITests.swift in Sources */,
+				C81C34FE2B71FBF800B3978F /* GrapheneFlow.swift in Sources */,
+				C81C35032B71FC4B00B3978F /* ModernGrapheHomeScreen.swift in Sources */,
+				C81C35022B71FC4B00B3978F /* ModernGrapheneApp.swift in Sources */,
+				C81C34FD2B71FBF800B3978F /* ModernGrapheneTest.swift in Sources */,
+				C81C34EC2B71FBA800B3978F /* ModernGrapheneTestAppUITestsLaunchTests.swift in Sources */,
+				C81C35072B71FD0C00B3978F /* XCUIApplicationExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C81C34DD2B71FBA800B3978F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C81C34CA2B71FBA500B3978F /* ModernGrapheneTestApp */;
+			targetProxy = C81C34DC2B71FBA800B3978F /* PBXContainerItemProxy */;
+		};
+		C81C34E72B71FBA800B3978F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C81C34CA2B71FBA500B3978F /* ModernGrapheneTestApp */;
+			targetProxy = C81C34E62B71FBA800B3978F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C81C34ED2B71FBA800B3978F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C81C34EE2B71FBA800B3978F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C81C34F02B71FBA800B3978F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ModernGrapheneTestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.ModernGrapheneTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C81C34F12B71FBA800B3978F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ModernGrapheneTestApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.ModernGrapheneTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C81C34F32B71FBA800B3978F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.ModernGrapheneTestAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ModernGrapheneTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ModernGrapheneTestApp";
+			};
+			name = Debug;
+		};
+		C81C34F42B71FBA800B3978F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.ModernGrapheneTestAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ModernGrapheneTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ModernGrapheneTestApp";
+			};
+			name = Release;
+		};
+		C81C34F62B71FBA800B3978F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.ModernGrapheneTestAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ModernGrapheneTestApp;
+			};
+			name = Debug;
+		};
+		C81C34F72B71FBA800B3978F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.ModernGrapheneTestAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ModernGrapheneTestApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C81C34C62B71FBA500B3978F /* Build configuration list for PBXProject "ModernGrapheneTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81C34ED2B71FBA800B3978F /* Debug */,
+				C81C34EE2B71FBA800B3978F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81C34EF2B71FBA800B3978F /* Build configuration list for PBXNativeTarget "ModernGrapheneTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81C34F02B71FBA800B3978F /* Debug */,
+				C81C34F12B71FBA800B3978F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81C34F22B71FBA800B3978F /* Build configuration list for PBXNativeTarget "ModernGrapheneTestAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81C34F32B71FBA800B3978F /* Debug */,
+				C81C34F42B71FBA800B3978F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C81C34F52B71FBA800B3978F /* Build configuration list for PBXNativeTarget "ModernGrapheneTestAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C81C34F62B71FBA800B3978F /* Debug */,
+				C81C34F72B71FBA800B3978F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C81C34C32B71FBA500B3978F /* Project object */;
+}
