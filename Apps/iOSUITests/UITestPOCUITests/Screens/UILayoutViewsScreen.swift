@@ -9,13 +9,13 @@
 import XCTest
 
 public enum UILayoutViewsScreenAction: Int {
-    case shareAction
+    case sharePDF
     case searchTextField
     case actionSheetAction
     // MARK: Identifiers
     var identifier: String {
         switch self {
-        case .shareAction: return "shareActionButton"
+        case .sharePDF: return "sharePDFButton"
         case .searchTextField: return "searchTextField"
         case .actionSheetAction: return "actionSheetButton"
         }
@@ -29,7 +29,7 @@ public final class UILayoutViewsScreen: SDKScreenProtocol {
     private lazy var screenElement: XCUIElement = self.app.staticTexts[HomeViewScreen.screenId]
 
     // MARK: Action Elements
-    private lazy var shareActionButton: XCUIElement = self.app.button(identifier: UILayoutViewsScreenAction.shareAction.identifier)
+    private lazy var sharePDFButton: XCUIElement = self.app.button(identifier: UILayoutViewsScreenAction.sharePDF.identifier)
     private lazy var actionSheetButton: XCUIElement = self.app.button(identifier: UILayoutViewsScreenAction.actionSheetAction.identifier)
     private lazy var searchTextField: XCUIElement = self.app.textFields(identifier: UILayoutViewsScreenAction.searchTextField.identifier)
 
@@ -44,8 +44,8 @@ public final class UILayoutViewsScreen: SDKScreenProtocol {
 
     public func actionONScreen(action: UILayoutViewsScreenAction) {
         switch action {
-        case .shareAction:
-            self.shareActionButton.tap()
+        case .sharePDF:
+            self.sharePDFButton.tap()
         case .searchTextField:
             self.selectCopyFromActivityController()
             self.searchTextField.tap()
@@ -99,9 +99,15 @@ public final class UILayoutViewsScreen: SDKScreenProtocol {
         let result = self.searchTextField.value as? String
         return result ?? ""
     }
+
+    @discardableResult  func shareDocWith(app: String) -> Bool {
+        let isHittablePredicate = NSPredicate(format: "isHittable == true")
+        let sharingApp = self.app.scrollViews.cells.firstMatch
+
+        let expectation1 = XCTNSPredicateExpectation(predicate: isHittablePredicate, object: sharingApp)
+        _ = XCTWaiter().wait(for: [expectation1], timeout: 10.0)
+        return  sharingApp.tapIfExists()
+    }
 }
 
-/* // Copy and Paste text in text field
-
- */
 

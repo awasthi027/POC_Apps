@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8FE2AE62B6CF9640061596B /* MordernGraphene.docc in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2AE52B6CF9640061596B /* MordernGraphene.docc */; };
+		C8FE2AEC2B6CF9650061596B /* MordernGraphene.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FE2AE12B6CF9640061596B /* MordernGraphene.framework */; };
+		C8FE2AF12B6CF9650061596B /* MordernGrapheneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2AF02B6CF9650061596B /* MordernGrapheneTests.swift */; };
+		C8FE2AF22B6CF9650061596B /* MordernGraphene.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FE2AE42B6CF9640061596B /* MordernGraphene.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8FE2B012B6CFF790061596B /* ScreenFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2B002B6CFF790061596B /* ScreenFeature.swift */; };
+		C8FE2B032B6CFFA50061596B /* Waitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2B022B6CFFA50061596B /* Waitable.swift */; };
+		C8FE2B052B6D00750061596B /* FeatureBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2AFB2B6CFE9B0061596B /* FeatureBase.swift */; };
+		C8FE2B072B6D008A0061596B /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2AFE2B6CFF320061596B /* Validatable.swift */; };
+		C8FE2B0A2B6D00C90061596B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FE2B092B6D00C90061596B /* XCTest.framework */; platformFilter = ios; };
+		C8FE2B0B2B6D00C90061596B /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8FE2B092B6D00C90061596B /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C8FE2B162B6D13F40061596B /* SDKScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2B152B6D13F40061596B /* SDKScreenProtocol.swift */; };
+		C8FE2B1E2B70C2EB0061596B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FE2B1D2B70C2EB0061596B /* Test.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8FE2AED2B6CF9650061596B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8FE2AD82B6CF9640061596B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8FE2AE02B6CF9640061596B;
+			remoteInfo = MordernGraphene;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C8FE2B0C2B6D00C90061596B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C8FE2B0B2B6D00C90061596B /* XCTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C8FE2AE12B6CF9640061596B /* MordernGraphene.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MordernGraphene.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FE2AE42B6CF9640061596B /* MordernGraphene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MordernGraphene.h; sourceTree = "<group>"; };
+		C8FE2AE52B6CF9640061596B /* MordernGraphene.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MordernGraphene.docc; sourceTree = "<group>"; };
+		C8FE2AEB2B6CF9650061596B /* MordernGrapheneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MordernGrapheneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FE2AF02B6CF9650061596B /* MordernGrapheneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MordernGrapheneTests.swift; sourceTree = "<group>"; };
+		C8FE2AFB2B6CFE9B0061596B /* FeatureBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureBase.swift; sourceTree = "<group>"; };
+		C8FE2AFE2B6CFF320061596B /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
+		C8FE2B002B6CFF790061596B /* ScreenFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFeature.swift; sourceTree = "<group>"; };
+		C8FE2B022B6CFFA50061596B /* Waitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waitable.swift; sourceTree = "<group>"; };
+		C8FE2B092B6D00C90061596B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C8FE2B0E2B6D017F0061596B /* XCUIElementExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElementExtension.swift; sourceTree = "<group>"; };
+		C8FE2B102B6D02310061596B /* XCTActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTActivityExtension.swift; sourceTree = "<group>"; };
+		C8FE2B132B6D062B0061596B /* FlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowBuilder.swift; sourceTree = "<group>"; };
+		C8FE2B152B6D13F40061596B /* SDKScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKScreenProtocol.swift; sourceTree = "<group>"; };
+		C8FE2B1D2B70C2EB0061596B /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8FE2ADE2B6CF9640061596B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FE2B0A2B6D00C90061596B /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FE2AE82B6CF9650061596B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FE2AEC2B6CF9650061596B /* MordernGraphene.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8FE2AD72B6CF9640061596B = {
+			isa = PBXGroup;
+			children = (
+				C8FE2AE32B6CF9640061596B /* MordernGraphene */,
+				C8FE2AEF2B6CF9650061596B /* MordernGrapheneTests */,
+				C8FE2AE22B6CF9640061596B /* Products */,
+				C8FE2B082B6D00C90061596B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C8FE2AE22B6CF9640061596B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2AE12B6CF9640061596B /* MordernGraphene.framework */,
+				C8FE2AEB2B6CF9650061596B /* MordernGrapheneTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8FE2AE32B6CF9640061596B /* MordernGraphene */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2B122B6D06130061596B /* FlowBuilder */,
+				C8FE2B0D2B6D016F0061596B /* Extension */,
+				C8FE2AFB2B6CFE9B0061596B /* FeatureBase.swift */,
+				C8FE2B1D2B70C2EB0061596B /* Test.swift */,
+				C8FE2AFD2B6CFF240061596B /* Protocols */,
+				C8FE2AE42B6CF9640061596B /* MordernGraphene.h */,
+				C8FE2AE52B6CF9640061596B /* MordernGraphene.docc */,
+			);
+			path = MordernGraphene;
+			sourceTree = "<group>";
+		};
+		C8FE2AEF2B6CF9650061596B /* MordernGrapheneTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2AF02B6CF9650061596B /* MordernGrapheneTests.swift */,
+			);
+			path = MordernGrapheneTests;
+			sourceTree = "<group>";
+		};
+		C8FE2AFD2B6CFF240061596B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2AFE2B6CFF320061596B /* Validatable.swift */,
+				C8FE2B002B6CFF790061596B /* ScreenFeature.swift */,
+				C8FE2B022B6CFFA50061596B /* Waitable.swift */,
+				C8FE2B152B6D13F40061596B /* SDKScreenProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C8FE2B082B6D00C90061596B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2B092B6D00C90061596B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8FE2B0D2B6D016F0061596B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2B0E2B6D017F0061596B /* XCUIElementExtension.swift */,
+				C8FE2B102B6D02310061596B /* XCTActivityExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C8FE2B122B6D06130061596B /* FlowBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				C8FE2B132B6D062B0061596B /* FlowBuilder.swift */,
+			);
+			path = FlowBuilder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C8FE2ADC2B6CF9640061596B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FE2AF22B6CF9650061596B /* MordernGraphene.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C8FE2AE02B6CF9640061596B /* MordernGraphene */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8FE2AF52B6CF9650061596B /* Build configuration list for PBXNativeTarget "MordernGraphene" */;
+			buildPhases = (
+				C8FE2ADC2B6CF9640061596B /* Headers */,
+				C8FE2ADD2B6CF9640061596B /* Sources */,
+				C8FE2ADE2B6CF9640061596B /* Frameworks */,
+				C8FE2ADF2B6CF9640061596B /* Resources */,
+				C8FE2B0C2B6D00C90061596B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MordernGraphene;
+			productName = MordernGraphene;
+			productReference = C8FE2AE12B6CF9640061596B /* MordernGraphene.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C8FE2AEA2B6CF9650061596B /* MordernGrapheneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8FE2AF82B6CF9650061596B /* Build configuration list for PBXNativeTarget "MordernGrapheneTests" */;
+			buildPhases = (
+				C8FE2AE72B6CF9650061596B /* Sources */,
+				C8FE2AE82B6CF9650061596B /* Frameworks */,
+				C8FE2AE92B6CF9650061596B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8FE2AEE2B6CF9650061596B /* PBXTargetDependency */,
+			);
+			name = MordernGrapheneTests;
+			productName = MordernGrapheneTests;
+			productReference = C8FE2AEB2B6CF9650061596B /* MordernGrapheneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8FE2AD82B6CF9640061596B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					C8FE2AE02B6CF9640061596B = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					C8FE2AEA2B6CF9650061596B = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = C8FE2ADB2B6CF9640061596B /* Build configuration list for PBXProject "MordernGraphene" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8FE2AD72B6CF9640061596B;
+			productRefGroup = C8FE2AE22B6CF9640061596B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8FE2AE02B6CF9640061596B /* MordernGraphene */,
+				C8FE2AEA2B6CF9650061596B /* MordernGrapheneTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8FE2ADF2B6CF9640061596B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FE2AE92B6CF9650061596B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8FE2ADD2B6CF9640061596B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FE2B072B6D008A0061596B /* Validatable.swift in Sources */,
+				C8FE2AE62B6CF9640061596B /* MordernGraphene.docc in Sources */,
+				C8FE2B162B6D13F40061596B /* SDKScreenProtocol.swift in Sources */,
+				C8FE2B1E2B70C2EB0061596B /* Test.swift in Sources */,
+				C8FE2B032B6CFFA50061596B /* Waitable.swift in Sources */,
+				C8FE2B052B6D00750061596B /* FeatureBase.swift in Sources */,
+				C8FE2B012B6CFF790061596B /* ScreenFeature.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FE2AE72B6CF9650061596B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FE2AF12B6CF9650061596B /* MordernGrapheneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8FE2AEE2B6CF9650061596B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8FE2AE02B6CF9640061596B /* MordernGraphene */;
+			targetProxy = C8FE2AED2B6CF9650061596B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C8FE2AF32B6CF9650061596B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C8FE2AF42B6CF9650061596B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C8FE2AF62B6CF9650061596B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.MordernGraphene;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8FE2AF72B6CF9650061596B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.MordernGraphene;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8FE2AF92B6CF9650061596B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.MordernGrapheneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8FE2AFA2B6CF9650061596B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashi.vmware.MordernGrapheneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8FE2ADB2B6CF9640061596B /* Build configuration list for PBXProject "MordernGraphene" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FE2AF32B6CF9650061596B /* Debug */,
+				C8FE2AF42B6CF9650061596B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8FE2AF52B6CF9650061596B /* Build configuration list for PBXNativeTarget "MordernGraphene" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FE2AF62B6CF9650061596B /* Debug */,
+				C8FE2AF72B6CF9650061596B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8FE2AF82B6CF9650061596B /* Build configuration list for PBXNativeTarget "MordernGrapheneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FE2AF92B6CF9650061596B /* Debug */,
+				C8FE2AFA2B6CF9650061596B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8FE2AD82B6CF9640061596B /* Project object */;
+}

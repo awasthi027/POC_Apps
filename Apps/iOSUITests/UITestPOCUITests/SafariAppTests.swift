@@ -37,4 +37,13 @@ final class SafariAppTests: SafariBaseTestcase {
             XCTAssertEqual(safariUIApp.safariScreen.validateRestrictionText(), restrictionMessage)
         }
     }
+
+    func testTypeTextSelectAllAndCopyText() {
+        describe("Describe: Copy paste and read text") {
+            SafariApplicationFlow.launchApplication(application: safariUIApp.application)
+            safariUIApp.safariScreen.waitForScreen(time: 1.0)
+            let text = "Ashish Awasthi"
+            XCTAssertEqual(safariUIApp.safariScreen.typeTextSelectAllSameTextAndCopy(textToCopy: text), text)
+        }
+    }
 }

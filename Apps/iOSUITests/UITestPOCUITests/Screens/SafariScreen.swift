@@ -97,5 +97,35 @@ public final class SafariScreen: SDKScreenProtocol {
         let result = self.searchTextField.value as? String
         return result ?? ""
     }
+
+    func typeTextSelectAllSameTextAndCopy(textToCopy: String) -> String {
+
+        self.searchTextField.clearAndTypeText(typeText: textToCopy)
+        XCTAssertTrue(self.searchTextField.waitForExistence(timeout: 2), "Waiting for search bar timed out")
+
+        self.searchTextField.tap()
+        let buttonElement = self.app.button(identifier: "Forward")
+        XCTAssertTrue(buttonElement.tapIfExists())
+
+        let selectAllElement = self.app.menuItem(identifier: ContextMenuOption.selectall.identifier)
+        selectAllElement.tap()
+        XCTAssertTrue(self.searchTextField.waitForExistence(timeout: 2), "Waiting for search bar timed out")
+
+        let copyElement = self.app.menuItem(identifier: ContextMenuOption.copy.identifier)
+        copyElement.tap()
+
+        // Wait to clear complete text
+        self.searchTextField.tap()
+        self.searchTextField.clearAndTypeText(typeText: "")
+        XCTAssertTrue(self.searchTextField.waitForExistence(timeout: 2))
+
+        self.searchTextField.longPress()
+        let pasteElement = self.app.menuItem(identifier: ContextMenuOption.paste.identifier)
+        pasteElement.tap()
+
+        //The only way I am able to retrieve URL Bar value in Safari App
+        let result = self.searchTextField.value as? String
+        return result ?? ""
+    }
 }
 
