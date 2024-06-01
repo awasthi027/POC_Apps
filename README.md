@@ -15,3 +15,5 @@ Creating swiftUI sample app for accessibility Testing
 # Created POC NFC Tag reading.
   
 # Added UITest basic architecture app.
+
+# Added New Sample called PodsRaD for invoking sh commands from Pod file

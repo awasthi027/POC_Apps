@@ -20,6 +20,4 @@ public class UITestApp: TestApplicationProtocol {
     open lazy var productListScreen:ProductListViewScreen = ProductListViewScreen(application: self.application)
     open lazy var productDetailsScreen: ProductDetailsScreen = ProductDetailsScreen(application: self.application)
     open lazy var uiLayoutViewsScreen: UILayoutViewsScreen = UILayoutViewsScreen(application: self.application)
-
-
 }
