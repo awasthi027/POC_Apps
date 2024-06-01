@@ -10,34 +10,72 @@ import Foundation
 import XCTest
 
 
+import XCTest
 
-class TerminateAndRelaunchUITests: BaseUITestcase {
 
-    static let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+class SpringBoardManager{
 
-    class func deleteMyApp(name: String) {
-        // Force delete the app from the springboard
-        XCUIDevice.shared.press(.home)
+let springBoardBundleId: String = "com.apple.springboard"
+var springBoardApp: XCUIApplication
+var appName: String
+var timeout : Double = 3
 
-        let icon = springboard.icons[name].firstMatch
-        if icon.exists {
-            let iconFrame = icon.frame
-            let springboardFrame = springboard.frame
-            icon.press(forDuration: 5)
-            // Tap the little "X" button at approximately where it is. The X is not exposed directly
-            springboard.coordinate(withNormalizedOffset: CGVector(dx: (iconFrame.minX + 3) / springboardFrame.maxX, dy: (iconFrame.minY + 3) / springboardFrame.maxY)).tap()
+//Identifiers for springboard search
+let appSearchField: String = "dewey-search-field"
+let deleteApp: String = "Delete App"
+let delete: String = "Delete"
+let cancel: String = "Cancel"
 
-            let removeButtonApp = springboard.alerts.buttons["Delete App"]
-            if removeButtonApp.waitForExistence(timeout: 2) {
-                removeButtonApp.tap()
-            }
-            let deleteButton = springboard.alerts.buttons["Delete"]
-            if deleteButton.waitForExistence(timeout: 2) {
-                deleteButton.tap()
-                springboard.tap()
-            }
+init(appName: String){
+    self.appName = appName
+    self.springBoardApp = XCUIApplication(bundleIdentifier: springBoardBundleId)
+}
+
+//Activate the springboard app and navigate to App library
+func navigateToAppLibrary() -> Self{
+        springBoardApp.activate()
+        var isPresent = springBoardApp.searchFields[appSearchField].waitForExistence(timeout: timeout)
+        while !isPresent{
+            springBoardApp.swipeLeft()
+            isPresent = springBoardApp.searchFields[appSearchField].waitForExistence(timeout: timeout)
+        }
+
+        return self
+    }
+
+//Search for the app in library
+func searchForAppInLibrary() -> Self{
+       let isPresent = springBoardApp.searchFields[appSearchField].waitForExistence(timeout: timeout)
+
+        if isPresent{
+            springBoardApp.searchFields[appSearchField].tap()
+            springBoardApp.searchFields[appSearchField].typeText(appName)
+        }
+        return self
+    }
+
+//Long press to open delete option
+ func tapToDeleteOption() -> Self{
+        let identifierPredicate = NSPredicate(format: "identifier == %@", appName)
+        let epiIcons = springBoardApp.descendants(matching: .icon).matching(identifierPredicate)
+        let hittableEpiIcon = epiIcons.allElementsBoundByIndex.filter{$0.isHittable}.first
+        hittableEpiIcon?.press(forDuration: 1)
+        return self
+    }
+
+//Confirm delete operation and quit App library
+func confirmDeleteApp(){
+        let isPresent = springBoardApp.buttons[deleteApp].waitForExistence(timeout: timeout)
+        if isPresent{
+            springBoardApp.buttons[deleteApp].tap()
+            springBoardApp.alerts.buttons[delete].tap()
+            springBoardApp.staticTexts[cancel].waitForExistence(timeout: timeout)
+            springBoardApp.staticTexts[cancel].tap()
         }
     }
+}
+
+class TerminateAndRelaunchUITests: BaseUITestcase {
 
     func testApplicationTerminateAndRelaunch()  {
         UserDefaults.isUserLogin = false
@@ -56,8 +94,13 @@ class TerminateAndRelaunchUITests: BaseUITestcase {
         }
     }
 
-
-
+    func testDeleteApp() {
+        SpringBoardManager(appName: "<YOUR_APP_NAME_TO_BE_DELETED>")
+        .navigateToAppLibrary()
+        .searchForAppInLibrary()
+        .tapToDeleteOption()
+        .confirmDeleteApp()
+    }
 }
 
 
