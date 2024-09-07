@@ -107,3 +107,6 @@ let rootNote = TreeNode(value: 3, leftNote: nineleft, rightNote: eightRight)
 
 print("VerticalTreeList: \(readThreeNoteInVerticalLineLeftToRight(rootNote: rootNote))")
 
+
+
+
