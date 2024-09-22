@@ -1,5 +1,3 @@
-import UIKit
-
 class Node <T: Equatable> {
     var data: T
     var next: Node<T>?
@@ -12,8 +10,8 @@ class Node <T: Equatable> {
 
 public struct SingleLinkList <T: Equatable> {
 
-    private var head: Node<T>?
-    private var tail: Node<T>?
+     var head: Node<T>?
+     var tail: Node<T>?
     public init() {}
 
     init(head: Node<T>?,
@@ -66,38 +64,54 @@ public struct SingleLinkList <T: Equatable> {
             tempNode = tempNode?.next
         }
     }
-
-    func hasCycle(_ head: Node<T>?) -> Bool {
-        var slow = head
-        var fast = head
-
-        while fast != nil && fast?.next != nil {
-            slow = slow?.next
-            fast = fast?.next?.next
-            if let slowdata = slow?.data,
-               let fastData = fast?.data  {
-                print("SlowValue: \(slowdata), fastValue: \(fastData)")
-            }
-            if slow === fast {
-                return true
-            }
-        }
-        return false
-    }
 }
 
-var linkList = SingleLinkList<Float>()
-linkList.insert(0.1)
-linkList.insert(0.2)
-linkList.insert(0.3)
-linkList.insert(0.4)
-print("Print Items: ======")
-linkList.printResult()
-linkList.delete(0.2)
-linkList.delete(0.1)
-linkList.delete(0.4)
-linkList.insert(0.4)
-linkList.insert(0.5)
-linkList.insert(0.6)
-print("Print Items: After Action")
-linkList.printResult()
+
+func mergeTwoSortedLinkList(firstLinkList: SingleLinkList<Float>, 
+                            secondLinkList: SingleLinkList<Float>) {
+
+    var sortedLinkList = SingleLinkList<Float>()
+    var firstLinkListNote = linkListFirst.head
+    var secondLinkListNote = secondLinkList.head
+
+    while firstLinkListNote != nil,
+            secondLinkListNote != nil {
+        guard let firstData = firstLinkListNote?.data, 
+                let secondData = secondLinkListNote?.data else {
+            return
+        }
+        if firstData < secondData {
+            sortedLinkList.insert(firstData)
+            firstLinkListNote = firstLinkListNote?.next
+        }else {
+            sortedLinkList.insert(secondData)
+            secondLinkListNote = secondLinkListNote?.next
+        }
+    }
+
+    while firstLinkListNote != nil {
+        sortedLinkList.insert(firstLinkListNote?.data ?? 0)
+        firstLinkListNote = firstLinkListNote?.next
+    }
+
+    while secondLinkListNote != nil {
+        sortedLinkList.insert(secondLinkListNote?.data ?? 0)
+        secondLinkListNote = secondLinkListNote?.next
+    }
+    sortedLinkList.printResult()
+}
+
+var linkListFirst = SingleLinkList<Float>()
+linkListFirst.insert(0.1)
+linkListFirst.insert(0.3)
+linkListFirst.insert(0.5)
+linkListFirst.insert(0.7)
+
+var linkListTwo = SingleLinkList<Float>()
+linkListTwo.insert(0.2)
+linkListTwo.insert(0.4)
+linkListTwo.insert(0.6)
+linkListTwo.insert(0.8)
+
+mergeTwoSortedLinkList(firstLinkList: linkListFirst,
+                       secondLinkList: linkListTwo)
