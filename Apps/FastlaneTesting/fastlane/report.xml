@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: read_environment_info" time="0.223372">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: test_ruby_logic" time="63.113019">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

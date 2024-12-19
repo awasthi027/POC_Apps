@@ -1,0 +1,42 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+
+platform :ios do
+
+  before_all do |lane, options|
+       
+      read_environment_info
+
+      after_all do |lane, options|
+    
+      end
+
+     error do |lane, exception|
+       UI.error("Error block excecuting...")
+       UI.error("|Error block| lane = " + lane.to_s)
+       UI.error("|Error block| exception = " + exception.to_s)
+     end
+     
+  end
+
+ lane :firstLane do
+       test_ruby_logic
+       UI.message("Ready to execute fastlane script testing is done")
+  end
+
+  lane :verifyFastlaneCommands do
+       test_ruby_logic
+  end
+
+end
