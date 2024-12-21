@@ -11,9 +11,11 @@ Creating swiftUI sample app for accessibility Testing
 # Created POC for Accessbility.
 
 
-
 # Created POC NFC Tag reading.
   
 # Added UITest basic architecture app.
 
 # Added New Sample called PodsRaD for invoking sh commands from Pod file
+
+# Added execute test case from fastlane predefind methods
+

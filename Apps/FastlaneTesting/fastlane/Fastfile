@@ -35,8 +35,17 @@ platform :ios do
        UI.message("Ready to execute fastlane script testing is done")
   end
 
-  lane :verifyFastlaneCommands do
-       test_ruby_logic
+ lane :unitTest do
+       unit_test
   end
+ lane :buildOnlyForTesting do
+       unit_test(buildOnlyForTesting: true)
+  end
+
+  lane :createIPAForDevelopment do
+    configuration = Actions.lane_context[SharedValues::DEVELOPMENT_CONFIGRUATION]
+    create_ipa(exportMethod:'development', configuration: "Debug")
+  end
+  
 
 end

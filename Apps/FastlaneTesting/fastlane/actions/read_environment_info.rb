@@ -11,7 +11,10 @@ module Fastlane
 
            # OPTIONAL
            POD_INSTALL_REQUIRED                                = :POD_INSTALL_REQUIRED # defaults to false
-           SCAN_XCARGS                                         = :SCAN_XCARGS
+           XCARGS                                              = :XCARGS
+           EXPORT_OPTIONS_PLIST_APPSTORE                       = :EXPORT_OPTIONS_PLIST_APPSTORE
+           EXPORT_OPTIONS_PLIST_DEVELOPMENT                    = :EXPORT_OPTIONS_PLIST_DEVELOPMENT
+           DEVELOPMENT_CONFIGRUATION                           = :DEVELOPMENT_CONFIGRUATION
 
            # GENERIC GENERATED CONSTANTS
            WORKING_DIRECTORY                                   = :WORKING_DIRECTORY
@@ -51,8 +54,10 @@ module Fastlane
               UI.important("Reading optional Variables that have a default Value From .env File...")
              Actions.lane_context[SharedValues::POD_INSTALL_REQUIRED]                    = readENVValue(key:'POD_INSTALL_REQUIRED', mandatory:false)
              Actions.lane_context[SharedValues::GENRIC_MESSAGE]                          = readENVValue(key:'GENRIC_MESSAGE', mandatory:false, defaultValue: false)
-             Actions.lane_context[SharedValues::SCAN_XCARGS]                             = readENVValue(key:'SCAN_XCARGS', mandatory:false)
-             
+             Actions.lane_context[SharedValues::XCARGS]                                  = readENVValue(key:'XCARGS', mandatory:false)
+             Actions.lane_context[SharedValues::EXPORT_OPTIONS_PLIST_APPSTORE]           = readENVValue(key:'EXPORT_OPTIONS_PLIST_APPSTORE', mandatory: false)
+             Actions.lane_context[SharedValues::EXPORT_OPTIONS_PLIST_DEVELOPMENT]        = readENVValue(key:'EXPORT_OPTIONS_PLIST_DEVELOPMENT', mandatory: false)
+             Actions.lane_context[SharedValues::DEVELOPMENT_CONFIGRUATION]               = readENVValue(key:'DEVELOPMENT_CONFIGRUATION', mandatory: false)
 
              Actions.lane_context[SharedValues::DERIVED_DATA_DIRECTORY]                  = Actions.lane_context[SharedValues::WORKING_DIRECTORY] + "/derivedData"
              Actions.lane_context[SharedValues::ARTIFACT_OUTPUT_DIRECTORY]               = Actions.lane_context[SharedValues::WORKING_DIRECTORY] + "/artifacts"
