@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>teamID</key>
+	<string>S2ZMFGQM93</string>
+	<key>method</key>
+	<string>development</string>
+	<key>iCloudContainerEnvironment</key>
+	<string>Production</string>
+	<key>signingStyle</key>
+	<string>manual</string>
+	<key>signingCertificate</key>
+	<string>Apple Development</string>
+	<key>compileBitcode</key>
+	<false/>
+	<key>embedOnDemandResourcesAssetPacksInBundle</key>
+	<false/>
+	<key>provisioningProfiles</key>
+	<dict>
+		<key>com.air-watch.pivd</key>
+		<string>VMware PIVD Development</string>
+	</dict>
+</dict>
+</plist>
