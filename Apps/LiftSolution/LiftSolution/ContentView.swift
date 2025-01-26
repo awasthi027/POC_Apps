@@ -9,39 +9,71 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @ObservedObject  var manager = LiftManager()
-    @State private var floorNumber: String = ""
+    @ObservedObject var viewModel = ContentViewModel()
+    @State private var sourceFloor: String = ""
+    @State private var destinationFloor: String = ""
+    @State private var liftMovingTowards: String = ""
 
     var body: some View {
 
         VStack(spacing: 20) {
             Spacer()
 
-            TextField("Enter floor Number", text: self.$floorNumber)
+            TextField("Your floor", text: self.$sourceFloor)
                 .keyboardType(.numberPad)
-            HStack {
-                Button("Up Arrow") {
-                    self.manager.pressUp(user: User(floor: Int(self.floorNumber) ?? 0,
+                .foregroundColor(.green)
+
+            if self.sourceFloor.count > 0 {
+                TextField("Enter Destination floor", text: self.$destinationFloor)
+                    .keyboardType(.numberPad)
+                    .foregroundColor(.green)
+            }
+            Button {
+                let sourceFloor = Int(self.sourceFloor) ?? 0
+                let destinationFloor = Int(self.destinationFloor) ?? 0
+                if destinationFloor > sourceFloor {
+                    self.liftMovingTowards = "UP"
+                    self.viewModel.pressUp(user: User(sFloor: sourceFloor,
+                                                    dFloor: destinationFloor,
                                                     direction: .up))
+                } else {
+                    self.liftMovingTowards = "DOWN"
+                    self.viewModel.pressDown(user: User(sFloor: sourceFloor,
+                                                                     dFloor: destinationFloor,
+                                                                     direction: .up))
                 }
-                Spacer()
-                Button("Down Arrow") {
-                    self.manager.pressDown(user: User(floor: Int(self.floorNumber) ?? 0,
-                                                      direction: .up))
-                }
+                self.sourceFloor = ""
+                self.destinationFloor = ""
+            } label: {
+                Text("Asign Lift")
+                    .font(.headline)
+                    .foregroundColor(.red)
+                    .padding()
+                    .border(.green, width: 5)
             }
+            .disabled(self.sourceFloor.count < 0 || self.destinationFloor.count < 0)
+            Text("LIFT Moving: \(self.liftMovingTowards)")
+                .foregroundColor(.orange)
+                .font(.title)
             HStack {
-                Text("First Lift on floor: \(self.manager.firstLiftPosition)")
-                Spacer()
-                Text("First Lift on floor: \(self.manager.secondLiftPosition)")
+                Text("\(self.viewModel.activeLift?.liftNumber.name ?? "") Lift Move ON: \(self.viewModel.activeLift?.currentFloor ?? 0)")
+                    .foregroundColor(.orange)
+                    .font(.callout)
             }
-            Text("\(self.manager.instructionStr)")
+            Text("\(self.viewModel.instructionStr)")
+                .font(.headline)
+                .foregroundColor(.green)
+            ForEach(self.viewModel.activeLifts, id: \.liftNumber) { lift in
+                Text("Lift \(lift.liftNumber.name): \(lift.currentFloor)")
+                    .foregroundColor(.red)
+                    .font(.title)
+            }
             Spacer()
         }
         .padding()
         .onAppear() {
-            self.manager.addLeft(lift: Lift(liftNumber: .first))
-            self.manager.addLeft(lift: Lift(liftNumber: .second))
+            self.viewModel.addNewLift(lift: Lift(liftNumber: .first))
+            self.viewModel.addNewLift(lift: Lift(liftNumber: .second))
         }
         .padding()
     }

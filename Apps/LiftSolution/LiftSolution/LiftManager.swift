@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUICore
+import UIKit
 
 enum Direction {
     case up
@@ -14,17 +16,20 @@ enum Direction {
 }
 
 protocol UserPreference: AnyObject {
-    var floor: Int { get set }
+    var sFloor: Int { get set }
+    var dFloor: Int { get set }
     var direction: Direction { get set }
-    var asignLift: LiftFeature?  { get set }
 }
 
 class User: UserPreference {
-    var floor: Int = 0
+    var sFloor: Int = 0
+    var dFloor: Int = 0
     var direction: Direction = .unknown
-    weak var asignLift: LiftFeature?
-    init(floor: Int, direction: Direction) {
-        self.floor = floor
+    init(sFloor: Int,
+         dFloor: Int,
+         direction: Direction) {
+        self.sFloor = sFloor
+        self.dFloor = dFloor
         self.direction = direction
     }
 }
@@ -32,57 +37,48 @@ class User: UserPreference {
 enum LiftNumber {
     case first
     case second
-
+    case third
+    case fourth
+    case fifth
     var name: String {
         switch self {
         case .first: return "First"
         case .second: return "Second"
+        case .third: return "Third"
+        case .fourth: return "Fourth"
+        case .fifth: return "Fifth"
         }
     }
 }
 
 protocol LiftFeature: AnyObject {
+    /// lift number
     var liftNumber: LiftNumber { get set }
+    /// current floor of liff
     var currentFloor: Int { get set }
+    /// supported max floor by lift
     var maxFloor: Int { get set }
+    /// support minimum floor by lift
     var minFloor: Int { get set }
-    func moveUp(postion: Int)
-    func moveDown(postion: Int)
-    func asignUser(user: UserPreference)
+    /// Check the state of lift whether its moving or available for asign
+    var isMoving: Bool { get set }
+
 }
 
 class Lift: LiftFeature {
-
+    /// lift number
     var liftNumber: LiftNumber
-
+    /// current floor of liff
     var currentFloor: Int = 0
-
+    /// supported max floor by lift
     var maxFloor: Int = 16
-
+    /// support minimum floor by lift
     var minFloor: Int = 0
-
-    var users: [UserPreference] = []
-
-    
+    /// Check the state of lift whether its moving or available for asign
+    var isMoving: Bool = false
 
     init(liftNumber: LiftNumber) {
         self.liftNumber = liftNumber
-    }
-
-    func moveUp(postion: Int) {
-        print("Moving Up from: \(self.currentFloor)")
-        self.currentFloor = postion
-        print("Moving Up To: \(self.currentFloor)")
-    }
-
-    func moveDown(postion: Int) {
-        print("LeftName: \(self.liftNumber.name) Moving Down from: \(self.currentFloor)")
-        self.currentFloor = postion
-        print("LeftName: \(self.liftNumber.name) Moving Down To: \(self.currentFloor)")
-    }
-
-    func asignUser(user: UserPreference) {
-        self.users.append(user)
     }
 }
 
@@ -91,121 +87,110 @@ protocol MovingPosition {
     func pressDown(user:  UserPreference)
 }
 
-class LiftManager: MovingPosition, ObservableObject {
+protocol ChangeLiftPosition: AnyObject {
+    func changeLiftPosition(lift: LiftFeature)
+    func updateInstruction(instruction: String)
+}
 
-    @Published var lifts: [LiftFeature] = []
-    @Published var firstLiftPosition: Int = 0
-    @Published var secondLiftPosition: Int = 0
-    @Published var instructionStr: String = ""
+class LiftManager: MovingPosition {
 
-    func addLeft(lift: LiftFeature) {
+    var lifts: [Lift] = []
+
+    weak var delegate: ChangeLiftPosition?
+
+    func addLeft(lift: Lift) {
         print("Adding lift Name: \(lift.liftNumber.name)")
         self.lifts.append(lift)
     }
 
     func pressUp(user: UserPreference) {
-        self.instructionStr = ""
+        self.delegate?.updateInstruction(instruction:"")
         let newUser = user
         let nearByLift = self.findLeftNearBy(user: newUser)
-        if user.floor == nearByLift.currentFloor {
-            self.instructionStr = "Oh Oh I am on same floor"
-            print("\(self.instructionStr)")
+        if user.dFloor == nearByLift.currentFloor {
+            self.delegate?.updateInstruction(instruction: "Oh Oh I am on same floor")
             return
         }
-        if user.floor > nearByLift.maxFloor {
-            self.instructionStr = "Oh Oh I am not supporting this floor: \(user.floor)"
-            print("\(self.instructionStr)")
+        if user.dFloor > nearByLift.maxFloor {
+            self.delegate?.updateInstruction(instruction: "Oh Oh I am not supporting this floor: \(user.dFloor)")
             return
         }
-        nearByLift.asignUser(user: newUser)
-        nearByLift.asignUser(user: user)
-        let minDistance = abs(nearByLift.currentFloor - user.floor)
-        if minDistance <= user.floor {
+        self.delegate?.updateInstruction(instruction:  "\(nearByLift.liftNumber.name) LIFT Gate OPEN")
+        let minDistance = abs(nearByLift.currentFloor - user.dFloor)
+        if minDistance <= user.dFloor {
+            nearByLift.isMoving = true
             self.keepMoving(direction: .up,
                             lift: nearByLift,
                             user: newUser)
-            nearByLift.moveUp(postion: user.floor)
-
+            nearByLift.isMoving = false
         }else {
+            nearByLift.isMoving = true
             self.keepMoving(direction: .down,
                             lift: nearByLift,
                             user: newUser)
-            nearByLift.moveDown(postion: user.floor)
+            nearByLift.isMoving = false
         }
     }
 
     func pressDown( user: UserPreference) {
-        self.instructionStr = ""
+        self.delegate?.updateInstruction(instruction: "")
         let newUser = user
         let nearByLift = self.findLeftNearBy(user: newUser)
-        if user.floor == nearByLift.currentFloor {
-            self.instructionStr = "Oh Oh I am on same floor"
-            print("\(self.instructionStr)")
+        if user.dFloor == nearByLift.currentFloor {
+            self.delegate?.updateInstruction(instruction: "Oh Oh I am on same floor")
             return
         }
-        if user.floor < nearByLift.minFloor {
-            self.instructionStr = "Oh Oh I am not supporting this floor: \(user.floor)"
-            print("\(self.instructionStr)")
+        if user.dFloor < nearByLift.minFloor {
+            self.delegate?.updateInstruction(instruction: "Oh Oh I am not supporting this floor: \(user.dFloor)")
             return
         }
-        nearByLift.asignUser(user: newUser)
-        newUser.asignLift = nearByLift
-        let minDistance = abs(nearByLift.currentFloor - user.floor)
-        if minDistance < user.floor {
+        self.delegate?.updateInstruction(instruction: "\(nearByLift.liftNumber.name) LIFT Gate OPEN")
+
+        let minDistance = abs(nearByLift.currentFloor - user.dFloor)
+        if minDistance < user.dFloor {
+            nearByLift.isMoving = true
             self.keepMoving(direction: .up,
                             lift: nearByLift,
                             user: newUser)
-            nearByLift.moveUp(postion: user.floor)
-
-
         }else {
-
+            nearByLift.isMoving = true
             self.keepMoving(direction: .down,
                             lift: nearByLift,
                             user: newUser)
-            nearByLift.moveDown(postion: user.floor)
         }
     }
 
     func keepMoving(direction: Direction,
                     lift: LiftFeature,
                     user: UserPreference) {
-        var currentFloor = lift.currentFloor
         if direction == .up {
-            while currentFloor < user.floor {
-                currentFloor += 1
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
-                    switch lift.liftNumber {
-                    case .first:
-                        self.firstLiftPosition = currentFloor
-                    case .second:
-                        self.secondLiftPosition = currentFloor
-                    }
-                }
+            while lift.currentFloor < user.dFloor {
+                lift.currentFloor += 1
+                self.delegate?.changeLiftPosition(lift: lift)
             }
+
         }else {
-            while currentFloor > user.floor {
-                currentFloor -= 1
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
-                    switch lift.liftNumber {
-                    case .first:
-                        self.firstLiftPosition = currentFloor
-                    case .second:
-                        self.secondLiftPosition = currentFloor
-                    }
-                }
+            while lift.currentFloor > user.dFloor {
+                lift.currentFloor -= 1
+                self.delegate?.changeLiftPosition(lift: lift)
             }
         }
-
+        lift.isMoving = false
     }
 
     private func findLeftNearBy(user: UserPreference) -> LiftFeature {
-        var sortAsNearBy: [(minDist:Int, lift:LiftFeature)] =  []
-        for lift in self.lifts {
-            let minDistance = abs(lift.currentFloor - user.floor)
-            sortAsNearBy.append((minDistance, lift))
+        // is Lift Available ON Requested Floor
+        guard let nearbyLift = self.lifts.filter ({ $0.currentFloor == user.sFloor}).first else {
+            var sortAsNearBy: [(minDist:Int, lift: LiftFeature)] =  []
+            for lift in self.lifts {
+                let minDistance = abs(lift.currentFloor - user.sFloor)
+                sortAsNearBy.append((minDistance, lift))
+            }
+            let nearByLeft = sortAsNearBy.sorted(by: { $0.minDist < $1.minDist }).first?.lift ?? Lift(liftNumber: .first)
+            nearByLeft.currentFloor = user.sFloor
+            return nearByLeft
         }
-        return sortAsNearBy.sorted(by: {  $0.minDist < $1.minDist }).first?.lift ?? Lift(liftNumber: .first)
+        return nearbyLift
     }
 
     func liftCurrentPostion(number: LiftNumber) -> Int {
