@@ -1,0 +1,739 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0727F78CCD1385581FF0805C /* Pods_CertsOpenSSL_CertsOpenSSLUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8E2CE1B47359BAF59AC828 /* Pods_CertsOpenSSL_CertsOpenSSLUITests.framework */; };
+		91CFEC1B46787293F57EEF26 /* Pods_CertsOpenSSLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CFC5F8465BFFD9B04447E6 /* Pods_CertsOpenSSLTests.framework */; };
+		BD133AB01440D122632A8638 /* Pods_CertsOpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE0A69126CA529353DD09E1 /* Pods_CertsOpenSSL.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		952A22E92D49D269003F65AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952A22D02D49D267003F65AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 952A22D72D49D267003F65AF;
+			remoteInfo = CertsOpenSSL;
+		};
+		952A22F32D49D269003F65AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952A22D02D49D267003F65AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 952A22D72D49D267003F65AF;
+			remoteInfo = CertsOpenSSL;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		21063BE49FBFB309ECAA3B39 /* Pods-CertsOpenSSL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CertsOpenSSL.debug.xcconfig"; path = "Target Support Files/Pods-CertsOpenSSL/Pods-CertsOpenSSL.debug.xcconfig"; sourceTree = "<group>"; };
+		2DE0A69126CA529353DD09E1 /* Pods_CertsOpenSSL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CertsOpenSSL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		526B9ABA97966CFC86CF9D9F /* Pods-CertsOpenSSLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CertsOpenSSLTests.debug.xcconfig"; path = "Target Support Files/Pods-CertsOpenSSLTests/Pods-CertsOpenSSLTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7D8E2CE1B47359BAF59AC828 /* Pods_CertsOpenSSL_CertsOpenSSLUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CertsOpenSSL_CertsOpenSSLUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		855C19D54B29B49C4C11973E /* Pods-CertsOpenSSL-CertsOpenSSLUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CertsOpenSSL-CertsOpenSSLUITests.release.xcconfig"; path = "Target Support Files/Pods-CertsOpenSSL-CertsOpenSSLUITests/Pods-CertsOpenSSL-CertsOpenSSLUITests.release.xcconfig"; sourceTree = "<group>"; };
+		952A22D82D49D267003F65AF /* CertsOpenSSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CertsOpenSSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		952A22E82D49D269003F65AF /* CertsOpenSSLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CertsOpenSSLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		952A22F22D49D269003F65AF /* CertsOpenSSLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CertsOpenSSLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2A5702DB7F30CC54A7DEAF2 /* Pods-CertsOpenSSLTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CertsOpenSSLTests.release.xcconfig"; path = "Target Support Files/Pods-CertsOpenSSLTests/Pods-CertsOpenSSLTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3264C35742E0A89EF07E734 /* Pods-CertsOpenSSL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CertsOpenSSL.release.xcconfig"; path = "Target Support Files/Pods-CertsOpenSSL/Pods-CertsOpenSSL.release.xcconfig"; sourceTree = "<group>"; };
+		C40C9568D7A46D472F3FA072 /* Pods-CertsOpenSSL-CertsOpenSSLUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CertsOpenSSL-CertsOpenSSLUITests.debug.xcconfig"; path = "Target Support Files/Pods-CertsOpenSSL-CertsOpenSSLUITests/Pods-CertsOpenSSL-CertsOpenSSLUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C9CFC5F8465BFFD9B04447E6 /* Pods_CertsOpenSSLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CertsOpenSSLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		952A23172D49D313003F65AF /* Exceptions for "CertsOpenSSL" folder in "Compile Sources" phase from "CertsOpenSSL" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 952A22D42D49D267003F65AF /* Sources */;
+			membershipExceptions = (
+				OpenSSLWrapper.h,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		952A22DA2D49D267003F65AF /* CertsOpenSSL */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				952A23172D49D313003F65AF /* Exceptions for "CertsOpenSSL" folder in "Compile Sources" phase from "CertsOpenSSL" target */,
+			);
+			path = CertsOpenSSL;
+			sourceTree = "<group>";
+		};
+		952A22EB2D49D269003F65AF /* CertsOpenSSLTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CertsOpenSSLTests;
+			sourceTree = "<group>";
+		};
+		952A22F52D49D269003F65AF /* CertsOpenSSLUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CertsOpenSSLUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		952A22D52D49D267003F65AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD133AB01440D122632A8638 /* Pods_CertsOpenSSL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952A22E52D49D269003F65AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91CFEC1B46787293F57EEF26 /* Pods_CertsOpenSSLTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952A22EF2D49D269003F65AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0727F78CCD1385581FF0805C /* Pods_CertsOpenSSL_CertsOpenSSLUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		952A22CF2D49D267003F65AF = {
+			isa = PBXGroup;
+			children = (
+				952A22DA2D49D267003F65AF /* CertsOpenSSL */,
+				952A22EB2D49D269003F65AF /* CertsOpenSSLTests */,
+				952A22F52D49D269003F65AF /* CertsOpenSSLUITests */,
+				952A22D92D49D267003F65AF /* Products */,
+				FC3BDA3466D29DAF5A509D93 /* Pods */,
+				CD80D22EEC66F5F3EF1EDD75 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		952A22D92D49D267003F65AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				952A22D82D49D267003F65AF /* CertsOpenSSL.app */,
+				952A22E82D49D269003F65AF /* CertsOpenSSLTests.xctest */,
+				952A22F22D49D269003F65AF /* CertsOpenSSLUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD80D22EEC66F5F3EF1EDD75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DE0A69126CA529353DD09E1 /* Pods_CertsOpenSSL.framework */,
+				7D8E2CE1B47359BAF59AC828 /* Pods_CertsOpenSSL_CertsOpenSSLUITests.framework */,
+				C9CFC5F8465BFFD9B04447E6 /* Pods_CertsOpenSSLTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC3BDA3466D29DAF5A509D93 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21063BE49FBFB309ECAA3B39 /* Pods-CertsOpenSSL.debug.xcconfig */,
+				C3264C35742E0A89EF07E734 /* Pods-CertsOpenSSL.release.xcconfig */,
+				C40C9568D7A46D472F3FA072 /* Pods-CertsOpenSSL-CertsOpenSSLUITests.debug.xcconfig */,
+				855C19D54B29B49C4C11973E /* Pods-CertsOpenSSL-CertsOpenSSLUITests.release.xcconfig */,
+				526B9ABA97966CFC86CF9D9F /* Pods-CertsOpenSSLTests.debug.xcconfig */,
+				A2A5702DB7F30CC54A7DEAF2 /* Pods-CertsOpenSSLTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		952A22D72D49D267003F65AF /* CertsOpenSSL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952A22FC2D49D269003F65AF /* Build configuration list for PBXNativeTarget "CertsOpenSSL" */;
+			buildPhases = (
+				3CB76F2F578B9839A05D2A0C /* [CP] Check Pods Manifest.lock */,
+				952A22D42D49D267003F65AF /* Sources */,
+				952A22D52D49D267003F65AF /* Frameworks */,
+				952A22D62D49D267003F65AF /* Resources */,
+				C71F0AA1B77AE18DAA18BC69 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				952A22DA2D49D267003F65AF /* CertsOpenSSL */,
+			);
+			name = CertsOpenSSL;
+			productName = CertsOpenSSL;
+			productReference = 952A22D82D49D267003F65AF /* CertsOpenSSL.app */;
+			productType = "com.apple.product-type.application";
+		};
+		952A22E72D49D269003F65AF /* CertsOpenSSLTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952A22FF2D49D269003F65AF /* Build configuration list for PBXNativeTarget "CertsOpenSSLTests" */;
+			buildPhases = (
+				F76184561AD834C8138022D6 /* [CP] Check Pods Manifest.lock */,
+				952A22E42D49D269003F65AF /* Sources */,
+				952A22E52D49D269003F65AF /* Frameworks */,
+				952A22E62D49D269003F65AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				952A22EA2D49D269003F65AF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				952A22EB2D49D269003F65AF /* CertsOpenSSLTests */,
+			);
+			name = CertsOpenSSLTests;
+			productName = CertsOpenSSLTests;
+			productReference = 952A22E82D49D269003F65AF /* CertsOpenSSLTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		952A22F12D49D269003F65AF /* CertsOpenSSLUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952A23022D49D269003F65AF /* Build configuration list for PBXNativeTarget "CertsOpenSSLUITests" */;
+			buildPhases = (
+				A50FAFF39944DA19D5CF2374 /* [CP] Check Pods Manifest.lock */,
+				952A22EE2D49D269003F65AF /* Sources */,
+				952A22EF2D49D269003F65AF /* Frameworks */,
+				952A22F02D49D269003F65AF /* Resources */,
+				430AF99CF41EA265E58B3E87 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				952A22F42D49D269003F65AF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				952A22F52D49D269003F65AF /* CertsOpenSSLUITests */,
+			);
+			name = CertsOpenSSLUITests;
+			productName = CertsOpenSSLUITests;
+			productReference = 952A22F22D49D269003F65AF /* CertsOpenSSLUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		952A22D02D49D267003F65AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					952A22D72D49D267003F65AF = {
+						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
+					};
+					952A22E72D49D269003F65AF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 952A22D72D49D267003F65AF;
+					};
+					952A22F12D49D269003F65AF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 952A22D72D49D267003F65AF;
+					};
+				};
+			};
+			buildConfigurationList = 952A22D32D49D267003F65AF /* Build configuration list for PBXProject "CertsOpenSSL" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 952A22CF2D49D267003F65AF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 952A22D92D49D267003F65AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				952A22D72D49D267003F65AF /* CertsOpenSSL */,
+				952A22E72D49D269003F65AF /* CertsOpenSSLTests */,
+				952A22F12D49D269003F65AF /* CertsOpenSSLUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		952A22D62D49D267003F65AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952A22E62D49D269003F65AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952A22F02D49D269003F65AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3CB76F2F578B9839A05D2A0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CertsOpenSSL-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		430AF99CF41EA265E58B3E87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CertsOpenSSL-CertsOpenSSLUITests/Pods-CertsOpenSSL-CertsOpenSSLUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CertsOpenSSL-CertsOpenSSLUITests/Pods-CertsOpenSSL-CertsOpenSSLUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CertsOpenSSL-CertsOpenSSLUITests/Pods-CertsOpenSSL-CertsOpenSSLUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A50FAFF39944DA19D5CF2374 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CertsOpenSSL-CertsOpenSSLUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C71F0AA1B77AE18DAA18BC69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CertsOpenSSL/Pods-CertsOpenSSL-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CertsOpenSSL/Pods-CertsOpenSSL-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CertsOpenSSL/Pods-CertsOpenSSL-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F76184561AD834C8138022D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CertsOpenSSLTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		952A22D42D49D267003F65AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952A22E42D49D269003F65AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952A22EE2D49D269003F65AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		952A22EA2D49D269003F65AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 952A22D72D49D267003F65AF /* CertsOpenSSL */;
+			targetProxy = 952A22E92D49D269003F65AF /* PBXContainerItemProxy */;
+		};
+		952A22F42D49D269003F65AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 952A22D72D49D267003F65AF /* CertsOpenSSL */;
+			targetProxy = 952A22F32D49D269003F65AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		952A22FA2D49D269003F65AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		952A22FB2D49D269003F65AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		952A22FD2D49D269003F65AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21063BE49FBFB309ECAA3B39 /* Pods-CertsOpenSSL.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CertsOpenSSL/Preview Content\"";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CertsOpenSSL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CertsOpenSSL/CertsOpenSSL-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		952A22FE2D49D269003F65AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3264C35742E0A89EF07E734 /* Pods-CertsOpenSSL.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CertsOpenSSL/Preview Content\"";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CertsOpenSSL;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CertsOpenSSL/CertsOpenSSL-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		952A23002D49D269003F65AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 526B9ABA97966CFC86CF9D9F /* Pods-CertsOpenSSLTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CertsOpenSSLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CertsOpenSSL.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CertsOpenSSL";
+			};
+			name = Debug;
+		};
+		952A23012D49D269003F65AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A5702DB7F30CC54A7DEAF2 /* Pods-CertsOpenSSLTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CertsOpenSSLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CertsOpenSSL.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CertsOpenSSL";
+			};
+			name = Release;
+		};
+		952A23032D49D269003F65AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C40C9568D7A46D472F3FA072 /* Pods-CertsOpenSSL-CertsOpenSSLUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CertsOpenSSLUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CertsOpenSSL;
+			};
+			name = Debug;
+		};
+		952A23042D49D269003F65AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 855C19D54B29B49C4C11973E /* Pods-CertsOpenSSL-CertsOpenSSLUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CertsOpenSSLUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CertsOpenSSL;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		952A22D32D49D267003F65AF /* Build configuration list for PBXProject "CertsOpenSSL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952A22FA2D49D269003F65AF /* Debug */,
+				952A22FB2D49D269003F65AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		952A22FC2D49D269003F65AF /* Build configuration list for PBXNativeTarget "CertsOpenSSL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952A22FD2D49D269003F65AF /* Debug */,
+				952A22FE2D49D269003F65AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		952A22FF2D49D269003F65AF /* Build configuration list for PBXNativeTarget "CertsOpenSSLTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952A23002D49D269003F65AF /* Debug */,
+				952A23012D49D269003F65AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		952A23022D49D269003F65AF /* Build configuration list for PBXNativeTarget "CertsOpenSSLUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952A23032D49D269003F65AF /* Debug */,
+				952A23042D49D269003F65AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 952A22D02D49D267003F65AF /* Project object */;
+}
