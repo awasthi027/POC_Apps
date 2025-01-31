@@ -56,7 +56,7 @@ class P12CertificateService {
          publicKeyData: Data?) {
         var publicKey = publicKeyData
         if publicKeyData == nil {
-            publicKey = OpenSSLWrapper.createPublicKeyAndGetData().publicKey as Data
+            publicKey = OpenSSLWrapper.createPublicKeyAndPrivateKeyGetData().publicKey as Data
         }
         openSSLWrapper = OpenSSLWrapper(attributes: attributes,
                                         publicKey: publicKey)
@@ -65,10 +65,12 @@ class P12CertificateService {
     static func createP12Certificate(p12CertName: String,
                                      certPassword: String,
                                      subjectName: String,
+                                     email: String,
                                      fileName: String) -> String{
         return OpenSSLWrapper.generateP12Certificate(certPassword,
                                                      certName: p12CertName,
                                                      subjectName: subjectName,
+                                                     email: email,
                                                      fileName: fileName)
     }
 

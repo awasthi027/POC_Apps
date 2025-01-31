@@ -15,6 +15,7 @@ protocol CertificateParserProtocol {
     func createP12Certificate(p12CertName: String,
                               certPassword: String,
                               subjectName: String,
+                              emailAddress: String,
                               fileName: String) -> String
 }
 
@@ -57,10 +58,12 @@ class CertificateHelper: P12CertificateService,
     func createP12Certificate(p12CertName: String,
                               certPassword: String,
                               subjectName: String,
+                              emailAddress: String,
                               fileName: String) -> String {
         return P12CertificateService.createP12Certificate(p12CertName: p12CertName,
                                     certPassword: certPassword,
                                    subjectName: subjectName,
+                                    email: emailAddress,
                                    fileName: fileName)
     }
 

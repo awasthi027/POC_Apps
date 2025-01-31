@@ -56,17 +56,19 @@ typedef NS_ENUM(NSUInteger, ExtendedKeyUsage) {
                           publicKey:(NSData* )publicKey;
 
 /// Create keys
-+ (CreateKeys *)createPublicKeyAndGetData;
++ (CreateKeys *)createPublicKeyAndPrivateKeyGetData;
 
 /// create certificate by giving required parameters
 /// - Parameters:
 ///   - certPassword: certificate password
 ///   - certName: certificate name
 ///   - subjectName: certificate subject name
+///   - email: email address
 ///   - fileName: certificate file name
 + (NSString *)generateP12Certificate:(NSString *) certPassword
-                      certName:(NSString *) certName
-                      subjectName:(NSString *) subjectName
+                      certName: (NSString *) certName
+                      subjectName: (NSString *) subjectName
+                      email: (NSString *) emailAddress
                       fileName:(NSString *) fileName;
 /// Read certificate subject name
 - (NSString *)readSubjectNameFromCert;

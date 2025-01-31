@@ -8,6 +8,7 @@
 #import "OpenSSLWrapper.h"
 #import "OpenSSLWrapperHelper.h"
 #import <openssl/x509.h>
+#import <openssl/evp.h>
 
 NSString *kAACertificateSubjectName = @"AACertificateSubjectName";
 NSString *kAACertificateUserID      = @"AAUserID";
@@ -26,9 +27,10 @@ NSString *kAAEmailId                = @"AAEmailId";
 @end
 
 @interface OpenSSLWrapper()
-@property (nonatomic, assign) SecCertificateRef certificate;
+@property (nonatomic, assign) SecCertificateRef secCertificate;
 @property (nonatomic, assign) X509 *x509Cert;
-
+@property (nonatomic, assign) EVP_PKEY *publicKey;
+@property (nonatomic, assign) EVP_PKEY *privateKey;
 @end
 
 @implementation OpenSSLWrapper
@@ -39,12 +41,15 @@ NSString *kAAEmailId                = @"AAEmailId";
     if (self) {
         NSData *p12Data = [OpenSSLWrapper readDataFromCertificateFile: p12CertPath
                                                      certPassword: certPassword];
-        self.certificate = readSecCertificateFromP12(p12CertPath,
+        self.secCertificate = readSecCertificateFromP12(p12CertPath,
                                                       certPassword,
                                                       p12Data);
-        NSData *x509CertData = CFBridgingRelease(SecCertificateCopyData(self.certificate));
+        NSData *x509CertData = CFBridgingRelease(SecCertificateCopyData(self.secCertificate));
 
         self.x509Cert = createX509FromCertificateData(x509CertData);
+        self.publicKey = [self extractPublicKeyFromCertificate: self.secCertificate];
+        self.privateKey = [self extractPrivateKeyFromPKCS12: p12Data
+                                 password: certPassword];
     }
     return self;
 }
@@ -78,7 +83,7 @@ NSString *kAAEmailId                = @"AAEmailId";
     X509_set_version(x509cert, 2);
 
     // Random Serial Number
-    uint8_t *serial = [self generateRandomBytes: 16];
+    uint8_t *serial = [OpenSSLWrapper generateRandomBytes: 16];
 
     ASN1_INTEGER *i = X509_get_serialNumber(x509cert);
     i->length = 16;
@@ -236,7 +241,7 @@ NSString *kAAEmailId                = @"AAEmailId";
 }
 
 - (BOOL) hasExtendedUsage:(ExtendedKeyUsage)eUsage {
-    if (self.certificate == nil) {
+    if (self.x509Cert == nil) {
         return  NO;
     }
     enter_open_ssl();
@@ -432,14 +437,14 @@ NSString *kAAEmailId                = @"AAEmailId";
 /// get certificate decription
 - (NSString *)certDescription {
     NSMutableString *decription = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"Subject Name: %@",[self readSubjectNameFromCert]]];
-    [decription appendFormat:@"\nCertificate Purpose Types: %@",[self certificateUsePurpose]];
+    [decription appendFormat:@"\n\nCertificate Purpose Types: %@",[self certificateUsePurpose]];
     [decription appendFormat:@"\nOCSOResponderList: %@",[self ocspResponderList]];
     [decription appendFormat:@"\nUniversalPrincipalName: %@",[self universalPrincipalName]];
     [decription appendFormat:@"\nAlgorithm: %@",[self algorithm]];
     [decription appendFormat:@"\nCommonName: %@",[self commonName]];
     [decription appendFormat:@"\nIsCACert: %d",[self isCACert]];
     [decription appendFormat:@"\nIssuerName: %@",[self issuerName]];
-    [decription appendFormat:@"\nSerialNumber: %lu",(unsigned long)[self serialNumber].length];
+    [decription appendFormat:@"\nSerialNumber: %lu bytes",(unsigned long)[self serialNumber].length];
     [decription appendFormat:@"\nEmailAddress: %@",[self emailAddress]];
     [decription appendFormat:@"\nSubjectUserID: %@",[self subjectUserID]];
     [decription appendFormat:@"\nSubjectName: %@",[self subjectName]];
@@ -453,6 +458,7 @@ NSString *kAAEmailId                = @"AAEmailId";
 + (NSString *)generateP12Certificate:(NSString *) certPassword
                       certName:(NSString *) certName
                       subjectName:(NSString *) subjectName
+                      email:(NSString *) emailAddress
                       fileName:(NSString *) fileName {
     const char *cPass = [certPassword cStringUsingEncoding:NSUTF8StringEncoding];
     const char *cCertName = [certName cStringUsingEncoding:NSUTF8StringEncoding];
@@ -463,16 +469,35 @@ NSString *kAAEmailId                = @"AAEmailId";
     // Create X509 Certificate
     X509 *x509 = X509_new();
     X509_set_version(x509, 2);
-    ASN1_INTEGER_set(X509_get_serialNumber(x509), 1);
     X509_gmtime_adj(X509_get_notBefore(x509), 0);
     X509_gmtime_adj(X509_get_notAfter(x509), 31536000); // 1 year validity
     X509_set_pubkey(x509, pkey);
+
+    // Random Serial Number
+    uint8_t *serial = [OpenSSLWrapper generateRandomBytes: 16];
+    ASN1_INTEGER *i = X509_get_serialNumber(x509);
+    i->length = 16;
+    i->data = serial;
 
     // Set Certificate Subject and Issuer
     X509_NAME *name = X509_get_subject_name(x509);
     X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC, (unsigned char *)cSubjectName, -1, -1, 0);
     X509_set_issuer_name(x509, name);
 
+    NSData *identifier = [@"XYX_UserId" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *commonName = [@"Ashish Awasthi Certificate" dataUsingEncoding:NSUTF8StringEncoding];
+    //NSData *emailData = [ dataUsingEncoding: NSUTF8StringEncoding];
+
+    X509_NAME_add_entry_by_txt(name, "UID", MBSTRING_UTF8, (unsigned char*)identifier.bytes, (int)identifier.length, -1, 0);
+    X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_UTF8, (unsigned char*)commonName.bytes, (int)commonName.length, -1, 0);
+
+    X509_set_issuer_name(x509, name);
+
+    NSString *emailId = emailAddress;
+    // Add email address
+    if (emailId.length > 0) {
+        X509_NAME_add_entry_by_txt(name, "emailAddress", MBSTRING_ASC, (unsigned char *)[emailId UTF8String], -1, -1, 0);
+    }
     // Sign the Certificate
     X509_sign(x509, pkey, EVP_sha256());
 
@@ -501,7 +526,7 @@ NSString *kAAEmailId                = @"AAEmailId";
     return filePath;
 }
 
-+ (CreateKeys *)createPublicKeyAndGetData {
++ (CreateKeys *)createPublicKeyAndPrivateKeyGetData {
     NSData *publicKey = nil;
     NSData *privateKey = nil;
     BOOL keyGenerated = AAGenerateRSAKeyPair(2048, &publicKey, &privateKey);
@@ -511,12 +536,11 @@ NSString *kAAEmailId                = @"AAEmailId";
 
 - (void)dealloc {
     enter_open_ssl();
-    self.certificate = nil;
     if (self.x509Cert) {
         X509_free(self.x509Cert);
     }
-    if (self.certificate) {
-        CFRelease(self.certificate);
+    if (self.secCertificate) {
+        CFRelease(self.secCertificate);
     }
     exit_open_ssl();
 }
@@ -547,7 +571,7 @@ NSString *kAAEmailId                = @"AAEmailId";
 
 - (BOOL) verifyWithRootCertificate:(OpenSSLWrapper*)rootX509 {
     enter_open_ssl();
-    if(self.certificate == nil || rootX509.certificate == nil) {
+    if(self.x509Cert == nil || rootX509.x509Cert == nil) {
         exit_open_ssl();
         return NO;
     }
@@ -664,7 +688,7 @@ NSString *kAAEmailId                = @"AAEmailId";
     return nil;
 
 }
-- (uint8_t *)generateRandomBytes: (int)length {
++ (uint8_t *)generateRandomBytes: (int)length {
     // Random Serial Number
     uint8_t *serial;
     serial = (uint8_t *)malloc(length + 1);
@@ -680,8 +704,9 @@ NSString *kAAEmailId                = @"AAEmailId";
         RAND_bytes(serial, length);
         firstByte = serial[0];
     }
-    return  serial;
+    return serial;
 }
+
 - (NSData *)serializeRSAPublicKeyToDER:(RSA *)rsa {
     unsigned char *der = NULL;
     int derLength = i2d_RSA_PUBKEY(rsa, &der);
@@ -693,6 +718,214 @@ NSString *kAAEmailId                = @"AAEmailId";
     NSData *derData = [NSData dataWithBytes:der length:derLength];
     OPENSSL_free(der);
     return derData;
+}
+
++ (NSData *)publicKeyFromSecCertificate:(SecCertificateRef)certificate {
+    if (certificate == NULL) {
+        NSLog(@"Invalid certificate");
+        return nil;
+    }
+
+    CFDataRef certData = SecCertificateCopyData(certificate);
+    const void *certBytes = CFDataGetBytePtr((CFDataRef)certData);
+    size_t certLen = CFDataGetLength(certData);
+
+    X509 *x509 = d2i_X509(NULL, (const unsigned char **)&certBytes, (long)certLen);
+    if (x509 == NULL) {
+        NSLog(@"Failed to parse certificate");
+        CFRelease(certData);
+        return nil;
+    }
+
+    EVP_PKEY *pkey = X509_get_pubkey(x509);
+    if (pkey == NULL) {
+        NSLog(@"Failed to get public key from certificate");
+        X509_free(x509);
+        CFRelease(certData);
+        return nil;
+    }
+
+    BIO *bio = BIO_new(BIO_s_mem());
+    if (PEM_write_bio_PUBKEY(bio, pkey) != 1) {
+        NSLog(@"Failed to write public key to BIO");
+        BIO_free_all(bio);
+        EVP_PKEY_free(pkey);
+        X509_free(x509);
+        CFRelease(certData);
+        return nil;
+    }
+
+    char *pemData;
+    long pemLen = BIO_get_mem_data(bio, &pemData);
+    NSData *publicKeyData = [NSData dataWithBytesNoCopy:(void *)pemData length:pemLen freeWhenDone:NO];
+
+    BIO_free_all(bio);
+    EVP_PKEY_free(pkey);
+    X509_free(x509);
+    CFRelease(certData);
+
+    return publicKeyData;
+}
+
++ (NSData *)privateKeyFromSecKey:(SecKeyRef)privateKey {
+    if (privateKey == NULL) {
+        NSLog(@"Invalid private key");
+        return nil;
+    }
+
+    CFDataRef keyData = SecKeyCopyExternalRepresentation(privateKey, NULL);
+    const void *keyBytes = CFDataGetBytePtr((CFDataRef)keyData);
+    size_t keyLen = CFDataGetLength(keyData);
+
+    EVP_PKEY *pkey = d2i_PrivateKey(EVP_PKEY_id(NULL), NULL, (const unsigned char **)&keyBytes, (long)keyLen);
+    if (pkey == NULL) {
+        NSLog(@"Failed to parse private key");
+        CFRelease(keyData);
+        return nil;
+    }
+
+    BIO *bio = BIO_new(BIO_s_mem());
+    if (PEM_write_bio_PrivateKey(bio, pkey, NULL, NULL, 0, NULL, NULL) != 1) {
+        NSLog(@"Failed to write private key to BIO");
+        BIO_free_all(bio);
+        EVP_PKEY_free(pkey);
+        CFRelease(keyData);
+        return nil;
+    }
+
+    char *pemData;
+    long pemLen = BIO_get_mem_data(bio, &pemData);
+    NSData *privateKeyData = [NSData dataWithBytesNoCopy:(void *)pemData length:pemLen freeWhenDone:NO];
+
+    BIO_free_all(bio);
+    EVP_PKEY_free(pkey);
+    CFRelease(keyData);
+
+    return privateKeyData;
+}
+
+
+- (EVP_PKEY *)extractPublicKeyFromCertificate:(SecCertificateRef)certificate {
+    NSData *certificateData = (NSData *)CFBridgingRelease(SecCertificateCopyData(certificate));
+    const unsigned char *bytes = [certificateData bytes];
+    X509 *x509 = d2i_X509(NULL, &bytes, certificateData.length);
+
+    EVP_PKEY *publicKey = X509_get_pubkey(x509);
+
+    if (publicKey) {
+        BIO *bio = BIO_new(BIO_s_mem());
+        PEM_write_bio_PUBKEY(bio, publicKey);
+
+        char *pemKey = NULL;
+        long pemLen = BIO_get_mem_data(bio, &pemKey);
+        NSData *publicKeyData = [NSData dataWithBytes:pemKey length: pemLen];
+        NSLog(@"Key data: %lu",(unsigned long)publicKeyData.length);
+        /*
+        NSString *publicKeyString = [[NSString alloc] initWithBytes:pemKey
+                                                             length:pemLen
+                                                           encoding:NSUTF8StringEncoding];
+        NSLog(@"Public Key:\n%@", publicKeyString); */
+
+        BIO_free(bio);
+        EVP_PKEY_free(publicKey);
+    } else {
+        NSLog(@"Failed to extract public key.");
+    }
+
+    X509_free(x509);
+    return publicKey;
+}
+
+- (EVP_PKEY *)extractPrivateKeyFromPKCS12:(NSData *)pkcs12Data
+                           password:(NSString *)password {
+    const unsigned char *bytes = [pkcs12Data bytes];
+    PKCS12 *p12 = d2i_PKCS12(NULL, &bytes, pkcs12Data.length);
+
+    EVP_PKEY *privateKey = NULL;
+    X509 *cert = NULL;
+    STACK_OF(X509) *ca = NULL;
+    if (PKCS12_parse(p12, [password cStringUsingEncoding:NSUTF8StringEncoding], &privateKey, &cert, &ca)) {
+        BIO *bio = BIO_new(BIO_s_mem());
+        PEM_write_bio_PrivateKey(bio, privateKey, NULL, NULL, 0, NULL, NULL);
+
+        char *pemKey = NULL;
+        // Print key as String
+        long pemLen = BIO_get_mem_data(bio, &pemKey);
+        NSData *privateKeyData = [NSData dataWithBytes:pemKey length:pemLen];
+        NSLog(@"Key data: %lu",(unsigned long)privateKeyData.length);
+
+//        NSString *privateKeyString = [[NSString alloc] initWithBytes:pemKey length:pemLen encoding:NSUTF8StringEncoding];
+//        NSLog(@"Private Key:\n%@", privateKeyString);
+
+        BIO_free(bio);
+        EVP_PKEY_free(privateKey);
+    } else {
+        NSLog(@"Failed to extract private key.");
+    }
+
+    PKCS12_free(p12);
+    return privateKey ;
+}
+
+- (NSData *)convertP12DataToPKCS12Data:(NSData *)p12Data
+                               password:(NSString *)password {
+    const unsigned char *bytes = [p12Data bytes];
+    PKCS12 *p12 = NULL;
+    NSData *pkcs12Data = NULL;
+    // Parse the p12 data to create a PKCS12 structure
+    p12 = d2i_PKCS12(NULL, &bytes, p12Data.length);
+
+    if (!p12) {
+        NSLog(@"Failed to convert p12 data to PKCS12 structure.");
+        return pkcs12Data;
+    }
+
+    EVP_PKEY *pkey = NULL;
+    X509 *cert = NULL;
+    STACK_OF(X509) *ca = NULL;
+
+    // Parse the PKCS12 structure to extract the private key, certificate, and CA certificates
+    if (PKCS12_parse(p12, [password cStringUsingEncoding:NSUTF8StringEncoding], &pkey, &cert, &ca)) {
+        NSLog(@"Successfully parsed PKCS12 structure.");
+
+        if (pkey) {
+            BIO *bio = BIO_new(BIO_s_mem());
+            PEM_write_bio_PrivateKey(bio, pkey, NULL, NULL, 0, NULL, NULL);
+
+            char *pemKey = NULL;
+            long pemLen = BIO_get_mem_data(bio, &pemKey);
+
+//            NSString *privateKeyString = [[NSString alloc] initWithBytes:pemKey length:pemLen encoding:NSUTF8StringEncoding];
+//            NSLog(@"Private Key:\n%@", privateKeyString);
+
+            BIO_free(bio);
+            EVP_PKEY_free(pkey);
+        }
+
+        if (cert) {
+            BIO *bio = BIO_new(BIO_s_mem());
+            PEM_write_bio_X509(bio, cert);
+
+            char *pemCert = NULL;
+            long pemLen = BIO_get_mem_data(bio, &pemCert);
+            // Wrap the encrypted message in an NSData object
+            pkcs12Data = [NSData dataWithBytes:pemCert length:pemLen];
+//            NSString *certificateString = [[NSString alloc] initWithBytes:pemCert length:pemLen encoding:NSUTF8StringEncoding];
+//            NSLog(@"Certificate:\n%@", certificateString);
+
+            BIO_free(bio);
+            X509_free(cert);
+        }
+
+        if (ca) {
+            // Handle CA certificates if needed
+            sk_X509_pop_free(ca, X509_free);
+        }
+    } else {
+        NSLog(@"Failed to parse PKCS12 structure.");
+    }
+    PKCS12_free(p12);
+    return pkcs12Data;
 }
 
 //===================Private methods======================================================

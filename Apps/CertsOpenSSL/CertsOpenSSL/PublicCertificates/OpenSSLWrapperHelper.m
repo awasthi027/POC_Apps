@@ -11,6 +11,8 @@
 #include <OpenSSL/pem.h>
 #include <OpenSSL/err.h>
 
+#define kAWPKCS8Cipher EVP_aes_128_cbc()
+
 BIO * _Nullable AWGetBIOForData(NSData * _Nonnull data) {
     if(data == nil) {
         return nil;
