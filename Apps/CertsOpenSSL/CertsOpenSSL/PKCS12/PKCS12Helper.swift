@@ -8,6 +8,8 @@
 protocol CryptoOperationProtocol {
     func enCrypt(message: String) -> Data
     func deCrypt(data: Data) -> String
+    func signMessage(message: String) -> Data
+    func verifyMessage(signaure: NSData, message: String) -> Bool
 }
 
 class PKCS12Helper: AAPKCS12HelperService,
@@ -20,12 +22,21 @@ class PKCS12Helper: AAPKCS12HelperService,
     }
 
     func enCrypt(message: String) -> Data {
-        self.aaPKCS12Helper.encryptMessage(message)
+        return self.aaPKCS12Helper.encryptMessage(message)
     }
     
     func deCrypt(data: Data) -> String {
-        self.aaPKCS12Helper.decryptData(data)
+        return self.aaPKCS12Helper.decryptData(data)
     }
 
+    func signMessage(message: String) -> Data {
+        return self.aaPKCS12Helper.signMessage(message)
+    }
+
+    func verifyMessage(signaure: NSData,
+                       message: String) -> Bool {
+        return self.aaPKCS12Helper.verifySignature(signaure as Data,
+                                                   message: message)
+    }
 }
 

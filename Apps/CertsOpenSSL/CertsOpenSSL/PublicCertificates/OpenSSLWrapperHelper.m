@@ -270,4 +270,20 @@ BOOL AAGenerateRSAKeyPair(int keySizeInBits, NSData **publicKey, NSData **privat
     return result;
 }
 
+//=====// Not using======
+void AWEnableFIPSMode(void) {
+    if (EVP_default_properties_is_fips_enabled(NULL) == false ) {
+        EVP_default_properties_enable_fips(NULL, 1);
+    }
+}
 
+void AWDisableFIPSMode(void) {
+    if (EVP_default_properties_is_fips_enabled(NULL)) {
+        EVP_default_properties_enable_fips(NULL, 0);
+    }
+}
+
+BOOL isFIPSHooksEnabled(void) {
+    return EVP_default_properties_is_fips_enabled(NULL);
+}
+//=====// Not using======

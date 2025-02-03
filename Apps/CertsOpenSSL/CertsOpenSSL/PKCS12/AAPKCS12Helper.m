@@ -1,175 +1,90 @@
 //
-//  AAPKCS12Helper.m
+//  AAPKCS12Helper.swift
 //  CertsOpenSSL
 //
-//  Created by Ashish Awasthi on 31/01/25.
+//  Created by Ashish Awasthi on 02/02/25.
 //
-
 #import "AAPKCS12Helper.h"
-#import <openssl/pkcs12.h>
 
-@interface AAPKCS12Helper()
 
-@property (nonatomic, assign) EVP_PKEY *publicKey;
-@property (nonatomic, assign) EVP_PKEY *privateKey;
-
-@end
-
-@implementation AAPKCS12Helper
-
-- (instancetype)init:(NSString *) p12CertPath
-        certPassword:(NSString *) certPassword {
-    self = [super init];
-    if (self) {
-        // Extract keys
-           EVP_PKEY *publicKey = NULL;
-           EVP_PKEY *privateKey = NULL;
-           if (![self extractKeysFromP12:p12CertPath
-                                password: certPassword
-                               publicKey:&publicKey
-                              privateKey:&privateKey]) {
-               NSLog(@"Not able get public and privateKeyFrom certificate");
-           }
-        self.publicKey = publicKey;
-        self.privateKey = privateKey;
+// Function to sign message using private key
+NSData *signMessageWithPrivateKey(EVP_PKEY *privKey, NSData *message) {
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    if (!mdctx) {
+        NSLog(@"Failed to create message digest context.");
+        return nil;
     }
-    return self;
+    // Hash data with algo sh256
+    if (EVP_DigestSignInit(mdctx, NULL, EVP_sha256(), NULL, privKey) <= 0) {
+        NSLog(@"Failed to initialize digest sign context.");
+        EVP_MD_CTX_free(mdctx);
+        return nil;
+    }
+
+    if (EVP_DigestSignUpdate(mdctx, [message bytes], [message length]) <= 0) {
+        NSLog(@"Failed to update digest sign context.");
+        EVP_MD_CTX_free(mdctx);
+        return nil;
+    }
+
+    size_t sigLen = 0;
+    if (EVP_DigestSignFinal(mdctx, NULL, &sigLen) <= 0) {
+        NSLog(@"Failed to finalize digest sign context.");
+        EVP_MD_CTX_free(mdctx);
+        return nil;
+    }
+
+    unsigned char *sig = (unsigned char *)malloc(sigLen);
+    if (!sig) {
+        NSLog(@"Failed to allocate memory for signature.");
+        EVP_MD_CTX_free(mdctx);
+        return nil;
+    }
+    // Sign Hash data
+    if (EVP_DigestSignFinal(mdctx, sig, &sigLen) <= 0) {
+        NSLog(@"Failed to obtain signature.");
+        EVP_MD_CTX_free(mdctx);
+        free(sig);
+        return nil;
+    }
+
+    EVP_MD_CTX_free(mdctx);
+
+    return [NSData dataWithBytes:sig length:sigLen];
 }
 
-- (BOOL)extractKeysFromP12:(NSString *)p12FilePath
-                  password:(NSString *)password
-                 publicKey:(EVP_PKEY **)publicKey
-                privateKey:(EVP_PKEY **)privateKey {
-    FILE *fp = fopen([p12FilePath UTF8String], "rb");
-    if (!fp) {
-        NSLog(@"Failed to open .p12 file");
+// Function to verify signature using public key
+BOOL verifySignatureWithPublicKey(EVP_PKEY *pubKey, NSData *message, NSData *signature) {
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    if (!mdctx) {
+        NSLog(@"Failed to create message digest context.");
         return NO;
     }
 
-    // Load the .p12 file
-    PKCS12 *p12 = d2i_PKCS12_fp(fp, NULL);
-    fclose(fp);
-
-    if (!p12) {
-        NSLog(@"Failed to parse .p12 file");
+    if (EVP_DigestVerifyInit(mdctx, NULL, EVP_sha256(), NULL, pubKey) <= 0) {
+        NSLog(@"Failed to initialize digest verify context.");
+        EVP_MD_CTX_free(mdctx);
         return NO;
     }
-
-    // Extract keys
-    X509 *cert = NULL;
-    STACK_OF(X509) *ca = NULL;
-    const char *passwordString = password.UTF8String;
-    if (!PKCS12_parse(p12, passwordString, privateKey, &cert, &ca)) {
-        NSLog(@"Failed to parse .p12 file (incorrect password?)");
-        PKCS12_free(p12);
+     // Digesting Message
+    if (EVP_DigestVerifyUpdate(mdctx, [message bytes], [message length]) <= 0) {
+        NSLog(@"Failed to update digest verify context.");
+        EVP_MD_CTX_free(mdctx);
         return NO;
     }
+    // Here decrpt signature and compare has with message hash
+    int result = EVP_DigestVerifyFinal(mdctx, [signature bytes], [signature length]);
+    EVP_MD_CTX_free(mdctx);
 
-    // Extract public key from the certificate
-    if (cert) {
-        *publicKey = X509_get_pubkey(cert);
-        if (!*publicKey) {
-            NSLog(@"Failed to extract public key from certificate");
-            X509_free(cert);
-            PKCS12_free(p12);
-            return NO;
-        }
-    }
-
-    // Clean up
-    X509_free(cert);
-    sk_X509_pop_free(ca, X509_free);
-    PKCS12_free(p12);
-
-    return YES;
-}
-- (NSData *)encryptMessage:(NSString *)message {
-    return  [self encryptMessage: message
-                   withPublicKey:self.publicKey];
+    return result == 1;
 }
 
-- (NSString *)decryptData:(NSData *)data {
-    return  [self decryptMessage: data
-                  withPrivateKey:self.privateKey];
-}
+/*
+ 1. Hash Message, Choose any algorthim for hashing message ex: EVP_sha256
+ 2. Encrypt message with Public or private key, From You will get Signature
+ 3. Verify Signature, Send Public key or priviate key, actual message, Signature
+ 4. Hash Actual Message with same algorthim
+ 5. Decrypt Signature and get Hash of message
+ 6. Verify both hash
+*/
 
-- (NSData *)encryptMessage:(NSString *)message withPublicKey:(EVP_PKEY *)publicKey {
-    EVP_PKEY_CTX *ctx = EVP_PKEY_CTX_new(publicKey, NULL);
-    if (!ctx) {
-        NSLog(@"Failed to create context");
-        return nil;
-    }
-
-    if (EVP_PKEY_encrypt_init(ctx) <= 0) {
-        NSLog(@"Failed to initialize encryption");
-        EVP_PKEY_CTX_free(ctx);
-        return nil;
-    }
-
-    const char *msg = [message UTF8String];
-    size_t msg_len = strlen(msg);
-    size_t outlen;
-
-    // Determine buffer size
-    if (EVP_PKEY_encrypt(ctx, NULL, &outlen, (unsigned char *)msg, msg_len) <= 0) {
-        NSLog(@"Failed to determine buffer size");
-        EVP_PKEY_CTX_free(ctx);
-        return nil;
-    }
-
-    // Encrypt the message
-    unsigned char *encrypted = malloc(outlen);
-    if (EVP_PKEY_encrypt(ctx, encrypted, &outlen, (unsigned char *)msg, msg_len) <= 0) {
-        NSLog(@"Failed to encrypt message");
-        free(encrypted);
-        EVP_PKEY_CTX_free(ctx);
-        return nil;
-    }
-
-    EVP_PKEY_CTX_free(ctx);
-
-    NSData *encryptedData = [NSData dataWithBytes:encrypted length:outlen];
-    free(encrypted);
-
-    return encryptedData;
-}
-- (NSString *)decryptMessage:(NSData *)encryptedData withPrivateKey:(EVP_PKEY *)privateKey {
-    EVP_PKEY_CTX *ctx = EVP_PKEY_CTX_new(privateKey, NULL);
-    if (!ctx) {
-        NSLog(@"Failed to create context");
-        return nil;
-    }
-
-    if (EVP_PKEY_decrypt_init(ctx) <= 0) {
-        NSLog(@"Failed to initialize decryption");
-        EVP_PKEY_CTX_free(ctx);
-        return nil;
-    }
-
-    size_t outlen;
-
-    // Determine buffer size
-    if (EVP_PKEY_decrypt(ctx, NULL, &outlen, [encryptedData bytes], [encryptedData length]) <= 0) {
-        NSLog(@"Failed to determine buffer size");
-        EVP_PKEY_CTX_free(ctx);
-        return nil;
-    }
-
-    // Decrypt the message
-    unsigned char *decrypted = malloc(outlen);
-    if (EVP_PKEY_decrypt(ctx, decrypted, &outlen, [encryptedData bytes], [encryptedData length]) <= 0) {
-        NSLog(@"Failed to decrypt message");
-        free(decrypted);
-        EVP_PKEY_CTX_free(ctx);
-        return nil;
-    }
-
-    EVP_PKEY_CTX_free(ctx);
-
-    NSString *decryptedMessage = [[NSString alloc] initWithBytes:decrypted length:outlen encoding:NSUTF8StringEncoding];
-    free(decrypted);
-
-    return decryptedMessage;
-}
-
-@end

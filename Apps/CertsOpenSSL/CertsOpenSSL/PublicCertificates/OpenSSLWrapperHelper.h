@@ -31,3 +31,8 @@ BOOL AAGenerateRSAKeyPair(int keySizeInBits, NSData **publicKey, NSData **privat
 
 void enter_open_ssl(void);
 void exit_open_ssl(void);
+
+// Not using
+BOOL isFIPSHooksEnabled(void);
+void AWEnableFIPSMode(void);
+void AWDisableFIPSMode(void);

@@ -130,15 +130,38 @@ NSString *kAAEmailId                = @"AAEmailId";
     return self;
 }
 
-
 + (EVP_PKEY *)generateRSAKey {
-    EVP_PKEY *pkey = EVP_PKEY_new();
-    RSA *rsa = RSA_new();
-    BIGNUM *e = BN_new();
-    BN_set_word(e, RSA_F4);
-    RSA_generate_key_ex(rsa, 2048, e, NULL);
-    EVP_PKEY_assign_RSA(pkey, rsa);
-    BN_free(e);
+    EVP_PKEY *pkey = NULL;
+    EVP_PKEY_CTX *ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, NULL);
+
+    if (!ctx) {
+        NSLog(@"Failed to create PKEY context.");
+        ERR_print_errors_fp(stderr); // Print OpenSSL errors to standard error
+        return NULL;
+    }
+
+    if (EVP_PKEY_keygen_init(ctx) <= 0) {
+        NSLog(@"Failed to initialize keygen.");
+        EVP_PKEY_CTX_free(ctx);
+        ERR_print_errors_fp(stderr); // Print OpenSSL errors to standard error
+        return NULL;
+    }
+
+    if (EVP_PKEY_CTX_set_rsa_keygen_bits(ctx, 2048) <= 0) {
+        NSLog(@"Failed to set RSA key length.");
+        EVP_PKEY_CTX_free(ctx);
+        ERR_print_errors_fp(stderr); // Print OpenSSL errors to standard error
+        return NULL;
+    }
+
+    if (EVP_PKEY_keygen(ctx, &pkey) <= 0) {
+        NSLog(@"Failed to generate RSA key.");
+        EVP_PKEY_CTX_free(ctx);
+        ERR_print_errors_fp(stderr); // Print OpenSSL errors to standard error
+        return NULL;
+    }
+
+    EVP_PKEY_CTX_free(ctx);
     return pkey;
 }
 
