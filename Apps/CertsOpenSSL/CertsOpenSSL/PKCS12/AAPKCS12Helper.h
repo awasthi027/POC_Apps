@@ -11,10 +11,9 @@
 #import <openssl/rsa.h>
 #import <openssl/sha.h>
 
+
 NSData *signMessageWithPrivateKey(EVP_PKEY *privKey, NSData *message);
 BOOL verifySignatureWithPublicKey(EVP_PKEY *pubKey, NSData *message, NSData *signature);
-
-
 
 
 /*
@@ -77,3 +76,4 @@ BOOL verifySignatureWithPublicKey(EVP_PKEY *pubKey, NSData *message, NSData *sig
 
  Digital signatures are essential in ensuring data integrity and authenticity in various applications, contributing to secure communications and transactions. If you'd like more details or have any specific questions, feel free to ask!
  */
+

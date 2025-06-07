@@ -31,6 +31,7 @@ NSString *kAAEmailId                = @"AAEmailId";
 @property (nonatomic, assign) X509 *x509Cert;
 @property (nonatomic, assign) EVP_PKEY *publicKey;
 @property (nonatomic, assign) EVP_PKEY *privateKey;
+@property (nonatomic, assign) NSData *p12Data;
 @end
 
 @implementation OpenSSLWrapper
@@ -41,9 +42,11 @@ NSString *kAAEmailId                = @"AAEmailId";
     if (self) {
         NSData *p12Data = [OpenSSLWrapper readDataFromCertificateFile: p12CertPath
                                                      certPassword: certPassword];
+        self.p12Data = p12Data;
         self.secCertificate = readSecCertificateFromP12(p12CertPath,
                                                       certPassword,
                                                       p12Data);
+
         NSData *x509CertData = CFBridgingRelease(SecCertificateCopyData(self.secCertificate));
 
         self.x509Cert = createX509FromCertificateData(x509CertData);
@@ -524,8 +527,14 @@ NSString *kAAEmailId                = @"AAEmailId";
     // Sign the Certificate
     X509_sign(x509, pkey, EVP_sha256());
 
+    // Define the PBE algorithm and iteration count
+    int nid_key = NID_pbe_WithSHA1And3_Key_TripleDES_CBC; // PBE algorithm for private key
+    int nid_cert = NID_pbe_WithSHA1And3_Key_TripleDES_CBC; // PBE algorithm for certificate
+    int iter = 10000; // Iteration count
+    int keytype = EVP_PKEY_RSA; // Key type
+
     // Create PKCS12 Structure
-    PKCS12 *p12 = PKCS12_create(cPass, cCertName, pkey, x509, NULL, 0, 0, 0, 0, 0);
+    PKCS12 *p12 = PKCS12_create(cPass, cCertName, pkey, x509, NULL, nid_key, nid_cert, iter, keytype, 0);
     if (!p12) {
         NSLog(@"Failed to create PKCS12 structure.");
         return @"";
@@ -556,6 +565,32 @@ NSString *kAAEmailId                = @"AAEmailId";
     NSLog(@"Is Key generated %d", keyGenerated);
     return  [[CreateKeys alloc]  init: publicKey privateKey: privateKey];;
 }
+
++ (BOOL) validatePKCS12Data:(NSData*)p12Data
+                   password:(NSString*)password {
+    enter_open_ssl();
+    X509 *certificate = NULL;
+    EVP_PKEY *pkey = NULL;
+    BOOL valid = AAPKCS12Parse(p12Data, password, &pkey, &certificate);
+    X509_free(certificate);
+    EVP_PKEY_free(pkey);
+    exit_open_ssl();
+    return valid;
+}
+
++ (NSData *)updatePKCS12Password:(NSString *)certificateName
+                     oldPassword:(NSString *)oldPassword
+                     newPassword:(NSString *)newPassword {
+
+
+    NSData *originalP12Data = [OpenSSLWrapper readDataFromCertificateFile: certificateName
+                                                 certPassword: oldPassword];
+    enter_open_ssl();
+    NSData* newP12Data = AAPKCS12UpdatePassword(originalP12Data, oldPassword, newPassword);
+    exit_open_ssl();
+    return newP12Data;
+}
+
 
 - (void)dealloc {
     enter_open_ssl();
@@ -711,6 +746,7 @@ NSString *kAAEmailId                = @"AAEmailId";
     return nil;
 
 }
+
 + (uint8_t *)generateRandomBytes: (int)length {
     // Random Serial Number
     uint8_t *serial;
@@ -955,3 +991,4 @@ NSString *kAAEmailId                = @"AAEmailId";
 
 
 @end
+

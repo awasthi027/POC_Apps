@@ -9,7 +9,11 @@ class ContentViewModel: ObservableObject {
 
   static var certificatePath: String  = ""
 
-    var certProtocol: CertificateParserProtocol
+    var certProtocol: CertificateParserProtocol?
+    
+    init() {
+        self.certProtocol = nil
+    }
 
     init(certProtocol: CertificateParserProtocol) {
         self.certProtocol = certProtocol
@@ -20,17 +24,24 @@ class ContentViewModel: ObservableObject {
                               subjectName: String,
                               email: String,
                               fileName: String) {
-        Self.certificatePath = self.certProtocol.createP12Certificate(p12CertName: p12CertName,
+        Self.certificatePath = self.certProtocol?.createP12Certificate(p12CertName: p12CertName,
                                                                       certPassword: certPassword,
                                                                       subjectName: subjectName,
                                                                       emailAddress: email,
-                                                                      fileName: fileName)
+                                                                       fileName: fileName) ?? ""
     }
 
-    func readCertificateDescription () -> String {
-        return self.certProtocol.certDecription ?? ""
+    func readCertificateDescription () -> String? {
+        return self.certProtocol?.certDecription ?? ""
     }
 
+    static func changeCertificatePassword(certificateName: String,
+                                   password: String,
+                                   newPassword: String) -> Bool {
+        return CertificateHelper.changeCertificatePassword(certificateName: certificateName,
+                                                           password: password,
+                                                           newPassword: newPassword)
+    }
 }
 
 extension ContentViewModel {

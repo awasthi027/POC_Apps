@@ -48,7 +48,7 @@ extension SecKeyGenerationProtocol {
         let keyPair = try SecurityKeyPair.generateKeyPair(size: keySize,
                                                           identifier: identifier,
                                                           cryptoType: .rsa,
-                                                          persistent: true)
+                                                          persistent: false)
         return SecKeySecurityProvider(crypto: .rsa,
                                       keyPair: keyPair)
     }
@@ -89,9 +89,6 @@ extension SecKeySecurityProviderProtocol {
     }
 
     func decrypt(data: Data) throws -> Smaug {
-        guard self.isEncryptedData(data) else {
-            throw RuntimeError("Data is not encrypted")
-        }
         switch self.cryptoType {
         case .ecc:
             let cryptor = AsymmetricKeyCryptor(keyPair: self.keyPair, cryptoType: .ecc)
@@ -100,6 +97,9 @@ extension SecKeySecurityProviderProtocol {
         case .rsa:
             guard let privateKey = self.keyPair.privateKey else {
                 throw RuntimeError("privateKeyIsUnavailable")
+            }
+            guard self.isEncryptedData(data) else {
+                throw RuntimeError("Data is not encrypted")
             }
             return try AsymmetricKeyCryptor.decryptKey(encryptedKeyData: data, privateKey: privateKey, algorithm: .rsaEncryptionPKCS1)
         }

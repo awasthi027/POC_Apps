@@ -6,7 +6,6 @@
 //
 #import "AAPKCS12Helper.h"
 
-
 // Function to sign message using private key
 NSData *signMessageWithPrivateKey(EVP_PKEY *privKey, NSData *message) {
     EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
@@ -87,4 +86,6 @@ BOOL verifySignatureWithPublicKey(EVP_PKEY *pubKey, NSData *message, NSData *sig
  5. Decrypt Signature and get Hash of message
  6. Verify both hash
 */
+
+
 

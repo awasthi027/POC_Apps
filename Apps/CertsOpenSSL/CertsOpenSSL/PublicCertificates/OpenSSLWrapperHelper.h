@@ -29,10 +29,18 @@ EVP_PKEY *AAGetRSAPublicKey(NSData *publicKey);
 /// Generate public and private key
 BOOL AAGenerateRSAKeyPair(int keySizeInBits, NSData **publicKey, NSData **privateKey);
 
+BIO * _Nullable AAGetBIOForData(NSData * _Nonnull data);
+
 void enter_open_ssl(void);
 void exit_open_ssl(void);
 
 // Not using
 BOOL isFIPSHooksEnabled(void);
-void AWEnableFIPSMode(void);
-void AWDisableFIPSMode(void);
+void AAEnableFIPSMode(void);
+void AADisableFIPSMode(void);
+
+// Check whether certificate is valid or not
+BOOL AAPKCS12Parse(NSData *p12Data, NSString *password, EVP_PKEY **pkey, X509 **cert);
+// Change certificate password
+NSData *AAPKCS12UpdatePassword(NSData *p12Data, NSString *oldPassword, NSString *newPassword);
+

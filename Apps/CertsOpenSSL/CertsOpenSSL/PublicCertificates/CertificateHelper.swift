@@ -17,6 +17,9 @@ protocol CertificateParserProtocol {
                               subjectName: String,
                               emailAddress: String,
                               fileName: String) -> String
+
+    static func changeCertificatePassword(certificateName: String,
+                                   password: String, newPassword: String) -> Bool
 }
 
 
@@ -36,23 +39,36 @@ class CertificateHelper: P12CertificateService,
     }
 
     var subjectName: String? {
-        return self.getSubjectName
+        return self.openSSLWrapper.readSubjectNameFromCert()
     }
 
     var issueDate: String? {
-        return self.getStartDate
+        return self.openSSLWrapper.readCertificateIssueDate()
     }
 
     var expiryDate: String?  {
-        return self.getExpiryDate
-    }
-    
-    var certTypes: String?  {
-        return self.getCertificateTypes
+        return self.openSSLWrapper.readCertificateExpiryDate()
     }
 
     var certDecription: String? {
-        return self.getCertificateDescription
+        return self.openSSLWrapper.certDescription()
+    }
+
+    var certTypes: String?  {
+        var types = [String]()
+        if self.openSSLWrapper.hasExtendedUsage(ExtendedKeyUsage.SSL_Client) {
+            types.append(CertificateType.authentication.stringValue)
+        }
+
+        if self.openSSLWrapper.canUse(for: KeyUsage.DigitalSignature) {
+            types.append(CertificateType.signing.stringValue)
+        }
+
+        if self.openSSLWrapper.canUse(for: KeyUsage.DataEncipherment) || self.openSSLWrapper.canUse(for: KeyUsage.KeyEncipherment) {
+            types.append(CertificateType.encryption.stringValue)
+        }
+
+        return types.joined(separator: ", ")
     }
 
     func createP12Certificate(p12CertName: String,
@@ -61,10 +77,18 @@ class CertificateHelper: P12CertificateService,
                               emailAddress: String,
                               fileName: String) -> String {
         return P12CertificateService.createP12Certificate(p12CertName: p12CertName,
-                                    certPassword: certPassword,
-                                   subjectName: subjectName,
-                                    email: emailAddress,
-                                   fileName: fileName)
+                                                          certPassword: certPassword,
+                                                          subjectName: subjectName,
+                                                          email: emailAddress,
+                                                          fileName: fileName)
+    }
+
+    static func changeCertificatePassword(certificateName: String,
+                                   password: String,
+                                   newPassword: String) -> Bool {
+        return P12CertificateService.changeCertificatePassword(certName: certificateName,
+                                                               certPassword: password,
+                                                               newPassword: newPassword)
     }
 
 }

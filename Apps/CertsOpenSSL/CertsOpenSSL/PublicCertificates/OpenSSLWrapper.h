@@ -88,5 +88,12 @@ typedef NS_ENUM(NSUInteger, ExtendedKeyUsage) {
 - (BOOL) isRootCA;
 /// get certificate description
 - (NSString *)certDescription;
+/// Return p12 data
++ (NSData *)updatePKCS12Password:(NSString *)certificateName
+                     oldPassword:(NSString *)oldPassword
+                     newPassword:(NSString *)newPassword;
 
+/// Return whether certificate validate or not
++ (BOOL) validatePKCS12Data:(NSData*)p12Data
+                   password:(NSString*)password;
 @end

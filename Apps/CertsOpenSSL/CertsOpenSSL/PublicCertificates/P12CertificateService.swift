@@ -43,15 +43,15 @@ public extension CertificateType {
 }
 
 class P12CertificateService {
-
+    
     var openSSLWrapper: OpenSSLWrapper
-
+    
     init(p12CertPath: String,
          certPassword: String) {
         self.openSSLWrapper = OpenSSLWrapper(p12CertPath,
-                                        certPassword: certPassword)
+                                             certPassword: certPassword)
     }
-
+    
     init(attributes: [AnyHashable : Any],
          publicKeyData: Data?) {
         var publicKey = publicKeyData
@@ -61,7 +61,7 @@ class P12CertificateService {
         openSSLWrapper = OpenSSLWrapper(attributes: attributes,
                                         publicKey: publicKey)
     }
-
+    
     static func createP12Certificate(p12CertName: String,
                                      certPassword: String,
                                      subjectName: String,
@@ -73,37 +73,14 @@ class P12CertificateService {
                                                      email: email,
                                                      fileName: fileName)
     }
-
-    var getSubjectName: String? {
-        return self.openSSLWrapper.readSubjectNameFromCert()
-    }
-
-    var getStartDate: String? {
-        return self.openSSLWrapper.readCertificateIssueDate()
-    }
-
-    var getExpiryDate: String? {
-        return self.openSSLWrapper.readCertificateExpiryDate()
-    }
-
-    var getCertificateTypes: String {
-        var types = [String]()
-        if self.openSSLWrapper.hasExtendedUsage(ExtendedKeyUsage.SSL_Client) {
-            types.append(CertificateType.authentication.stringValue)
-        }
-
-        if self.openSSLWrapper.canUse(for: KeyUsage.DigitalSignature) {
-            types.append(CertificateType.signing.stringValue)
-        }
-
-        if self.openSSLWrapper.canUse(for: KeyUsage.DataEncipherment) || self.openSSLWrapper.canUse(for: KeyUsage.KeyEncipherment) {
-            types.append(CertificateType.encryption.stringValue)
-        }
-
-        return types.joined(separator: ", ")
-    }
-
-    var getCertificateDescription: String {
-        return self.openSSLWrapper.certDescription()
+    
+    static func changeCertificatePassword(certName: String,
+                                          certPassword: String,
+                                          newPassword: String) -> Bool {
+        let p12Data = OpenSSLWrapper.updatePKCS12Password(certName,
+                                                          oldPassword: certPassword,
+                                                          newPassword: newPassword)
+        return OpenSSLWrapper.validatePKCS12Data(p12Data,
+                                                 password: newPassword)
     }
 }

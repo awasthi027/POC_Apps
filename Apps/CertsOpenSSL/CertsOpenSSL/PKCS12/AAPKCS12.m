@@ -6,7 +6,7 @@
 //
 
 #import "AAPKCS12.h"
-
+#import "OpenSSLWrapperHelper.h"
 
 @interface AAPKCS12()
 

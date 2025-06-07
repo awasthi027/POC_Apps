@@ -28,6 +28,7 @@ import Foundation
         #expect(error != nil,"error should be thrown in case of empty data")
     }
 }
+
 /*
  RSA Block Size: RSA encryption operates on blocks of data of a specific size. This size is determined by the RSA key length. Common key sizes are 2048 bits, 3072 bits, and 4096 bits. A 2048-bit key, for example, can encrypt a plaintext block of 256 bytes (2048 bits / 8 bits per byte).
  Padding: Because your data might not perfectly align with the RSA block size, padding is used. Padding adds extra bytes to the data to fill the block. Common padding schemes include PKCS#1 v1.5 padding and PKCS#1 OAEP padding
@@ -58,6 +59,21 @@ import Foundation
         #expect(error != nil,"error should be thrown in case of empty data")
     }
 }
+
+@Test func testUnEncryptedDataMore256Bytes() async throws {
+
+    let pairGenerator = SecKeyGenerator()
+    let id = "testEncryption"
+    let securityProvider = try! pairGenerator.rsaKeyPair(identifier: id)
+    do {
+        let unEncryptedData = Data.randomData(count: 256) // Random data that is NOT encrypted
+        let decryptData = try securityProvider.decrypt(data: unEncryptedData)
+        #expect(decryptData == nil, "Expecting Nil data")
+    } catch let error {
+        #expect(error != nil,"error should be thrown in case of empty data")
+    }
+}
+
 
 @Test func testEncryptAndDecrypt() async throws {
     let pairGenerator = SecKeyGenerator()

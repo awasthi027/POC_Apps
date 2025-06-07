@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var viewModel = ContentViewModel.certificateAndPasswordViewModel()
+    @State var viewModel = ContentViewModel()
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -30,16 +31,14 @@ struct ContentView: View {
                 .buttonStyle(.borderedProminent)
 
                 Button {
-//                    self.viewModel = ContentViewModel.certificateAndPasswordViewModel(certPath:self.certificatePath,
-//                                                                                      password: "password")
-                   // self.viewModel.readCertificateSubjectName()
+                    self.viewModel = ContentViewModel.certificateAndPasswordViewModel()
                 } label: {
                     Text("Read Certificate")
                         .foregroundColor(.white)
                 }
                 .buttonStyle(.borderedProminent)
             }
-            Text("\(self.viewModel.readCertificateDescription())")
+            Text("\(self.viewModel.readCertificateDescription() ?? "")")
                 .font(.footnote)
         }
         .padding()

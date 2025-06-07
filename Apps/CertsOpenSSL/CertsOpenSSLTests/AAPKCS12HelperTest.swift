@@ -30,4 +30,8 @@ struct AAPKCS12HelperTest {
         #expect(verify == true)
     }
 
+    @Test func changeCertificatePassword() async throws  {
+
+    }
+
 }
