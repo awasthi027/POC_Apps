@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '15.0'
+platform :ios, '16.0'
 
 target 'UITestPOC' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -20,5 +20,12 @@ target 'UITestPOC' do
     pod 'CloudService', '1.0.9'
   end
 
+
 end
 
+$(inherited)
+
+$(TESTING_FRAMEWORK_MODULE_ALIAS_FLAGS)
+
+
+xcodebuild ARCHS=x86_64 -workspace SITHApp.xcworkspace -scheme SITHUITests -destination "platform=iOS Simulator,name=iPhone 16" build-for-testing

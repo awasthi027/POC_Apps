@@ -1,0 +1,386 @@
+{
+  "name": "AirWatchSDK",
+  "module_name": "AWSDK",
+  "version": "25.06.0",
+  "summary": "iOS SDK to provide Air-Watch features into applications",
+  "homepage": "https://github.com/euc-uem/ws1sdk-ios-lib",
+  "authors": {
+    "DL.Dev.iOS.SDK": "DL.Dev.iOS.SDK@air-watch.com",
+    "DL.Dev.iOS.Agent": "DL.Dev.iOS.Agent@air-watch.com"
+  },
+  "requires_arc": true,
+  "platforms": {
+    "ios": "16.0"
+  },
+  "default_subspecs": [
+    "Core",
+    "LogUploadToken"
+  ],
+  "source": {
+    "git": "git@github.com:euc-uem/ws1sdk-ios-lib.git",
+    "tag": "GA/25.06.0"
+  },
+  "swift_versions": "5",
+  "testspecs": [
+    {
+      "name": "AirWatchSDKTests",
+      "test_type": "unit",
+      "source_files": "AirWatchSDKTests/**/*.{h,m,swift}",
+      "resources": [
+        "AirWatchSDKTests/**/*.cer",
+        "AirWatchSDKTests/**/*.json"
+      ],
+      "exclude_files": "AirWatchSDKTests/SDKApplicationProtocolTests.swift",
+      "requires_app_host": true,
+      "app_host_name": "AirWatchSDK/AWSDKTestHost",
+      "dependencies": {
+        "AirWatchSDK/AWSDKTestHost": [],
+        "AirWatchSDK/Core": [],
+        "AirWatchSDK/LogUploadToken": [],
+        "AirWatchSDK/AirWatchAnalytics": [],
+        "AirWatchSDK/TunnelProxy": [],
+        "AirWatchSDK/BoxerAPISupport": [],
+        "AirWatchSDK/ThirdPartyRelease": [],
+        "AirWatchSDK/AppStatusWipe": [],
+        "AirWatchSDK/HubIntegration": [],
+        "AirWatchSDK/PartnerDeviceCompliance": [],
+        "AirWatchSDK/UnmanagedAccessRestriction": [],
+        "AirWatchSDK/PinningFailureReportStore": [],
+        "AirWatchSDK/BiometricExpiration": [],
+        "AirWatchSDK/ConditionalAuthentication": [],
+        "AirWatchSDK/GoogleConditionalAuth": [],
+        "AirWatchSDK/OperationalDataFeatureLifecycleTracking": []
+      },
+      "pod_target_xcconfig": {
+        "PRODUCT_MODULE_NAME": "AirWatchSDKTests",
+        "SWIFT_OBJC_BRIDGING_HEADER": "${PODS_TARGET_SRCROOT}/AirWatchSDKTests/AirWatchSDKTests-Bridging-Header.h",
+        "OTHER_SWIFT_FLAGS": "-DAW_THIRD_PARTY_RELEASE -DON_DEVICE_COMPLIANCE_REFACTOR -DBOXER_INTEGRATION_API -DENABLE_AUTOMATION_LOGGING -DENABLE_AW_ANALYTICS -DLOG_UPLOAD_TOKEN -DENABLE_TUNNEL_PROXY -DENABLE_APP_STATUS_WIPE -DHUB_INTEGRATION -DENABLE_MSAL_AUTHENTICATION_INTEGRATION -DENABLE_UNMANAGED_ACCESS_RESTRICTION -DSSL_PINNING_FAIL_REPORTS_STORE -DENABLE_BIOMETRIC_EXPIRATION -DENABLE_WORKING_HOURS_ACCESS_SUPPORT -DENABLE_GOOGLE_CONDITIONAL_AUTH_INTEGRATION -DENABLE_OPERATIONAL_DATA_FEATURE_LIFECYCLE_TRACKING  -DENABLE_CONDITIONAL_AUTHENTICATION"
+      },
+      "scheme": {
+        "environment_variables": {
+          "SKIP_APPHOST_DEPENDENT_TESTS": "1"
+        }
+      }
+    }
+  ],
+  "appspecs": [
+    {
+      "name": "AWSDKTestHost",
+      "source_files": "AWSDKTestHost/**/*.swift",
+      "info_plist": {
+        "CFBundleIdentifier": "${PRODUCT_BUNDLE_IDENTIFIER}",
+        "CFBundleName": "AWSDKTestHost",
+        "LSApplicationQueriesSchemes": [
+          "msauthv2",
+          "msauthv3"
+        ],
+        "CFBundleURLTypes": [
+          {
+            "CFBundleTypeRole": "Editor",
+            "CFBundleURLName": "MSALTestURL",
+            "CFBundleURLSchemes": [
+              "msauth.${PRODUCT_BUNDLE_IDENTIFIER}"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "AirWatchSDK/**/*.{h,m,mm,c,swift}",
+      "resource_bundles": {
+        "AirWatchSDK": "AirWatchSDK/PrivacyInfo.xcprivacy"
+      },
+      "dependencies": {
+        "AirWatchServices": [
+          "41.3.0"
+        ],
+        "AWTrustServices": [
+          "15.0.0"
+        ],
+        "AWCorePlatformHelpers": [
+          "23.2.0"
+        ],
+        "AWCryptoKit": [
+          "20.0.0"
+        ],
+        "AWError": [
+          "16.0.0"
+        ],
+        "AWLog": [
+          "17.9.0"
+        ],
+        "AWStorageKit": [
+          "21.0.0"
+        ],
+        "AWCMWrapper": [
+          "12.4.0"
+        ],
+        "AWSDKPresenter": [
+          "32.2.0"
+        ],
+        "AWLocalization": [
+          "15.1.0"
+        ],
+        "DynamicCompromisedDeviceDetectionSource": [
+          "10.0.0"
+        ],
+        "CocoaLumberjack": [],
+        "WS1ServiceRegistryProtocol": [
+          "4.1.0"
+        ],
+        "WS1ServiceRegistry": [
+          "4.1.0"
+        ],
+        "XSWSettingsOperationalDataProvider": [
+          "25.3.1"
+        ],
+        "SwiftCBOR": [
+          "0.5.0"
+        ]
+      },
+      "libraries": "c++",
+      "pod_target_xcconfig": {
+        "OTHER_CFLAGS": "-fstack-protector-all",
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++11",
+        "CLANG_CXX_LIBRARY": "libc++"
+      }
+    },
+    {
+      "name": "LogUploadToken",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DLOG_UPLOAD_TOKEN"
+      }
+    },
+    {
+      "name": "TunnelProxy",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "AWTunnel": [
+          "31.0.0"
+        ],
+        "iOSTunnelSDK": [
+          "3.2.1"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DENABLE_TUNNEL_PROXY"
+      }
+    },
+    {
+      "name": "ThirdPartyRelease",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "AWOpenURLClient": [
+          "21.0.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DAW_THIRD_PARTY_RELEASE"
+      }
+    },
+    {
+      "name": "AirWatchAnalytics",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "AWDataSampler": [
+          "38.0.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DENABLE_AW_ANALYTICS"
+      }
+    },
+    {
+      "name": "SITHLogging",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "AWLog/Automation": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DENABLE_AUTOMATION_LOGGING"
+      }
+    },
+    {
+      "name": "BoxerAPISupport",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DBOXER_INTEGRATION_API"
+      }
+    },
+    {
+      "name": "RegistryServiceSupport",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "WS1CredentialTokenService": [
+          "4.1.0"
+        ],
+        "WS1CryptorService": [
+          "4.1.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DENABLE_INTELLIGENCE_SDK_SUPPORT_SERVICES"
+      }
+    },
+    {
+      "name": "AppExtensionSafeAPI",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DENABLE_APP_EXTENSION_SAFE_API"
+      }
+    },
+    {
+      "name": "HubIntegration",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "AWDataSampler": [
+          "38.0.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DHUB_INTEGRATION"
+      }
+    },
+    {
+      "name": "SmartFolioAppSupport",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_FOLIO_APP_SUPPORT"
+      }
+    },
+    {
+      "name": "PartnerDeviceCompliance",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "MSAL": [
+          "2.1.0"
+        ],
+        "JWTDecode": [
+          "3.3.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_MSAL_AUTHENTICATION_INTEGRATION"
+      }
+    },
+    {
+      "name": "AppStatusWipe",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "-DENABLE_APP_STATUS_WIPE"
+      }
+    },
+    {
+      "name": "UnmanagedAccessRestriction",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_UNMANAGED_ACCESS_RESTRICTION"
+      }
+    },
+    {
+      "name": "ConditionalAuthentication",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_CONDITIONAL_AUTHENTICATION"
+      }
+    },
+    {
+      "name": "WorkHourAccess",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "SwiftProtobuf": [
+          "1.29.0"
+        ],
+        "WS1MXServicesSupport": [
+          "4.0.0"
+        ],
+        "WMXSDK": [
+          "5.0.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_WORKING_HOURS_ACCESS_SUPPORT"
+      }
+    },
+    {
+      "name": "PinningFailureReportStore",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DSSL_PINNING_FAIL_REPORTS_STORE"
+      }
+    },
+    {
+      "name": "BiometricExpiration",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_BIOMETRIC_EXPIRATION"
+      }
+    },
+    {
+      "name": "GoogleConditionalAuth",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "GoogleSignIn": [
+          "8.0.0"
+        ],
+        "GoogleAPIClientForREST/CloudIdentity": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_GOOGLE_CONDITIONAL_AUTH_INTEGRATION"
+      }
+    },
+    {
+      "name": "OperationalDataFeatureLifecycleTracking",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_OPERATIONAL_DATA_FEATURE_LIFECYCLE_TRACKING"
+      }
+    },
+    {
+      "name": "AppUpgradeCheck",
+      "dependencies": {
+        "AirWatchSDK/Core": [],
+        "AppUpgradeSDK": [
+          "4.0.0"
+        ]
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_APP_UPGRADE_CHECK"
+      }
+    },
+    {
+      "name": "MultiPartLogUpload",
+      "dependencies": {
+        "AirWatchSDK/Core": []
+      },
+      "pod_target_xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DENABLE_MULTI_PART_LOG_UPLOAD"
+      }
+    }
+  ],
+  "swift_version": "5"
+}

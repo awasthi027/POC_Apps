@@ -1,0 +1,34 @@
+PODS:
+  - api-ios (2.0.0)
+  - LearningSubspecSDK (1.0.0):
+    - LearningSubspecSDK/Core (= 1.0.0)
+    - LearningSubspecSDK/Network (= 1.0.0)
+    - LearningSubspecSDK/SDKBasicInfo (= 1.0.0)
+  - LearningSubspecSDK/Core (1.0.0):
+    - api-ios (= 2.0.0)
+  - LearningSubspecSDK/ExtensionSafeAPI (1.0.0):
+    - LearningSubspecSDK/Core
+  - LearningSubspecSDK/Network (1.0.0):
+    - LearningSubspecSDK/Core
+  - LearningSubspecSDK/SDKBasicInfo (1.0.0):
+    - LearningSubspecSDK/Core
+
+DEPENDENCIES:
+  - LearningSubspecSDK (from `Frameworks/LearningSubspecSDK`)
+  - LearningSubspecSDK/ExtensionSafeAPI (from `Frameworks/LearningSubspecSDK`)
+
+SPEC REPOS:
+  https://github.com/awasthi027/ios-spec.git:
+    - api-ios
+
+EXTERNAL SOURCES:
+  LearningSubspecSDK:
+    :path: Frameworks/LearningSubspecSDK
+
+SPEC CHECKSUMS:
+  api-ios: f99f3f594d0a6b609e3971df8c0723e59b828190
+  LearningSubspecSDK: 4382ce4ba6764fd045991c5da3e6fa1f0cd27c0b
+
+PODFILE CHECKSUM: ab77d42ae269347e254169136d7677d6964a8744
+
+COCOAPODS: 1.16.2
