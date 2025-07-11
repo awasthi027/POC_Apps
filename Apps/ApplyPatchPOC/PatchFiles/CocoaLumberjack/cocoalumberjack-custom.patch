@@ -1,0 +1,25 @@
+diff --git a/Pods/CocoaLumberjack/Sources/CocoaLumberjack/DDFileLogger.m b/Pods/CocoaLumberjack/Sources/CocoaLumberjack/DDFileLogger.m
+index 08abb93..ed08349 100644
+--- a/Pods/CocoaLumberjack/Sources/CocoaLumberjack/DDFileLogger.m
++++ b/Pods/CocoaLumberjack/Sources/CocoaLumberjack/DDFileLogger.m
+@@ -1232,12 +1232,15 @@ - (NSFileHandle *)lt_currentLogFileHandle {
+ 
+ - (void)logMessage:(DDLogMessage *)logMessage {
+     // Don't need to check for isOnInternalLoggerQueue, -lt_dataForMessage: will do it for us.
+-    NSData *data = [self lt_dataForMessage:logMessage];
+-    if (data.length == 0) {
+-        return;
+-    }
++    dispatch_async(_loggerQueue, ^{
++        // Call lt_dataForMessage here
++        NSData *data = [self lt_dataForMessage:logMessage];
++        if (data.length == 0) {
++            return;
++        }
+ 
+-    [self lt_logData:data];
++        [self lt_logData:data];
++    });
+ }
+ 
+ - (void)willLogMessage:(DDLogFileInfo *)logFileInfo {}

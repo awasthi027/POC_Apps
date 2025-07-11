@@ -87,10 +87,5 @@ fastlane/test_output
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
-iOSInjectionProject/
-Apps/iOSUITests/Pods/Target Support Files/Pods-UITestPOC/Pods-UITestPOC-acknowledgements.plist
-Apps/iOSUITests/Pods/Target Support Files/Pods-UITestPOC/Pods-UITestPOC-Info.plist
-Apps/iOSUITests/Pods/Target Support Files/Pods-UITestPOC-UITestPOCUITests/Pods-UITestPOC-UITestPOCUITests-acknowledgements.plist
-Apps/iOSUITests/Pods/Target Support Files/Pods-UITestPOC-UITestPOCUITests/Pods-UITestPOC-UITestPOCUITests-Info.plist
-Apps/iOSUITests/Pods/Target Support Files/Pods-UITestPOCTests/Pods-UITestPOCTests-acknowledgements.plist
-Apps/iOSUITests/Pods/Target Support Files/Pods-UITestPOCTests/Pods-UITestPOCTests-Info.plist
+# Cocoapods
+Pods/

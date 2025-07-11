@@ -14,3 +14,21 @@
 # 12. Sometime we install build in iPhone and without xCode we are trying to get log, It's not possible. If app using cocoalumberJack for logging they internally printing debug, error, fault log in OS log. We can simply connect device with MAC and Open Mac Console and filter log with category or message or bundle id 
 # 13. Just type you filter message -> Enter -> Select filter type example: Subsystem, Category etc ->Enter 
 # 14. If we know any message directly we can search or search by deferent params like params category, subsystem type etc
+# Debug log always comes in MAC console app, other log fault etc some time not comes. may be syncing issue.
+# 15. Simulator Run this command and get live log terminal for extension Run extenion with safari 
+
+sudo log stream \
+--style syslog \
+--predicate 'subsystem == "ashi.com.com.ExtensionPOC.ShareExt"' \
+--level debug \
+--timeout 30s \
+--source
+
+# 16. Simulator Get app log Run This command and then run app 
+
+sudo log stream \
+--style syslog \
+--predicate 'subsystem == "ashi.com.com.ExtensionPOC"' \
+--level debug \
+--timeout 30s \
+--source

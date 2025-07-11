@@ -1,0 +1,40 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '16.0'
+
+target 'ApplyPatchPOC' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  # Pods for ApplyPatchPOC
+   pod 'CocoaLumberjack'
+  target 'ApplyPatchPOCTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ApplyPatchPOCUITests' do
+    # Pods for testing
+  end
+
+end
+
+def applyPatch(target_file, patch_file)
+  # Check if the patch is applicable (git returns 0 if it CAN be applied)
+  if system("git apply --check #{patch_file} >/dev/null 2>&1")
+    puts "Applying CocoaLumberjack patch..."
+    success = system("patch -f #{target_file} < #{patch_file}")
+    unless success
+      puts "❌ Patch failed with exit status #{$?.exitstatus}"
+    end
+  else
+    puts "Patch already applied or incompatible (skipping)"
+  end
+end
+
+
+post_install do |installer|
+  target_file = 'Pods/CocoaLumberjack/Sources/CocoaLumberjack/DDFileLogger.m'
+  patch_file = 'PatchFiles/CocoaLumberjack/cocoalumberjack-custom.patch'
+  applyPatch(target_file,patch_file)
+end
+
+
