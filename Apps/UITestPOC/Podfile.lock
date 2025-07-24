@@ -1,0 +1,32 @@
+PODS:
+  - api-ios (2.0.0)
+  - LearningSubspecSDK/AutomationSupports (1.0.0):
+    - LearningSubspecSDK/Core
+  - LearningSubspecSDK/Core (1.0.0):
+    - api-ios (= 2.0.0)
+  - XCTestExtension (1.0.0):
+    - XCTestExtension/Core (= 1.0.0)
+  - XCTestExtension/Core (1.0.0)
+
+DEPENDENCIES:
+  - LearningSubspecSDK/AutomationSupports (from `Frameworks/LearningSubspecSDK`)
+  - XCTestExtension (from `Frameworks/XCTestExtension`)
+
+SPEC REPOS:
+  https://github.com/awasthi027/ios-spec.git:
+    - api-ios
+
+EXTERNAL SOURCES:
+  LearningSubspecSDK:
+    :path: Frameworks/LearningSubspecSDK
+  XCTestExtension:
+    :path: Frameworks/XCTestExtension
+
+SPEC CHECKSUMS:
+  api-ios: f99f3f594d0a6b609e3971df8c0723e59b828190
+  LearningSubspecSDK: 691571244c9423ed97539afb5cf67c2383e96d1c
+  XCTestExtension: 88f0e4197f1250e97da62d548caebd72bc635692
+
+PODFILE CHECKSUM: a945da57504e852b97fadad7d7173616a57468e2
+
+COCOAPODS: 1.16.2

@@ -4,33 +4,23 @@ source 'https://github.com/awasthi027/ios-spec.git'
 
 def sdkpod(subspec)
   pod 'LearningSubspecSDK/' + subspec, :path => 'Frameworks/LearningSubspecSDK'
-  
 end
 
-target 'ExtensionPOC' do
+target 'UITestPOC' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
- 
 
-  # Pods for ExtensionPOC
+  # Pods for UITestPOC
+  sdkpod 'AutomationSupports'
 
-  target 'ExtensionPOCTests' do
+  target 'UITestPOCTests' do
     inherit! :search_paths
     # Pods for testing
+
   end
 
-  target 'ExtensionPOCUITests' do
-    # Pods for testing
+  target 'UITestPOCUITests' do
     pod 'XCTestExtension', :path => 'Frameworks/XCTestExtension'
   end
 
 end
-
-target 'ShareExt' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  pod 'LearningSubspecSDK', :path => 'Frameworks/LearningSubspecSDK' # It will allow to access default podspecs
-  sdkpod 'ExtensionSafeAPI' # It will allow you to access only extension Safe API spec
-end
-
-

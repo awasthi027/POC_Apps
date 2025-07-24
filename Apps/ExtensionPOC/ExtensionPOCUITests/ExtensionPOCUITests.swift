@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import XCTestExtension
 
 final class ExtensionPOCUITests: XCTestCase {
 
