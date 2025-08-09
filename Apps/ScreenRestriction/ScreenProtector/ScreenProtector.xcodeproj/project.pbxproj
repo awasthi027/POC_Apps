@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95409D102E460759008F521E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95409D0F2E460759008F521E /* WebKit.framework */; };
+		95409D792E47821F008F521E /* SecureScreen in Frameworks */ = {isa = PBXBuildFile; productRef = 95409D782E47821F008F521E /* SecureScreen */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95409CBD2E44D955008F521E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95409C9E2E44D953008F521E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95409CA52E44D953008F521E;
+			remoteInfo = ScreenProtector;
+		};
+		95409CC72E44D955008F521E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95409C9E2E44D953008F521E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95409CA52E44D953008F521E;
+			remoteInfo = ScreenProtector;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95409CA62E44D953008F521E /* ScreenProtector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenProtector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95409CBC2E44D955008F521E /* ScreenProtectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenProtectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95409CC62E44D955008F521E /* ScreenProtectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenProtectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95409D0F2E460759008F521E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		95409CCE2E44D955008F521E /* Exceptions for "ScreenProtector" folder in "ScreenProtector" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 95409CA52E44D953008F521E /* ScreenProtector */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		95409CA82E44D953008F521E /* ScreenProtector */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				95409CCE2E44D955008F521E /* Exceptions for "ScreenProtector" folder in "ScreenProtector" target */,
+			);
+			path = ScreenProtector;
+			sourceTree = "<group>";
+		};
+		95409CBF2E44D955008F521E /* ScreenProtectorTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScreenProtectorTests;
+			sourceTree = "<group>";
+		};
+		95409CC92E44D955008F521E /* ScreenProtectorUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ScreenProtectorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95409CA32E44D953008F521E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95409D102E460759008F521E /* WebKit.framework in Frameworks */,
+				95409D792E47821F008F521E /* SecureScreen in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95409CB92E44D955008F521E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95409CC32E44D955008F521E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95409C9D2E44D953008F521E = {
+			isa = PBXGroup;
+			children = (
+				95409CA82E44D953008F521E /* ScreenProtector */,
+				95409CBF2E44D955008F521E /* ScreenProtectorTests */,
+				95409CC92E44D955008F521E /* ScreenProtectorUITests */,
+				95409D0E2E460759008F521E /* Frameworks */,
+				95409CA72E44D953008F521E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95409CA72E44D953008F521E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95409CA62E44D953008F521E /* ScreenProtector.app */,
+				95409CBC2E44D955008F521E /* ScreenProtectorTests.xctest */,
+				95409CC62E44D955008F521E /* ScreenProtectorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95409D0E2E460759008F521E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95409D0F2E460759008F521E /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95409CA52E44D953008F521E /* ScreenProtector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95409CCF2E44D955008F521E /* Build configuration list for PBXNativeTarget "ScreenProtector" */;
+			buildPhases = (
+				95409CA22E44D953008F521E /* Sources */,
+				95409CA32E44D953008F521E /* Frameworks */,
+				95409CA42E44D953008F521E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				95409CA82E44D953008F521E /* ScreenProtector */,
+			);
+			name = ScreenProtector;
+			packageProductDependencies = (
+				95409D782E47821F008F521E /* SecureScreen */,
+			);
+			productName = ScreenProtector;
+			productReference = 95409CA62E44D953008F521E /* ScreenProtector.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95409CBB2E44D955008F521E /* ScreenProtectorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95409CD42E44D955008F521E /* Build configuration list for PBXNativeTarget "ScreenProtectorTests" */;
+			buildPhases = (
+				95409CB82E44D955008F521E /* Sources */,
+				95409CB92E44D955008F521E /* Frameworks */,
+				95409CBA2E44D955008F521E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95409CBE2E44D955008F521E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				95409CBF2E44D955008F521E /* ScreenProtectorTests */,
+			);
+			name = ScreenProtectorTests;
+			packageProductDependencies = (
+			);
+			productName = ScreenProtectorTests;
+			productReference = 95409CBC2E44D955008F521E /* ScreenProtectorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		95409CC52E44D955008F521E /* ScreenProtectorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95409CD72E44D955008F521E /* Build configuration list for PBXNativeTarget "ScreenProtectorUITests" */;
+			buildPhases = (
+				95409CC22E44D955008F521E /* Sources */,
+				95409CC32E44D955008F521E /* Frameworks */,
+				95409CC42E44D955008F521E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95409CC82E44D955008F521E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				95409CC92E44D955008F521E /* ScreenProtectorUITests */,
+			);
+			name = ScreenProtectorUITests;
+			packageProductDependencies = (
+			);
+			productName = ScreenProtectorUITests;
+			productReference = 95409CC62E44D955008F521E /* ScreenProtectorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95409C9E2E44D953008F521E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					95409CA52E44D953008F521E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					95409CBB2E44D955008F521E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 95409CA52E44D953008F521E;
+					};
+					95409CC52E44D955008F521E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 95409CA52E44D953008F521E;
+					};
+				};
+			};
+			buildConfigurationList = 95409CA12E44D953008F521E /* Build configuration list for PBXProject "ScreenProtector" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95409C9D2E44D953008F521E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				95409D772E47821F008F521E /* XCLocalSwiftPackageReference "../SecureScreen" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 95409CA72E44D953008F521E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95409CA52E44D953008F521E /* ScreenProtector */,
+				95409CBB2E44D955008F521E /* ScreenProtectorTests */,
+				95409CC52E44D955008F521E /* ScreenProtectorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95409CA42E44D953008F521E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95409CBA2E44D955008F521E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95409CC42E44D955008F521E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95409CA22E44D953008F521E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95409CB82E44D955008F521E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95409CC22E44D955008F521E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95409CBE2E44D955008F521E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95409CA52E44D953008F521E /* ScreenProtector */;
+			targetProxy = 95409CBD2E44D955008F521E /* PBXContainerItemProxy */;
+		};
+		95409CC82E44D955008F521E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95409CA52E44D953008F521E /* ScreenProtector */;
+			targetProxy = 95409CC72E44D955008F521E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		95409CD02E44D955008F521E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenProtector/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95409CD12E44D955008F521E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ScreenProtector/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtector;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		95409CD22E44D955008F521E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		95409CD32E44D955008F521E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95409CD52E44D955008F521E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScreenProtector.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScreenProtector";
+			};
+			name = Debug;
+		};
+		95409CD62E44D955008F521E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtectorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScreenProtector.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ScreenProtector";
+			};
+			name = Release;
+		};
+		95409CD82E44D955008F521E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ScreenProtector;
+			};
+			name = Debug;
+		};
+		95409CD92E44D955008F521E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ScreenProtector;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95409CA12E44D953008F521E /* Build configuration list for PBXProject "ScreenProtector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95409CD22E44D955008F521E /* Debug */,
+				95409CD32E44D955008F521E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95409CCF2E44D955008F521E /* Build configuration list for PBXNativeTarget "ScreenProtector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95409CD02E44D955008F521E /* Debug */,
+				95409CD12E44D955008F521E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95409CD42E44D955008F521E /* Build configuration list for PBXNativeTarget "ScreenProtectorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95409CD52E44D955008F521E /* Debug */,
+				95409CD62E44D955008F521E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95409CD72E44D955008F521E /* Build configuration list for PBXNativeTarget "ScreenProtectorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95409CD82E44D955008F521E /* Debug */,
+				95409CD92E44D955008F521E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		95409D772E47821F008F521E /* XCLocalSwiftPackageReference "../SecureScreen" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SecureScreen;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		95409D782E47821F008F521E /* SecureScreen */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SecureScreen;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 95409C9E2E44D953008F521E /* Project object */;
+}
