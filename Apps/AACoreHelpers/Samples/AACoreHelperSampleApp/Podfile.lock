@@ -1,0 +1,16 @@
+PODS:
+  - CoreHelpers (1.0.0)
+
+DEPENDENCIES:
+  - CoreHelpers (from `../../CoreHelpers`)
+
+EXTERNAL SOURCES:
+  CoreHelpers:
+    :path: "../../CoreHelpers"
+
+SPEC CHECKSUMS:
+  CoreHelpers: 3f1a56875196cc8983391531ef688f54d07eb6b3
+
+PODFILE CHECKSUM: 3d291694c6ce2a966c117e78851a115e5f831b3d
+
+COCOAPODS: 1.16.2

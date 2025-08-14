@@ -1,0 +1,758 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02C46FF92CAD9527740C29F6 /* Pods_CrossAppExtEventObserverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5E885BFD35AB16325DA037A /* Pods_CrossAppExtEventObserverTests.framework */; };
+		4F6AB8B17923DA43E1234D86 /* Pods_CrossAppExtEventObserver_CrossAppExtEventObserverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D473D0CFD269D190E97B9F35 /* Pods_CrossAppExtEventObserver_CrossAppExtEventObserverUITests.framework */; };
+		FB5F34E7AD28858644066406 /* Pods_CrossAppExtEventObserver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9831D734F7D007118CC77623 /* Pods_CrossAppExtEventObserver.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		959535442DF16DB500770361 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9595352B2DF16DB300770361 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 959535322DF16DB300770361;
+			remoteInfo = CrossAppExtEventObserver;
+		};
+		9595354E2DF16DB500770361 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9595352B2DF16DB300770361 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 959535322DF16DB300770361;
+			remoteInfo = CrossAppExtEventObserver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B8F1E5BB369C54CD7C34682 /* Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.debug.xcconfig"; path = "Target Support Files/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1AF67BB2EE6DBAC56C54CB2C /* Pods-CrossAppExtEventObserverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossAppExtEventObserverTests.debug.xcconfig"; path = "Target Support Files/Pods-CrossAppExtEventObserverTests/Pods-CrossAppExtEventObserverTests.debug.xcconfig"; sourceTree = "<group>"; };
+		959535332DF16DB300770361 /* CrossAppExtEventObserver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossAppExtEventObserver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		959535432DF16DB500770361 /* CrossAppExtEventObserverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossAppExtEventObserverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9595354D2DF16DB500770361 /* CrossAppExtEventObserverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrossAppExtEventObserverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9831D734F7D007118CC77623 /* Pods_CrossAppExtEventObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossAppExtEventObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C19EC64BC523515728BCF436 /* Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.release.xcconfig"; path = "Target Support Files/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D473D0CFD269D190E97B9F35 /* Pods_CrossAppExtEventObserver_CrossAppExtEventObserverUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossAppExtEventObserver_CrossAppExtEventObserverUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5E885BFD35AB16325DA037A /* Pods_CrossAppExtEventObserverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossAppExtEventObserverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0FBB4B16165E525C8253D62 /* Pods-CrossAppExtEventObserver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossAppExtEventObserver.release.xcconfig"; path = "Target Support Files/Pods-CrossAppExtEventObserver/Pods-CrossAppExtEventObserver.release.xcconfig"; sourceTree = "<group>"; };
+		E64DF30390589576B5BACDC2 /* Pods-CrossAppExtEventObserver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossAppExtEventObserver.debug.xcconfig"; path = "Target Support Files/Pods-CrossAppExtEventObserver/Pods-CrossAppExtEventObserver.debug.xcconfig"; sourceTree = "<group>"; };
+		EBD9DB941BC16DB72AE0DB70 /* Pods-CrossAppExtEventObserverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossAppExtEventObserverTests.release.xcconfig"; path = "Target Support Files/Pods-CrossAppExtEventObserverTests/Pods-CrossAppExtEventObserverTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		959535352DF16DB300770361 /* CrossAppExtEventObserver */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CrossAppExtEventObserver;
+			sourceTree = "<group>";
+		};
+		959535462DF16DB500770361 /* CrossAppExtEventObserverTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CrossAppExtEventObserverTests;
+			sourceTree = "<group>";
+		};
+		959535502DF16DB500770361 /* CrossAppExtEventObserverUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = CrossAppExtEventObserverUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		959535302DF16DB300770361 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5F34E7AD28858644066406 /* Pods_CrossAppExtEventObserver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959535402DF16DB500770361 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C46FF92CAD9527740C29F6 /* Pods_CrossAppExtEventObserverTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9595354A2DF16DB500770361 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F6AB8B17923DA43E1234D86 /* Pods_CrossAppExtEventObserver_CrossAppExtEventObserverUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9595352A2DF16DB300770361 = {
+			isa = PBXGroup;
+			children = (
+				959535352DF16DB300770361 /* CrossAppExtEventObserver */,
+				959535462DF16DB500770361 /* CrossAppExtEventObserverTests */,
+				959535502DF16DB500770361 /* CrossAppExtEventObserverUITests */,
+				959535342DF16DB300770361 /* Products */,
+				C9B41E32CFF8ED8FD5866809 /* Pods */,
+				A4E64A0499426BEC3207F2D0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		959535342DF16DB300770361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				959535332DF16DB300770361 /* CrossAppExtEventObserver.app */,
+				959535432DF16DB500770361 /* CrossAppExtEventObserverTests.xctest */,
+				9595354D2DF16DB500770361 /* CrossAppExtEventObserverUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4E64A0499426BEC3207F2D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9831D734F7D007118CC77623 /* Pods_CrossAppExtEventObserver.framework */,
+				D473D0CFD269D190E97B9F35 /* Pods_CrossAppExtEventObserver_CrossAppExtEventObserverUITests.framework */,
+				D5E885BFD35AB16325DA037A /* Pods_CrossAppExtEventObserverTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9B41E32CFF8ED8FD5866809 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E64DF30390589576B5BACDC2 /* Pods-CrossAppExtEventObserver.debug.xcconfig */,
+				E0FBB4B16165E525C8253D62 /* Pods-CrossAppExtEventObserver.release.xcconfig */,
+				0B8F1E5BB369C54CD7C34682 /* Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.debug.xcconfig */,
+				C19EC64BC523515728BCF436 /* Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.release.xcconfig */,
+				1AF67BB2EE6DBAC56C54CB2C /* Pods-CrossAppExtEventObserverTests.debug.xcconfig */,
+				EBD9DB941BC16DB72AE0DB70 /* Pods-CrossAppExtEventObserverTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		959535322DF16DB300770361 /* CrossAppExtEventObserver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 959535572DF16DB500770361 /* Build configuration list for PBXNativeTarget "CrossAppExtEventObserver" */;
+			buildPhases = (
+				8242EE0541837FD192DE351F /* [CP] Check Pods Manifest.lock */,
+				9595352F2DF16DB300770361 /* Sources */,
+				959535302DF16DB300770361 /* Frameworks */,
+				959535312DF16DB300770361 /* Resources */,
+				8114D331054AB2FFB7B7BC1E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				959535352DF16DB300770361 /* CrossAppExtEventObserver */,
+			);
+			name = CrossAppExtEventObserver;
+			packageProductDependencies = (
+			);
+			productName = CrossAppExtEventObserver;
+			productReference = 959535332DF16DB300770361 /* CrossAppExtEventObserver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		959535422DF16DB500770361 /* CrossAppExtEventObserverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9595355A2DF16DB500770361 /* Build configuration list for PBXNativeTarget "CrossAppExtEventObserverTests" */;
+			buildPhases = (
+				74FC5719A2027D91E0DFE9AE /* [CP] Check Pods Manifest.lock */,
+				9595353F2DF16DB500770361 /* Sources */,
+				959535402DF16DB500770361 /* Frameworks */,
+				959535412DF16DB500770361 /* Resources */,
+				E9A95F5D91DAA55D19B0CE26 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				959535452DF16DB500770361 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				959535462DF16DB500770361 /* CrossAppExtEventObserverTests */,
+			);
+			name = CrossAppExtEventObserverTests;
+			productName = CrossAppExtEventObserverTests;
+			productReference = 959535432DF16DB500770361 /* CrossAppExtEventObserverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9595354C2DF16DB500770361 /* CrossAppExtEventObserverUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9595355D2DF16DB500770361 /* Build configuration list for PBXNativeTarget "CrossAppExtEventObserverUITests" */;
+			buildPhases = (
+				77A15A2C9C765738F232ED4F /* [CP] Check Pods Manifest.lock */,
+				959535492DF16DB500770361 /* Sources */,
+				9595354A2DF16DB500770361 /* Frameworks */,
+				9595354B2DF16DB500770361 /* Resources */,
+				B746AA0D3F51D3F431DADD52 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9595354F2DF16DB500770361 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				959535502DF16DB500770361 /* CrossAppExtEventObserverUITests */,
+			);
+			name = CrossAppExtEventObserverUITests;
+			productName = CrossAppExtEventObserverUITests;
+			productReference = 9595354D2DF16DB500770361 /* CrossAppExtEventObserverUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9595352B2DF16DB300770361 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					959535322DF16DB300770361 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					959535422DF16DB500770361 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 959535322DF16DB300770361;
+					};
+					9595354C2DF16DB500770361 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 959535322DF16DB300770361;
+					};
+				};
+			};
+			buildConfigurationList = 9595352E2DF16DB300770361 /* Build configuration list for PBXProject "CrossAppExtEventObserver" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9595352A2DF16DB300770361;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 959535342DF16DB300770361 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				959535322DF16DB300770361 /* CrossAppExtEventObserver */,
+				959535422DF16DB500770361 /* CrossAppExtEventObserverTests */,
+				9595354C2DF16DB500770361 /* CrossAppExtEventObserverUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		959535312DF16DB300770361 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959535412DF16DB500770361 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9595354B2DF16DB500770361 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74FC5719A2027D91E0DFE9AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossAppExtEventObserverTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77A15A2C9C765738F232ED4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8114D331054AB2FFB7B7BC1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserver/Pods-CrossAppExtEventObserver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserver/Pods-CrossAppExtEventObserver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserver/Pods-CrossAppExtEventObserver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8242EE0541837FD192DE351F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CrossAppExtEventObserver-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B746AA0D3F51D3F431DADD52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests/Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9A95F5D91DAA55D19B0CE26 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserverTests/Pods-CrossAppExtEventObserverTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserverTests/Pods-CrossAppExtEventObserverTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrossAppExtEventObserverTests/Pods-CrossAppExtEventObserverTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9595352F2DF16DB300770361 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9595353F2DF16DB500770361 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		959535492DF16DB500770361 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		959535452DF16DB500770361 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 959535322DF16DB300770361 /* CrossAppExtEventObserver */;
+			targetProxy = 959535442DF16DB500770361 /* PBXContainerItemProxy */;
+		};
+		9595354F2DF16DB500770361 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 959535322DF16DB300770361 /* CrossAppExtEventObserver */;
+			targetProxy = 9595354E2DF16DB500770361 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		959535552DF16DB500770361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		959535562DF16DB500770361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		959535582DF16DB500770361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E64DF30390589576B5BACDC2 /* Pods-CrossAppExtEventObserver.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CrossAppExtEventObserver/Preview Content\"";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CrossAppExtEventObserver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		959535592DF16DB500770361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0FBB4B16165E525C8253D62 /* Pods-CrossAppExtEventObserver.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CrossAppExtEventObserver/Preview Content\"";
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CrossAppExtEventObserver;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9595355B2DF16DB500770361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AF67BB2EE6DBAC56C54CB2C /* Pods-CrossAppExtEventObserverTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CrossAppExtEventObserverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrossAppExtEventObserver.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CrossAppExtEventObserver";
+			};
+			name = Debug;
+		};
+		9595355C2DF16DB500770361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBD9DB941BC16DB72AE0DB70 /* Pods-CrossAppExtEventObserverTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CrossAppExtEventObserverTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrossAppExtEventObserver.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CrossAppExtEventObserver";
+			};
+			name = Release;
+		};
+		9595355E2DF16DB500770361 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B8F1E5BB369C54CD7C34682 /* Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CrossAppExtEventObserverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CrossAppExtEventObserver;
+			};
+			name = Debug;
+		};
+		9595355F2DF16DB500770361 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C19EC64BC523515728BCF436 /* Pods-CrossAppExtEventObserver-CrossAppExtEventObserverUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9VL795556B;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.CrossAppExtEventObserverUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CrossAppExtEventObserver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9595352E2DF16DB300770361 /* Build configuration list for PBXProject "CrossAppExtEventObserver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				959535552DF16DB500770361 /* Debug */,
+				959535562DF16DB500770361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		959535572DF16DB500770361 /* Build configuration list for PBXNativeTarget "CrossAppExtEventObserver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				959535582DF16DB500770361 /* Debug */,
+				959535592DF16DB500770361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9595355A2DF16DB500770361 /* Build configuration list for PBXNativeTarget "CrossAppExtEventObserverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9595355B2DF16DB500770361 /* Debug */,
+				9595355C2DF16DB500770361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9595355D2DF16DB500770361 /* Build configuration list for PBXNativeTarget "CrossAppExtEventObserverUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9595355E2DF16DB500770361 /* Debug */,
+				9595355F2DF16DB500770361 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9595352B2DF16DB300770361 /* Project object */;
+}

@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '16.0'
+
+target 'HelperSwiftUIPOC' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HelperSwiftUIPOC
+  pod 'CoreHelpers', :path => '../../CoreHelpers'
+
+  target 'HelperSwiftUIPOCTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'CoreHelpers', :path => '../../CoreHelpers'
+  end
+
+  target 'HelperSwiftUIPOCUITests' do
+    # Pods for testing
+  end
+  
+end

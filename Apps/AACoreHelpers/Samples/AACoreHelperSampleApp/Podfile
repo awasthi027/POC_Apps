@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'AACoreHelperSampleApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for AACoreHelperSampleApp
+    pod 'CoreHelpers', :path => '../../CoreHelpers'
+    
+  target 'AACoreHelperSampleAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+        pod 'CoreHelpers', :path => '../../CoreHelpers'
+  end
+
+  target 'AACoreHelperSampleAppUITests' do
+    # Pods for testing
+  end
+
+end

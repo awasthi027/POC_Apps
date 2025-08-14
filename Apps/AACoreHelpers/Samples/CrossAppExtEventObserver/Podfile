@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '16.0'
+
+target 'CrossAppExtEventObserver' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for CrossAppExtEventObserver
+    pod 'CoreHelpers', :path => '../../CoreHelpers'
+
+  target 'CrossAppExtEventObserverTests' do
+    inherit! :search_paths
+    # Pods for testing
+     pod 'CoreHelpers', :path => '../../CoreHelpers'
+  end
+
+  target 'CrossAppExtEventObserverUITests' do
+    # Pods for testing
+  end
+
+end
