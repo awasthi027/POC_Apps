@@ -12,7 +12,9 @@ struct HelperSwiftUIPOCApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavHandler {
+                ContentView()
+            }
         }
     }
 }
@@ -23,7 +25,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                      launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         CoreHelperManager.shared.config(writingToolsAllowed: false,
                                          copyPasteOutsideAllowed: true,
-                                         pasteInSideAllowed: true)
+                                         pasteInSideAllowed: true,
+                                         activityControllerAllowed: false,
+                                         printingAllowed: true)
         return true
     }
 }

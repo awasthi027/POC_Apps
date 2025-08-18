@@ -10,8 +10,10 @@ import CoreHelpers
 import WebKit
 
 struct ContentView: View {
+
     @State private var text: String = ""
     @State private var textViewText: String = ""
+
     var body: some View {
         VStack {
             TextField("Enter Text", text: $text)
@@ -34,8 +36,37 @@ struct ContentView: View {
                             url: URL(string: "https://www.google.com")!)
                 .frame(maxHeight: 450)
                 .padding(.horizontal, 20)
+            Button {
+
+            } label: {
+                NavigationLink(value: ControllerNavigation.swizzleControllers) {
+                    Text("Swizzle Controllers")
+                }
+            }
+            .accessibilityIdentifier("swizzle Controller")
+            .padding(.top, 20)
+
+            Button {
+
+            } label: {
+                NavigationLink(value: ControllerNavigation.storyBoardController) {
+                    Text("Story Swizzle Controller")
+                }
+            }
+            .accessibilityIdentifier("swizzleControllers")
+            .padding(.top, 20)
         }
         .padding()
+        .navigationDestination(for: ControllerNavigation.self) { item in
+            switch item {
+            case .swizzleControllers:
+                DocumentView()
+            case .storyBoardController:
+                SwiftViewControllerWrapper()
+            }
+        }
+        .navigationBarTitle("Home", displayMode: .inline)
+        .navigationViewStyle(.automatic)
         .onAppear() {
         }
     }

@@ -47,22 +47,16 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		95BFEF972E4B3FB600A59ADD /* HelperSwiftUIPOC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HelperSwiftUIPOC;
 			sourceTree = "<group>";
 		};
 		95BFEFA52E4B3FB800A59ADD /* HelperSwiftUIPOCTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HelperSwiftUIPOCTests;
 			sourceTree = "<group>";
 		};
 		95BFEFAF2E4B3FB800A59ADD /* HelperSwiftUIPOCUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = HelperSwiftUIPOCUITests;
 			sourceTree = "<group>";
 		};
@@ -289,9 +283,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -350,9 +348,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC/Pods-HelperSwiftUIPOC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC/Pods-HelperSwiftUIPOC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -389,9 +391,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -585,6 +591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -616,6 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ashi.com.com.ScreenProtector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

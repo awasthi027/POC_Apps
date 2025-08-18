@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Swift View Controller-->
+        <scene sceneID="1xL-dP-1Zo">
+            <objects>
+                <viewController storyboardIdentifier="SwiftViewController" id="PlC-C6-sGY" customClass="SwiftViewController" customModule="HelperSwiftUIPOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pe3-SU-HRm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-GV-M0I">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="og1-rH-yqt">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Share Content with ActivityController"/>
+                                        <connections>
+                                            <action selector="goToAppleSite:" destination="PlC-C6-sGY" eventType="touchUpInside" id="Mj6-CT-5WK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DeP-la-Low"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DeP-la-Low" firstAttribute="trailing" secondItem="bhG-GV-M0I" secondAttribute="trailing" id="0ub-mC-SVp"/>
+                            <constraint firstItem="bhG-GV-M0I" firstAttribute="leading" secondItem="DeP-la-Low" secondAttribute="leading" id="I8d-sC-BW4"/>
+                            <constraint firstItem="bhG-GV-M0I" firstAttribute="top" secondItem="DeP-la-Low" secondAttribute="top" id="bwq-Ol-0qh"/>
+                            <constraint firstItem="DeP-la-Low" firstAttribute="bottom" secondItem="bhG-GV-M0I" secondAttribute="bottom" id="ljt-8z-CTc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PY6-19-dQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1382" y="-1423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
