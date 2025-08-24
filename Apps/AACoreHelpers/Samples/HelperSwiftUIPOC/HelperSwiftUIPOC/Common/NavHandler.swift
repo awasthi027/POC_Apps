@@ -2,15 +2,16 @@
 //  NavHandler.swift
 //  HelperSwiftUIPOC
 //
-//  Created by Ashish Awasthi on 18/08/25.
+//  Created by Ashish Awasthi on 22/08/25.
 //
 
 import SwiftUI
 
-enum ControllerNavigation: Int {
+enum ControllerNavigation  {
     case swizzleControllers
     case storyBoardController
 }
+
 
 struct NavHandler<Content>: View where Content: View {
     @ViewBuilder var content: () -> Content

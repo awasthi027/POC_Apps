@@ -44,19 +44,36 @@
 		DC9203672C346E67043A1008 /* Pods_HelperSwiftUIPOCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelperSwiftUIPOCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9532AAE62E58ABAB009E54B5 /* Exceptions for "HelperSwiftUIPOC" folder in "HelperSwiftUIPOC" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 95BFEF942E4B3FB600A59ADD /* HelperSwiftUIPOC */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		95BFEF972E4B3FB600A59ADD /* HelperSwiftUIPOC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9532AAE62E58ABAB009E54B5 /* Exceptions for "HelperSwiftUIPOC" folder in "HelperSwiftUIPOC" target */,
+			);
 			path = HelperSwiftUIPOC;
 			sourceTree = "<group>";
 		};
 		95BFEFA52E4B3FB800A59ADD /* HelperSwiftUIPOCTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HelperSwiftUIPOCTests;
 			sourceTree = "<group>";
 		};
 		95BFEFAF2E4B3FB800A59ADD /* HelperSwiftUIPOCUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = HelperSwiftUIPOCUITests;
 			sourceTree = "<group>";
 		};
@@ -146,7 +163,7 @@
 				95BFEF912E4B3FB600A59ADD /* Sources */,
 				95BFEF922E4B3FB600A59ADD /* Frameworks */,
 				95BFEF932E4B3FB600A59ADD /* Resources */,
-				5803C8AE8B671EA81F25B905 /* [CP] Embed Pods Frameworks */,
+				721DAC255EF43746D70C8A22 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,7 +185,7 @@
 				95BFEF9E2E4B3FB800A59ADD /* Sources */,
 				95BFEF9F2E4B3FB800A59ADD /* Frameworks */,
 				95BFEFA02E4B3FB800A59ADD /* Resources */,
-				2424F651AECF6E0BA9434CAF /* [CP] Embed Pods Frameworks */,
+				F007ABB953E150455EA35D0C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,7 +208,7 @@
 				95BFEFA82E4B3FB800A59ADD /* Sources */,
 				95BFEFA92E4B3FB800A59ADD /* Frameworks */,
 				95BFEFAA2E4B3FB800A59ADD /* Resources */,
-				F2222D31B59E9CAD36625A08 /* [CP] Embed Pods Frameworks */,
+				181DCF0DBE0C063BEA01B075 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,25 +292,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2424F651AECF6E0BA9434CAF /* [CP] Embed Pods Frameworks */ = {
+		181DCF0DBE0C063BEA01B075 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2A6641FD361540C75BFA5FA1 /* [CP] Check Pods Manifest.lock */ = {
@@ -340,7 +353,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5803C8AE8B671EA81F25B905 /* [CP] Embed Pods Frameworks */ = {
+		721DAC255EF43746D70C8A22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,13 +361,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC/Pods-HelperSwiftUIPOC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC/Pods-HelperSwiftUIPOC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -383,25 +392,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2222D31B59E9CAD36625A08 /* [CP] Embed Pods Frameworks */ = {
+		F007ABB953E150455EA35D0C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests/Pods-HelperSwiftUIPOC-HelperSwiftUIPOCUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelperSwiftUIPOCTests/Pods-HelperSwiftUIPOCTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -577,6 +582,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HelperSwiftUIPOC/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -609,6 +615,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HelperSwiftUIPOC/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

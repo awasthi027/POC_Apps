@@ -50,10 +50,10 @@ extension UIActivityViewController {
         // place holder local var to hold activityItems
         var replacedActivityItems = activityItems
         // check restrictions to change the behavior
-        if !CoreHelperManager.shared.isActivityControllerAllowed {
+        if CoreHelperManager.shared.isRestrictionOnActivityController {
             // updated activityItems with message
-            print( "Application restriction is enabled. Restricting UIActivityViewController")
-            replacedActivityItems = ["The administrator doesn't allow this document to be opened in the selected app."]
+            print("Application restriction is enabled. Restricting UIActivityViewController")
+            replacedActivityItems = [ControllerRestriction.uiActivityControllerRestricted.message]
         }
         // No app restrictions continue with system's implementation
         let vc = self.swizzleInit(activityItems: replacedActivityItems,

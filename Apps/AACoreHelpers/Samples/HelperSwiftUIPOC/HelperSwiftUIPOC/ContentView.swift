@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreHelpers
 import WebKit
 
 struct ContentView: View {

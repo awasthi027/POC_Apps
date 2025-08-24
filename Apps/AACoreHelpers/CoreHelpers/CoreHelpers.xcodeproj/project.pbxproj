@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		9527E93D2E4B38C200AE8D66 /* CoreHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9527E9312E4B38C200AE8D66 /* CoreHelpers.framework */; };
+		9532AA0D2E571975009E54B5 /* KeyWindowGettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532AA0C2E571973009E54B5 /* KeyWindowGettable.swift */; };
+		9532AA7A2E589069009E54B5 /* FileUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532AA792E589061009E54B5 /* FileUtility.swift */; };
+		9532ACA92E5B2569009E54B5 /* UIPrintInteractionController+Swizzle.m in Headers */ = {isa = PBXBuildFile; fileRef = 9532ACA82E5B2567009E54B5 /* UIPrintInteractionController+Swizzle.m */; };
+		9532ACAD2E5B26FB009E54B5 /* PrintInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9532ACAC2E5B26F8009E54B5 /* PrintInteractionController.swift */; };
+		9587BEC02E54AE4100A63DED /* UIDocumentInteractionController+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587BEBF2E54AE3A00A63DED /* UIDocumentInteractionController+Swizzle.m */; };
+		9587BEC42E54AFA000A63DED /* CHDocumentInteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587BEC32E54AF9A00A63DED /* CHDocumentInteractionController.swift */; };
+		9587BEC62E54B09200A63DED /* CHQLPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587BEC52E54B08D00A63DED /* CHQLPreviewController.swift */; };
 		95A61FC32E4B3B710073A23C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A61FBC2E4B3B710073A23C /* Optional+Extensions.swift */; };
 		95A61FC42E4B3B710073A23C /* CoreHelpers.docc in Sources */ = {isa = PBXBuildFile; fileRef = 95A61FB82E4B3B710073A23C /* CoreHelpers.docc */; };
 		95A61FC52E4B3B710073A23C /* CoreHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A61FB92E4B3B710073A23C /* CoreHelpers.swift */; };
@@ -38,8 +45,6 @@
 		95BFF1782E4DE48C00A59ADD /* InstanceMethodSwizzlable+Cute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFF1772E4DE48700A59ADD /* InstanceMethodSwizzlable+Cute.swift */; };
 		95BFF19A2E4DF15100A59ADD /* UIPasteboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFF1992E4DF15100A59ADD /* UIPasteboard+Extension.swift */; };
 		95BFF1CA2E53156200A59ADD /* UIActivityViewController+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BFF1C92E53155B00A59ADD /* UIActivityViewController+Swizzle.m */; };
-		95BFF1CC2E5315D000A59ADD /* UIActivityViewController+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFF1CB2E5315CE00A59ADD /* UIActivityViewController+Swizzle.swift */; };
-		95BFF1E62E531ADE00A59ADD /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFF1E52E531ADE00A59ADD /* MethodSwizzle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,13 @@
 /* Begin PBXFileReference section */
 		9527E9312E4B38C200AE8D66 /* CoreHelpers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9527E93C2E4B38C200AE8D66 /* CoreHelpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreHelpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9532AA0C2E571973009E54B5 /* KeyWindowGettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyWindowGettable.swift; sourceTree = "<group>"; };
+		9532AA792E589061009E54B5 /* FileUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtility.swift; sourceTree = "<group>"; };
+		9532ACA82E5B2567009E54B5 /* UIPrintInteractionController+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIPrintInteractionController+Swizzle.m"; sourceTree = "<group>"; };
+		9532ACAC2E5B26F8009E54B5 /* PrintInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintInteractionController.swift; sourceTree = "<group>"; };
+		9587BEBF2E54AE3A00A63DED /* UIDocumentInteractionController+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDocumentInteractionController+Swizzle.m"; sourceTree = "<group>"; };
+		9587BEC32E54AF9A00A63DED /* CHDocumentInteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHDocumentInteractionController.swift; sourceTree = "<group>"; };
+		9587BEC52E54B08D00A63DED /* CHQLPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHQLPreviewController.swift; sourceTree = "<group>"; };
 		95A61FB72E4B3B710073A23C /* CoreHelperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHelperManager.swift; sourceTree = "<group>"; };
 		95A61FB82E4B3B710073A23C /* CoreHelpers.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CoreHelpers.docc; sourceTree = "<group>"; };
 		95A61FB92E4B3B710073A23C /* CoreHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreHelpers.swift; sourceTree = "<group>"; };
@@ -85,9 +97,15 @@
 		95BFF1772E4DE48700A59ADD /* InstanceMethodSwizzlable+Cute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InstanceMethodSwizzlable+Cute.swift"; sourceTree = "<group>"; };
 		95BFF1992E4DF15100A59ADD /* UIPasteboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPasteboard+Extension.swift"; sourceTree = "<group>"; };
 		95BFF1C92E53155B00A59ADD /* UIActivityViewController+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIActivityViewController+Swizzle.m"; sourceTree = "<group>"; };
-		95BFF1CB2E5315CE00A59ADD /* UIActivityViewController+Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityViewController+Swizzle.swift"; sourceTree = "<group>"; };
-		95BFF1E52E531ADE00A59ADD /* MethodSwizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSwizzle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9532ACB02E5B270B009E54B5 /* Swizzle */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Swizzle;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9527E92E2E4B38C200AE8D66 /* Frameworks */ = {
@@ -126,9 +144,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9532AA782E58904B009E54B5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9532AA792E589061009E54B5 /* FileUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		95A61FC02E4B3B710073A23C /* CoreHelpers */ = {
 			isa = PBXGroup;
 			children = (
+				9532AA782E58904B009E54B5 /* Utility */,
 				95BFF12F2E4DE20F00A59ADD /* CrossAppNotifier */,
 				95BFF0692E4B6A4200A59ADD /* PasteBoard */,
 				95A61FB72E4B3B710073A23C /* CoreHelperManager.swift */,
@@ -136,6 +163,7 @@
 				95A61FB92E4B3B710073A23C /* CoreHelpers.swift */,
 				95A61FBA2E4B3B710073A23C /* InstanceMethodSwizzlable.swift */,
 				95A61FBC2E4B3B710073A23C /* Optional+Extensions.swift */,
+				9532AA0C2E571973009E54B5 /* KeyWindowGettable.swift */,
 				95A61FBD2E4B3B710073A23C /* Swizzler.swift */,
 				95BFF06F2E4B6B8E00A59ADD /* ObjectiveC */,
 				95BFF1C82E53154100A59ADD /* Controllers */,
@@ -199,6 +227,8 @@
 		95BFF06F2E4B6B8E00A59ADD /* ObjectiveC */ = {
 			isa = PBXGroup;
 			children = (
+				9532ACA82E5B2567009E54B5 /* UIPrintInteractionController+Swizzle.m */,
+				9587BEBF2E54AE3A00A63DED /* UIDocumentInteractionController+Swizzle.m */,
 				95BFF1C92E53155B00A59ADD /* UIActivityViewController+Swizzle.m */,
 				95BFF0702E4B6BAB00A59ADD /* UITextField+Swizzle.m */,
 				95BFF0712E4B6BAB00A59ADD /* UITextView+Swizzle.m */,
@@ -246,8 +276,10 @@
 		95BFF1C82E53154100A59ADD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				95BFF1CB2E5315CE00A59ADD /* UIActivityViewController+Swizzle.swift */,
-				95BFF1E52E531ADE00A59ADD /* MethodSwizzle.swift */,
+				9532ACAC2E5B26F8009E54B5 /* PrintInteractionController.swift */,
+				9587BEC52E54B08D00A63DED /* CHQLPreviewController.swift */,
+				9587BEC32E54AF9A00A63DED /* CHDocumentInteractionController.swift */,
+				9532ACB02E5B270B009E54B5 /* Swizzle */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +291,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9532ACA92E5B2569009E54B5 /* UIPrintInteractionController+Swizzle.m in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +310,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9532ACB02E5B270B009E54B5 /* Swizzle */,
 			);
 			name = CoreHelpers;
 			packageProductDependencies = (
@@ -367,25 +403,27 @@
 			files = (
 				95A61FC32E4B3B710073A23C /* Optional+Extensions.swift in Sources */,
 				95A61FC42E4B3B710073A23C /* CoreHelpers.docc in Sources */,
-				95BFF1CC2E5315D000A59ADD /* UIActivityViewController+Swizzle.swift in Sources */,
 				95A61FC52E4B3B710073A23C /* CoreHelpers.swift in Sources */,
 				95BFF1302E4DE20F00A59ADD /* CrossAppEventObservation.swift in Sources */,
 				95BFF1312E4DE20F00A59ADD /* CrossAppEventNotifier.swift in Sources */,
 				95BFF1782E4DE48C00A59ADD /* InstanceMethodSwizzlable+Cute.swift in Sources */,
 				95BFF1322E4DE20F00A59ADD /* CrossAppEventNotifier+Center.swift in Sources */,
+				9587BEC02E54AE4100A63DED /* UIDocumentInteractionController+Swizzle.m in Sources */,
 				95BFF1332E4DE20F00A59ADD /* EventHandlerIgnoreList.swift in Sources */,
 				95BFF1342E4DE20F00A59ADD /* EventObservationList.swift in Sources */,
 				95BFF1292E4DE16E00A59ADD /* AppPasteboard.swift in Sources */,
 				95A61FC62E4B3B710073A23C /* InstanceMethodSwizzlable.swift in Sources */,
 				95BFF06E2E4B6AD100A59ADD /* InstanceMethodSwizzlable+WritingTools.swift in Sources */,
 				95BFF0A42E4B751B00A59ADD /* Instance+WebView.swift in Sources */,
+				9532AA0D2E571975009E54B5 /* KeyWindowGettable.swift in Sources */,
 				95BFF0732E4B6BAB00A59ADD /* UITextField+Swizzle.m in Sources */,
 				95BFF0782E4B6CD300A59ADD /* UITextField+Swizzle.swift in Sources */,
+				9587BEC62E54B09200A63DED /* CHQLPreviewController.swift in Sources */,
 				95BFF1CA2E53156200A59ADD /* UIActivityViewController+Swizzle.m in Sources */,
 				95BFF0742E4B6BAB00A59ADD /* WKWebView+Swizzle.m in Sources */,
-				95BFF1E62E531ADE00A59ADD /* MethodSwizzle.swift in Sources */,
 				95BFF0E42E4C9B3000A59ADD /* InstanceMethodSwizzlable+Copy.swift in Sources */,
 				95BFF0752E4B6BAB00A59ADD /* UITextView+Swizzle.m in Sources */,
+				9532AA7A2E589069009E54B5 /* FileUtility.swift in Sources */,
 				95BFF0E62E4CC2CE00A59ADD /* InstanceMethodSwizzlable+Paste.swift in Sources */,
 				95A61FC82E4B3B710073A23C /* CoreHelperManager.swift in Sources */,
 				95BFF0A22E4B744C00A59ADD /* WKWebView+Swizzle.swift in Sources */,
@@ -395,6 +433,8 @@
 				95BFF1262E4DE15800A59ADD /* UITextView+Restriction.swift in Sources */,
 				95BFF1272E4DE15800A59ADD /* WKWebView+Restriction.swift in Sources */,
 				95BFF19A2E4DF15100A59ADD /* UIPasteboard+Extension.swift in Sources */,
+				9587BEC42E54AFA000A63DED /* CHDocumentInteractionController.swift in Sources */,
+				9532ACAD2E5B26FB009E54B5 /* PrintInteractionController.swift in Sources */,
 				95BFF09F2E4B740C00A59ADD /* UITextView+Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

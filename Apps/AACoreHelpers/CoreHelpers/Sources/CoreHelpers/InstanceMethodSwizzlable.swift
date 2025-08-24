@@ -34,6 +34,7 @@ internal protocol InstanceMethodSwizzlable: TargetedInstanceProvider {
     static var targetedClass: AnyClass? { get }
     static var shouldSwizzle: Bool { get }
     static func swizzleInstanceMethod(from original: Selector, to targeted: Selector)
+    static func swizzleClassMethod(from original: Selector, to targeted: Selector)
     static func swizzleInstanceMethod(
         origin: (`class`: AnyClass?, selector: Selector),
         target: (`class`: AnyClass?, selector: Selector)
@@ -61,6 +62,14 @@ extension InstanceMethodSwizzlable {
         }
         Swizzler.swizzle(origin: (class: origin.class, selector: origin.selector, isClassMethod: false),
                          target: (class: target.class, selector: target.selector, isClassMethod: false))
+    }
+
+    static func swizzleClassMethod(from original: Selector, to targeted: Selector) {
+        guard self.shouldSwizzle else {
+            return
+        }
+        Swizzler.swizzle(origin: (class: self.targetedClass, selector: original, isClassMethod: true),
+                         target: (class: self.targetedClass, selector: targeted, isClassMethod: true))
     }
 }
 

@@ -27,7 +27,6 @@ extension WebViewStatus {
 }
 
 import SwiftUI
-import CoreHelpers
 import WebKit
 
 struct CustomWKWebView: UIViewRepresentable {
@@ -52,6 +51,5 @@ struct CustomWKWebView: UIViewRepresentable {
             let request = URLRequest(url: url)
             uiView.load(request)
         }
-
     }
 }

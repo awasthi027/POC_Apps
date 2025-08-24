@@ -17,15 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-GV-M0I">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-GV-M0I">
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="og1-rH-yqt">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="166.66666666666666"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Share Content with ActivityController"/>
                                         <connections>
-                                            <action selector="goToAppleSite:" destination="PlC-C6-sGY" eventType="touchUpInside" id="Mj6-CT-5WK"/>
+                                            <action selector="goToAppleSite:" destination="PlC-C6-sGY" eventType="touchUpInside" id="ydd-uf-sTl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0X-Nf-6pl">
+                                        <rect key="frame" x="0.0" y="166.66666666666669" width="393" height="166.33333333333331"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Open Documents "/>
+                                        <connections>
+                                            <action selector="openDocument:" destination="PlC-C6-sGY" eventType="touchUpInside" id="qZY-EN-Jla"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03n-8Q-gCL">
+                                        <rect key="frame" x="0.0" y="333" width="393" height="166.66666666666663"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Preview Documents "/>
+                                        <connections>
+                                            <action selector="previewDocument:" destination="PlC-C6-sGY" eventType="touchUpInside" id="Oai-jZ-WgS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iey-tU-36G">
+                                        <rect key="frame" x="0.0" y="499.66666666666657" width="393" height="166.33333333333331"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Print PDF"/>
+                                        <connections>
+                                            <action selector="printPDF:" destination="PlC-C6-sGY" eventType="touchUpInside" id="g1e-hb-9SY"/>
                                         </connections>
                                     </button>
                                 </subviews>

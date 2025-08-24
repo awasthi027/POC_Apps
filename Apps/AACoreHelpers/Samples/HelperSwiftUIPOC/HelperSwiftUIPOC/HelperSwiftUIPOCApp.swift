@@ -21,13 +21,16 @@ struct HelperSwiftUIPOCApp: App {
 
 import CoreHelpers
 class AppDelegate: NSObject, UIApplicationDelegate {
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         CoreHelperManager.shared.config(writingToolsAllowed: false,
-                                         copyPasteOutsideAllowed: true,
-                                         pasteInSideAllowed: true,
-                                         activityControllerAllowed: false,
-                                         printingAllowed: true)
+                                        copyPasteOutsideAllowed: true,
+                                        pasteInSideAllowed: true,
+                                        restrictionOnActivityController: false,
+                                        restrictionOnUIDocInteractionController: true,
+                                        restrictionUIPrintInteractionController: true,
+                                        printingAllowed: true)
         return true
     }
 }
