@@ -139,16 +139,7 @@ public extension DocumentInteractionController {
     }
 
     override func presentPreview(animated: Bool) -> Bool {
-        var keyWindow: UIWindow?
-        ensureOnMainQueue {
-            keyWindow = (UIApplication.shared as KeyWindowGettable).keyUIWindow
-        }
-
-        guard let rootViewController = keyWindow?.rootViewController else {
-            return false
-        }
-
-        let topVC = topMostViewController(rootViewController)
+        let topVC = self.findTopViewController
         if let navVc = topVC as? UINavigationController {
             navVc.pushViewController(qlPreviewViewController, animated: animated)
         } else {
@@ -156,10 +147,21 @@ public extension DocumentInteractionController {
             /// simply present the preview controller modally.
             //let navVc = //UINavigationController(rootViewController: qlPreviewViewController)
             ensureOnMainQueue {
-                topVC.present(qlPreviewViewController, animated: animated)
+                topVC?.present(qlPreviewViewController, animated: animated)
             }
         }
         return true
+    }
+
+    var findTopViewController: UIViewController? {
+        var keyWindow: UIWindow?
+        ensureOnMainQueue {
+            keyWindow = (UIApplication.shared as KeyWindowGettable).keyUIWindow
+        }
+        guard let rootViewController = keyWindow?.rootViewController else {
+            return nil
+        }
+        return topMostViewController(rootViewController)
     }
 
     /// Traverse to the top-most view controller in the hierarchy.
@@ -268,10 +270,17 @@ extension DocumentInteractionController: UIDocumentInteractionControllerDelegate
     }
 
     static let dummyFilepath = "dummyfileURL"
+
+    /// This delegate method will not call if file shared with extension, This method only will call when you share file to app. example:  Google chrome , iBooks "com.apple.iBooks","com.google.chrome.ios"
     public func documentInteractionController(_ controller: UIDocumentInteractionController, willBeginSendingToApplication application: String?) {
 
         guard self.isAppAllowed(with: application) else {
             controller.url = URL(fileURLWithPath: DocumentInteractionController.dummyFilepath)
+            let alertViewController = UIAlertController(title: "Restricted",
+                                                            message: self.alertMessage, preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            }))
+            self.findTopViewController?.present(alertViewController, animated: true)
             return
         }
 

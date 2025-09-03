@@ -39,6 +39,8 @@ open class CoreHelperManager {
     /// UIDocInteractionController Internally uses UIActivityControlller if present as presentOpenInMenu In that case only UIActivityControlller restriction will be applied
     internal var isRestrictionOnUIDocInteractionController: Bool = false
     /// if isRestrictionOnUIDocInteractionController is true then only document shared with allowed apps
+    /// If user want to share file via extension, share file with extension always blocked. Only we can allow share file with actual app like
+    /// Google chrome , iBooks "com.apple.iBooks","com.google.chrome.ios"
     internal var documentShareAllowedWithApps: [String] = []
     /// If set to true, it will restrict print interaction controller UI, default value is TRUE
     internal var isRestrictionUIPrintInteractionController: Bool = true
@@ -50,6 +52,7 @@ open class CoreHelperManager {
                        pasteInSideAllowed: Bool = true,
                        restrictionOnActivityController: Bool = true,
                        restrictionOnUIDocInteractionController: Bool = false,
+                       documentShareAllowedWithApps: [String] = [],
                        restrictionUIPrintInteractionController: Bool = true,
                        printingAllowed: Bool = true) {
         self.isWritingToolsAllowed = writingToolsAllowed
@@ -57,6 +60,7 @@ open class CoreHelperManager {
         self.isPasteInsideAllowed = pasteInSideAllowed
         self.isRestrictionOnActivityController = restrictionOnActivityController
         self.isRestrictionOnUIDocInteractionController = restrictionOnUIDocInteractionController
+        self.documentShareAllowedWithApps = documentShareAllowedWithApps
         self.isRestrictionUIPrintInteractionController = restrictionUIPrintInteractionController
         self.isPrintingAllowed = printingAllowed
     }

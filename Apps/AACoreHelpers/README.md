@@ -32,3 +32,8 @@ Is user copy text from app to out: NO, is user paste text from out to app: YES
 Deafult writing tool not allowed 
     isWritingToolsAllowed: False
 
+## isRestrictionOnActivityController = true, It will not allow to share item with others apps via activity controller
+## isRestrictionOnUIDocInteractionController = true, It will not allow to share item with others apps via UIDocInteractionController
+## Note: UIDocInteractionController and UIActivityControlller is not allowed together on either one we can apply restriction at a time
+## isRestrictionUIPrintInteractionController = true, It will not allow to print document from app
+## documentShareAllowedWithApps will allow only with apps not extension Google chrome , iBooks "com.apple.iBooks","com.google.chrome.ios"

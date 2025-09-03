@@ -29,6 +29,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                                         pasteInSideAllowed: true,
                                         restrictionOnActivityController: false,
                                         restrictionOnUIDocInteractionController: true,
+                                        documentShareAllowedWithApps: ["com.google.chrome.ios"],
                                         restrictionUIPrintInteractionController: true,
                                         printingAllowed: true)
         return true
