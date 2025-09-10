@@ -32,7 +32,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didSelectFourthButton(_ sender: UIButton) {
-        self.present( XibViewController(), animated: true)
+        self.present(XibViewController(), animated: true)
+    }
+
+    @IBAction func didSelectFifthButton(_ sender: UIButton) {
+        self.present(CustomPlayerViewController(), animated: true)
     }
 }
 
