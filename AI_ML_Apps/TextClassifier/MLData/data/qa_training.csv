@@ -1,0 +1,85 @@
+text,answer_key
+How to create OG,create_og
+How do I create OG,create_og
+How can I create OG,create_og
+Create a OG,create_og
+Create OG,create_og
+How to do token authentication,token_authentication
+enable token authentication,token_authentication
+uem authentication,token_authentication
+HMAC token testing,token_authentication
+How to add custom setting on UEM,custom_settings
+custom settings on uem,custom_settings
+how to update custom settings on uem,custom_settings
+How to upload SSL PIN certificate,upload_ssl_certificate
+How to test third party apps,test_third_party_apps
+How to debug third party app,debug_third_party_app
+how to enroll device with email,email_enrolment
+email enrollment,email_enrolment
+wrong password logout,wrong_password_lockout
+why app logout after three attempt,wrong_password_lockout
+app logout usecase,wrong_password_lockout
+How to do boxer configuration,boxer_configuration
+boxer configuration,boxer_configuration
+enable boxer configuration,boxer_configuration
+How to do Integrated Authentication,integrated_authentication
+Integrated Authentication setup,integrated_authentication
+enable Integrated Authentication,integrated_authentication
+how to enable integrate authenticatio,integrated_authentication
+How many types of enrolment UEM support,enrolment_types
+UEM supported enrolment types,enrolment_types
+Supported enrolment types,enrolment_types
+How to configure tunnel,configure_tunnel
+How to collect app logs from UEM,collect_app_logs
+collect logs from app,collect_app_logs
+get app logs,collect_app_logs
+get app logs from UEM,collect_app_logs
+Environment information,environment_info
+How to revoke SDK HMAC token,revoke_hmac_token
+rovke hmac token,revoke_hmac_token
+test hmac token,revoke_hmac_token
+How to create MDM or Device Profile,create_mdm_profile
+Create a MDM profile,create_mdm_profile
+MDM a profile,create_mdm_profile
+Publish a mdm profile,create_mdm_profile
+Delete a mdm profile,create_mdm_profile
+Edit mdm profile,create_mdm_profile
+Update mdm profile,create_mdm_profile
+How to create a iPA,create_ipa
+How to create .ipa,create_ipa
+Create a ipa .ipa,create_ipa
+Create a ipa file,create_ipa
+How to enable unenrol option from UEM,unenrol_device
+unenrol option,unenrol_device
+unenrol device,unenrol_device
+unenrol settings on uem,unenrol_device
+Does WS1 iOS SDK support watermark feature,watermark_feature
+watermark feature support by iOS app,watermark feature
+Productivity apps support water mark,watermark feature
+is hub-iOS support watermark,watermark feature
+Console version check,console_version
+How to check console veresion in app response,console_version
+What are the use case device can wipe randomly,device_wipe
+Device wipe randomly,device_wipe
+How SDK send logs use cases work,send_log
+How to send log,send_log
+How support option are working on Support view controller and Account view controller,support_option
+How to configue support option,support_option
+How to configiue support on UEM,support_option
+How to configiue support on Hub Services,support_option
+Support option,support_option
+How term of condition feature works and How we can publish new ToC,app_term_condition
+Publish app term condition,app_term_condition
+publish app ToC,app_term_condition
+Publish new ToC,app_term_condition
+Update app ToC,app_term_condition
+edit app ToC,app_term_condition
+How to test checkin checkout feature,checkin_feature
+How to test checkin feature,checkin_feature
+How to test checkin feature,checkin_feature
+checkout feature,checkin_feature
+checkin feature,checkin_feature
+How to build hub iOS app,build_hub_iOS
+Hub iOS app build fail,build_hub_iOS
+How iOS app build failure,build_hub_iOS
+How to do Testing Online certificate status Protocol,online_certificate_test
