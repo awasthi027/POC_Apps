@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+  <trk>
+    <name>Sample Route</name>
+    <trkseg>
+      <!-- Apple HQ, Cupertino -->
+      <trkpt lat="37.3318" lon="-122.0312"><time>2026-06-08T10:00:00Z</time></trkpt>
+      <trkpt lat="37.3325" lon="-122.0320"><time>2026-06-08T10:00:05Z</time></trkpt>
+      <trkpt lat="37.3330" lon="-122.0330"><time>2026-06-08T10:00:10Z</time></trkpt>
+      <trkpt lat="37.3340" lon="-122.0340"><time>2026-06-08T10:00:15Z</time></trkpt>
+      <trkpt lat="37.3350" lon="-122.0350"><time>2026-06-08T10:00:20Z</time></trkpt>
+    </trkseg>
+  </trk>
+</gpx>
