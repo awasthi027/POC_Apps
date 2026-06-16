@@ -20,7 +20,7 @@ final class ArticleListViewModel: ObservableObject {
     func loadArticles() {
         guard !isRequestInProgress else { return }
         guard let auth = authProvider() else {
-            status = "Setup secure channel first"
+            status = "Connect and verify the secure channel first"
             return
         }
 
@@ -40,6 +40,11 @@ final class ArticleListViewModel: ObservableObject {
             }
         }
     }
+
+    func loadArticlesIfNeeded() {
+        guard articles.isEmpty else { return }
+        loadArticles()
+    }
 }
 
 final class ArticleCreateViewModel: ObservableObject {
@@ -50,22 +55,19 @@ final class ArticleCreateViewModel: ObservableObject {
 
     private let articleService: ArticleService
     private let authProvider: () -> SignedRequestContext?
-    private let onCreateSuccess: () -> Void
 
     init(
         articleService: ArticleService,
-        authProvider: @escaping () -> SignedRequestContext?,
-        onCreateSuccess: @escaping () -> Void
+        authProvider: @escaping () -> SignedRequestContext?
     ) {
         self.articleService = articleService
         self.authProvider = authProvider
-        self.onCreateSuccess = onCreateSuccess
     }
 
     func createArticle() {
         guard !isRequestInProgress else { return }
         guard let auth = authProvider() else {
-            status = "Setup secure channel first"
+            status = "Connect and verify the secure channel first"
             return
         }
 
@@ -90,8 +92,7 @@ final class ArticleCreateViewModel: ObservableObject {
             case .success(let statusCode):
                 self.articleTitle = ""
                 self.articleDescription = ""
-                self.status = "Article created (HTTP \(statusCode)). Refreshing list..."
-                self.onCreateSuccess()
+                self.status = "Article created successfully (HTTP \(statusCode))"
             }
         }
     }
@@ -120,7 +121,7 @@ final class ArticleDetailViewModel: ObservableObject {
     func refreshArticle() {
         guard !isRefreshing else { return }
         guard let auth = authProvider() else {
-            statusText = "Setup secure channel first"
+            statusText = "Connect and verify the secure channel first"
             return
         }
 

@@ -12,7 +12,7 @@ private struct ChannelStatusResponse: Decodable {
     let status: String?
 }
 
-class SecureChannelViewModel: ObservableObject {
+final class SecureChannelViewModel: ObservableObject {
     @Published var handshakeStatus: String = "Secure channel not started"
     @Published var secureChannelStatus: String = "Channel activity not checked"
 
@@ -23,28 +23,15 @@ class SecureChannelViewModel: ObservableObject {
     @Published var isHandshakeInProgress: Bool = false
     @Published var isChannelStatusCheckInProgress: Bool = false
 
-    lazy var articleListViewModel: ArticleListViewModel = {
-        ArticleListViewModel(
-            articleService: articleService,
-            authProvider: { [weak self] in self?.signedRequestContext() }
-        )
-    }()
-
-    lazy var articleCreateViewModel: ArticleCreateViewModel = {
-        ArticleCreateViewModel(
-            articleService: articleService,
-            authProvider: { [weak self] in self?.signedRequestContext() },
-            onCreateSuccess: { [weak self] in self?.articleListViewModel.loadArticles() }
-        )
-    }()
-
     private let client: EcdhClient
     private let requestExecutor: SignedRequestExecutor
     private let articleService: ArticleService
+    private let stateStore: SecureChannelStateStore
 
     init(
         environment: SecureNetworkEnvironment = .shared,
-        signer: ProtectedRequestSigner = ProtectedRequestSigner()
+        signer: ProtectedRequestSigner = ProtectedRequestSigner(),
+        stateStore: SecureChannelStateStore = .shared
     ) {
         self.client = EcdhClient(
             session: environment.session,
@@ -53,6 +40,9 @@ class SecureChannelViewModel: ObservableObject {
         )
         self.requestExecutor = SignedRequestExecutor(environment: environment, signer: signer)
         self.articleService = ArticleService(requestExecutor: requestExecutor)
+        self.stateStore = stateStore
+
+        restorePersistedStateIfAvailable()
     }
 
     func runFullEcdhHandshake() {
@@ -62,6 +52,8 @@ class SecureChannelViewModel: ObservableObject {
         isSecureChannelComplete = false
         isSecureChannelActive = false
         activeSessionId = ""
+        client.clearSessionState()
+        stateStore.clear()
         secureChannelStatus = "Channel activity not checked"
         handshakeStatus = "Starting secure channel setup..."
 
@@ -101,13 +93,14 @@ class SecureChannelViewModel: ObservableObject {
                 self.isSecureChannelComplete = true
                 self.activeSessionId = confirmResponse.sessionId
                 self.handshakeStatus = "Secure channel setup complete (session: \(confirmResponse.sessionId))"
+                self.persistCurrentState()
             }
         }
     }
 
     func checkSecureChannelStatus() {
         guard !isChannelStatusCheckInProgress else { return }
-        guard let auth = signedRequestContext() else {
+        guard let auth = sessionRequestContext() else {
             secureChannelStatus = "Setup secure channel first"
             isSecureChannelActive = false
             return
@@ -124,6 +117,7 @@ class SecureChannelViewModel: ObservableObject {
             case .failure(let error):
                 self.isSecureChannelActive = false
                 self.secureChannelStatus = "Status check failed: \(error.localizedDescription)"
+                self.persistCurrentState()
             case .success(let value):
                 let statusCode = value.response.statusCode
                 let body = String(data: value.data, encoding: .utf8) ?? ""
@@ -140,8 +134,36 @@ class SecureChannelViewModel: ObservableObject {
 
                 let activeText = self.isSecureChannelActive ? "active" : "inactive"
                 self.secureChannelStatus = "Channel is \(activeText) (HTTP \(statusCode))"
+                self.persistCurrentState()
             }
         }
+    }
+
+    func clearSavedSecureChannel() {
+        client.clearSessionState()
+        stateStore.clear()
+
+        handshakeStatus = "Secure channel not started"
+        secureChannelStatus = "Channel activity not checked"
+        activeSessionId = ""
+        isSecureChannelComplete = false
+        isSecureChannelActive = false
+        isHandshakeInProgress = false
+        isChannelStatusCheckInProgress = false
+    }
+
+    func makeArticleCreateViewModel() -> ArticleCreateViewModel {
+        ArticleCreateViewModel(
+            articleService: articleService,
+            authProvider: { [weak self] in self?.signedRequestContext() }
+        )
+    }
+
+    func makeArticleListViewModel() -> ArticleListViewModel {
+        ArticleListViewModel(
+            articleService: articleService,
+            authProvider: { [weak self] in self?.signedRequestContext() }
+        )
     }
 
     func makeArticleDetailViewModel(articleId: Int) -> ArticleDetailViewModel {
@@ -153,6 +175,14 @@ class SecureChannelViewModel: ObservableObject {
     }
 
     private func signedRequestContext() -> SignedRequestContext? {
+        guard isSecureChannelActive else {
+            return nil
+        }
+
+        return sessionRequestContext()
+    }
+
+    private func sessionRequestContext() -> SignedRequestContext? {
         guard isSecureChannelComplete, !activeSessionId.isEmpty else {
             return nil
         }
@@ -162,5 +192,35 @@ class SecureChannelViewModel: ObservableObject {
         }
 
         return SignedRequestContext(sessionId: activeSessionId, hmacKey: hmacKey)
+    }
+
+    private func restorePersistedStateIfAvailable() {
+        guard let persistedState = stateStore.load(),
+              let hmacKey = Data(base64Encoded: persistedState.hmacKeyBase64) else {
+            return
+        }
+
+        client.restoreSessionState(sessionId: persistedState.sessionId, hmacKey: hmacKey)
+        activeSessionId = persistedState.sessionId
+        isSecureChannelComplete = persistedState.isSecureChannelComplete
+        isSecureChannelActive = persistedState.isSecureChannelActive
+        handshakeStatus = "Restored saved secure channel session"
+        secureChannelStatus = persistedState.isSecureChannelActive
+            ? "Last known status: active"
+            : "Last known status: inactive"
+    }
+
+    private func persistCurrentState() {
+        guard let hmacKey = client.currentHmacKey(), !activeSessionId.isEmpty else {
+            stateStore.clear()
+            return
+        }
+
+        stateStore.save(
+            sessionId: activeSessionId,
+            hmacKey: hmacKey,
+            isSecureChannelComplete: isSecureChannelComplete,
+            isSecureChannelActive: isSecureChannelActive
+        )
     }
 }

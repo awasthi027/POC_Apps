@@ -100,26 +100,28 @@ class EcdhClient {
                 return
             }
 
-            do {
-                print("Data: Error \(String(data: data, encoding: .utf8))")
-                let response = try JSONDecoder().decode(EcdhInitResponse.self, from: data)
-                print("✓ /ecdh/init succeeded")
-                print("  Session ID: \(response.sessionId)")
-                print("  Server proof: \(response.serverProof)")
+            Task { @MainActor in
+                do {
+                    print("Data: Error \(String(data: data, encoding: .utf8) ?? "")")
+                    let response = try JSONDecoder().decode(EcdhInitResponse.self, from: data)
+                    print("✓ /ecdh/init succeeded")
+                    print("  Session ID: \(response.sessionId)")
+                    print("  Server proof: \(response.serverProof)")
 
-                // Extract server values
-                self.sessionId = response.sessionId
-                self.serverPublicKeyBytes = Data(base64Encoded: response.serverPublicKey)
-                self.serverPublicKeyBase64 = response.serverPublicKey
-                self.serverNonceBytes = Data(base64Encoded: response.serverNonce)
-                self.serverNonceBase64 = response.serverNonce
+                    // Extract server values
+                    self.sessionId = response.sessionId
+                    self.serverPublicKeyBytes = Data(base64Encoded: response.serverPublicKey)
+                    self.serverPublicKeyBase64 = response.serverPublicKey
+                    self.serverNonceBytes = Data(base64Encoded: response.serverNonce)
+                    self.serverNonceBase64 = response.serverNonce
 
-                // Compute shared secret and negotiate proof parameters against server proof.
-                self.deriveHmacKey(serverProofBase64: response.serverProof)
+                    // Compute shared secret and negotiate proof parameters against server proof.
+                    self.deriveHmacKey(serverProofBase64: response.serverProof)
 
-                completion(response, nil)
-            } catch {
-                completion(nil, error)
+                    completion(response, nil)
+                } catch {
+                    completion(nil, error)
+                }
             }
         }
         task.resume()
@@ -294,17 +296,19 @@ class EcdhClient {
                 return
             }
 
-            do {
-                print("ConfirmData: \(String(data: data, encoding: .utf8))")
-                let response = try JSONDecoder().decode(EcdhConfirmResponse.self, from: data)
-                print("✓ /ecdh/confirm succeeded")
-                print("  Status: \(response.status)")
-                if let hmacKey = response.hmacKey {
-                    print("  Server HMAC key: \(hmacKey)")
+            Task { @MainActor in
+                do {
+                    print("ConfirmData: \(String(data: data, encoding: .utf8) ?? "")")
+                    let response = try JSONDecoder().decode(EcdhConfirmResponse.self, from: data)
+                    print("✓ /ecdh/confirm succeeded")
+                    print("  Status: \(response.status)")
+                    if let hmacKey = response.hmacKey {
+                        print("  Server HMAC key: \(hmacKey)")
+                    }
+                    completion(response, nil)
+                } catch {
+                    completion(nil, error)
                 }
-                completion(response, nil)
-            } catch {
-                completion(nil, error)
             }
         }
         task.resume()
@@ -312,5 +316,29 @@ class EcdhClient {
 
     func currentHmacKey() -> Data? {
         hmacKey
+    }
+
+    func restoreSessionState(sessionId: String, hmacKey: Data) {
+        self.sessionId = sessionId
+        self.hmacKey = hmacKey
+    }
+
+    func clearSessionState() {
+        clientPrivateKey = nil
+        clientPublicKeyBytes = nil
+        clientInitPublicKeyBytes = nil
+        clientInitPublicKeyBase64 = nil
+        clientNonceBytes = nil
+        clientNonceBase64 = nil
+        sessionId = nil
+        serverPublicKeyBytes = nil
+        serverPublicKeyBase64 = nil
+        serverNonceBytes = nil
+        serverNonceBase64 = nil
+        hmacKey = nil
+        selectedTranscript = nil
+        transcriptLineSeparator = "\n"
+        clientFinishLabel = "client-finish"
+        serverFinishLabel = "server-finish"
     }
 }
