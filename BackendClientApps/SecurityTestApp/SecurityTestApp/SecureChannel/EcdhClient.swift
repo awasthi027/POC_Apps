@@ -35,17 +35,20 @@ class EcdhClient {
 
     private let session: URLSession
     private let baseURL: String
+    private let deviceIdentityHeader: String
 
     init(
         session: URLSession,
         baseURL: String,
         deviceId: String,
-        deviceType: String = "mobile"
+        deviceType: String = "mobile",
+        deviceIdentityHeader: String = "X-Device-Id"
     ) {
         self.session = session
         self.baseURL = baseURL
         self.deviceId = deviceId
         self.deviceType = deviceType
+        self.deviceIdentityHeader = deviceIdentityHeader
     }
 
     // Step 1: Generate client X25519 keypair and nonce
@@ -87,6 +90,7 @@ class EcdhClient {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(deviceId, forHTTPHeaderField: deviceIdentityHeader)
         urlRequest.httpBody = try? JSONEncoder().encode(request)
 
         let task = session.dataTask(with: urlRequest) { data, response, error in
@@ -102,7 +106,7 @@ class EcdhClient {
 
             Task { @MainActor in
                 do {
-                    print("Data: Error \(String(data: data, encoding: .utf8) ?? "")")
+                    print("Init response body: \(String(data: data, encoding: .utf8) ?? "")")
                     let response = try JSONDecoder().decode(EcdhInitResponse.self, from: data)
                     print("✓ /ecdh/init succeeded")
                     print("  Session ID: \(response.sessionId)")
@@ -283,6 +287,7 @@ class EcdhClient {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(deviceId, forHTTPHeaderField: deviceIdentityHeader)
         urlRequest.httpBody = try? JSONEncoder().encode(request)
 
         let task = session.dataTask(with: urlRequest) { data, response, error in

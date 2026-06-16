@@ -55,6 +55,7 @@ final class SignedRequestExecutor {
         request.setValue(timestampMillis, forHTTPHeaderField: "X-Request-Timestamp")
         request.setValue(nonce, forHTTPHeaderField: "X-Request-Nonce")
         request.setValue(signature, forHTTPHeaderField: "X-Request-Signature")
+        request.setValue(environment.deviceId, forHTTPHeaderField: environment.deviceIdentityHeader)
 
         environment.session.dataTask(with: request) { data, response, error in
             if let error = error {

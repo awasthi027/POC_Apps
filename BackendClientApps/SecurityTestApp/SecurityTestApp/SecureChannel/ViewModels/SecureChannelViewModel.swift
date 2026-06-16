@@ -36,7 +36,8 @@ final class SecureChannelViewModel: ObservableObject {
         self.client = EcdhClient(
             session: environment.session,
             baseURL: environment.baseURL,
-            deviceId: environment.deviceId
+            deviceId: environment.deviceId,
+            deviceIdentityHeader: environment.deviceIdentityHeader
         )
         self.requestExecutor = SignedRequestExecutor(environment: environment, signer: signer)
         self.articleService = ArticleService(requestExecutor: requestExecutor)
