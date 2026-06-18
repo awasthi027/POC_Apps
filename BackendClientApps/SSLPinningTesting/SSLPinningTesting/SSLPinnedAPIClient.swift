@@ -58,7 +58,11 @@ final class SSLPinnedAPIClient {
         }
 
         self.baseURL = baseURL
-        let certificateData = try Self.loadPinnedCertificate(named: "localhost", bundle: bundle)
+        // here we can replace local host pin or server pins
+        // How to get server pins
+        // Hit server url on chrome broswer example: https://ssl-pinning-service-production.up.railway.app/api/secure/ping
+        // click on lock icon -> certificate -> export -> file.pem
+        let certificateData = try Self.loadPinnedCertificate(named: "railway", bundle: bundle)
         let sessionDelegate = CertificatePinnedSessionDelegate(pinnedCertificateData: certificateData)
         self.sessionDelegate = sessionDelegate
         self.session = URLSession(configuration: .ephemeral, delegate: sessionDelegate, delegateQueue: nil)

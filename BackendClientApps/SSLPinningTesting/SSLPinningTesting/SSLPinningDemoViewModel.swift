@@ -5,7 +5,8 @@ import Foundation
 final class SSLPinningDemoViewModel: ObservableObject {
     static let expectedFailurePin = "sha256/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
 
-    @Published var baseURL = "https://localhost:8443"
+   // @Published var baseURL = "https://localhost:8443"
+    @Published var baseURL = "https://ssl-pinning-service-production.up.railway.app"
     @Published var isRunning = false
     @Published var statusMessage = "Ready to validate the pinned HTTPS API."
     @Published var results: [ValidationResult] = []
