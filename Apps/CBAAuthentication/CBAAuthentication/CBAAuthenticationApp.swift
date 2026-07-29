@@ -39,7 +39,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCent
         let userInfo = response.notification.request.content.userInfo
         if let marker = userInfo[CBAConstants.keyLocalNotificationOpenApp] as? String,
            marker == CBAConstants.keyLocalNotificationOpenApp {
-            print("YubiKeyJob: Forward to Home View")
+            print("YubiKeyJob: Forward notification")
             NotificationCenter.default.post(name: .cbaOpenAppFromLocalNotification, object: nil)
         }
         completionHandler()

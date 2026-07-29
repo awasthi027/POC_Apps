@@ -35,6 +35,7 @@ struct HomeView: View {
     @State private var ctkWriteStatus = ""
     /// View model class object
     var viewModel: YubiKeyActivationViewModel = YubiKeyActivationViewModel()
+    var isHomeViewActive: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -131,7 +132,6 @@ struct HomeView: View {
                 Divider()
             }
             Spacer()
-
         }
         .padding()
         .navigationDestination(item: $selection) { item in
@@ -168,16 +168,16 @@ struct HomeView: View {
                 CTKTokenListView()
             }
         }
-        .onReceive(NotificationCenter.default.publisher(for: .cbaOpenAppFromLocalNotification)) {_ in
-            print("YubiKeyJob: Notification received.")
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
-                guard let jobDetail = JobDataUtil.readFromSharedDefaults() else {
-                    return
-                }
-                print("YubiKeyJob: Starting Job")
-                let handler = YubiKeyHandler()
-                handler.handleIncomingJobOperation(jobData: jobDetail)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            print("YubiKeyJob: Check pending Job")
+            guard let jobDetail = JobDataUtil.readFromSharedDefaults(),
+                  jobDetail.state != .finish else {
+                print("YubiKeyJob: No pending job or already finished.")
+                return
             }
+            print("YubiKeyJob: Starting Job")
+            let handler = YubiKeyHandler()
+            handler.handleIncomingJobOperation(jobData: jobDetail)
         }
     }
 
