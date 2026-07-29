@@ -9,11 +9,23 @@ import SwiftUI
 
 enum NavigationItem: Hashable {
     case wkWebViewBundle
-    case wkWebViewKeyChain
+    case wkWebViewAppKeyChain
     case nsURLSessionBundle
     case asSessionCertPicker
     case wkWebViewCTKAuthentication
     case wkWebViewCTKYubiKeyAuthentication
+    case ctkTokenList
+    var name: String {
+        switch self {
+        case .wkWebViewBundle: return "CBA via Bundle Certificate"
+        case .wkWebViewAppKeyChain: return "CBA via App Keychain Certificate"
+        case .nsURLSessionBundle: return "URL Session CBA via Bundle Certificate"
+        case .asSessionCertPicker: return "ASWebAuthSession CBA via CTK Certificates"
+        case .wkWebViewCTKAuthentication: return "CBA via CTK certificate"
+        case .wkWebViewCTKYubiKeyAuthentication: return "CAB via YubiKey Certificate"
+        case .ctkTokenList: return "CBA via Bundle Certificate"
+        }
+    }
 }
 
 struct HomeView: View {
@@ -32,7 +44,6 @@ struct HomeView: View {
                     //"badssl.com-client"/"badssl.com"
                     _ = KeychainCertificateManager.shared.storeIdentity(fromBundleResource: "badssl.com-client",
                                                                         password: "badssl.com")
-                    refreshStoredIdentities()
                 }
                 .font(.callout)
                 Divider()
@@ -52,23 +63,22 @@ struct HomeView: View {
             HStack {
                 Button("Clear Keychain") {
                     _ = KeychainCertificateManager.shared.deleteIdentity()
-                    refreshStoredIdentities()
                 }
                 .tint(.red)
                 .font(.callout)
                 Divider()
                 Button("Clear CTK") {
-                    let removed = CTKManager.shared.removeAllOurTokenConfigurations()
+                    let removed = CTKManager.shared.clearAllTokensAndPrivateKeys()
                     ctkWriteStatus = removed.isEmpty
-                        ? "No app token configurations to remove"
+                        ? "No app token configurations to remove (private keys cleared)"
                         : "Removed: \(removed.joined(separator: ", "))\n\n"
                             + CTKManager.shared.publishDiagnostics()
                 }
                 .tint(.red)
                 .font(.callout)
                 Divider()
-                Button("Refresh") {
-                    refreshStoredIdentities()
+                Button("CTK Certificate List") {
+                    self.selection = .ctkTokenList
                 }
                 .font(.callout)
             }
@@ -81,22 +91,22 @@ struct HomeView: View {
             }
 
             VStack {
-                Button("Webview auth challenge with bundle cert") {
+                Button(NavigationItem.wkWebViewBundle.name) {
                     self.selection = .wkWebViewBundle
                 }
                 .font(.callout)
                 Divider()
-                Button("Webview auth challenge with app keychain cert") {
-                    self.selection = .wkWebViewKeyChain
+                Button(NavigationItem.wkWebViewAppKeyChain.name) {
+                    self.selection = .wkWebViewAppKeyChain
                 }
                 .font(.callout)
                 Divider()
-                Button("URLSession auth challenge with bundle cert") {
+                Button(NavigationItem.nsURLSessionBundle.name) {
                     self.selection = .nsURLSessionBundle
                 }
                 .font(.callout)
                 Divider()
-                Button("ASWebAuthentication challenge app keychain cert") {
+                Button(NavigationItem.asSessionCertPicker.name) {
                     self.selection = .asSessionCertPicker
                 }
                 .foregroundStyle(.green)
@@ -107,13 +117,13 @@ struct HomeView: View {
                 }
                 .font(.callout)
                 Divider()
-                Button("Webview auth challenge  CTK cert") {
+                Button(NavigationItem.wkWebViewCTKAuthentication.name) {
                     self.selection = .wkWebViewCTKAuthentication
                 }
                 .foregroundStyle(.blue)
                 .font(.callout)
                 Divider()
-                Button("Webview auth challenge YubiKey cert via CTK") {
+                Button(NavigationItem.wkWebViewCTKYubiKeyAuthentication.name) {
                     self.selection = .wkWebViewCTKYubiKeyAuthentication
                 }
                 .foregroundStyle(.blue)
@@ -121,64 +131,42 @@ struct HomeView: View {
                 Divider()
             }
             Spacer()
-            Text("App Keychain identities")
-                .font(.subheadline)
-                .bold()
 
-            if storedIdentities.isEmpty {
-                Text("No client identity stored in app keychain")
-                    .foregroundStyle(.secondary)
-            } else {
-                List(storedIdentities) { identity in
-                    NavigationLink {
-                        CertificateDetailsView(identity: identity)
-                    } label: {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(identity.commonName)
-                            Text(identity.label)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
-                .listStyle(.plain)
-            }
         }
         .padding()
         .navigationDestination(item: $selection) { item in
             switch item {
             case .wkWebViewBundle:
-                CBAWebView(url: cbaURL, certificateName: "badssl.com-client",
-                           certificatePassword: "badssl.com")
+                CBAWKWebView(viewModel: CBAWKWebViewModel(cbaURL: cbaURL,
+                                                          secIdentity: KeychainCertificateManager.shared.bundleCertificateSecIdentity()))
                 .ignoresSafeArea(edges: .bottom)
-                .navigationTitle("CBA WebView")
+                .navigationTitle(NavigationItem.wkWebViewBundle.name)
                 .navigationBarTitleDisplayMode(.inline)
-            case .wkWebViewKeyChain:
-                CBAWebView(url: cbaURL)
+            case .wkWebViewAppKeyChain:
+                CBAWKWebView(viewModel: CBAWKWebViewModel(cbaURL: cbaURL,
+                                                          secIdentity: KeychainCertificateManager.shared.loadIdentity()))
                 .ignoresSafeArea(edges: .bottom)
-                .navigationTitle("CBA WebView")
+                .navigationTitle(NavigationItem.wkWebViewAppKeyChain.name)
                 .navigationBarTitleDisplayMode(.inline)
             case .nsURLSessionBundle:
-                NURLSessionView()
+                SessionView()
             case .asSessionCertPicker:
                 ASSessionView()
             case .wkWebViewCTKAuthentication:
-                WKCTKAuthenticationView()
+                CBAWKWebView(viewModel: CBAWKWebViewModel(cbaURL: cbaURL,
+                                                          secIdentity: nil))
                 .ignoresSafeArea(edges: .bottom)
-                .navigationTitle("CTK WebView")
+                .navigationTitle(NavigationItem.wkWebViewCTKAuthentication.name)
                 .navigationBarTitleDisplayMode(.inline)
             case .wkWebViewCTKYubiKeyAuthentication:
-                WKCTKYubiKeyAuthView()
+                CBAWKWebView(viewModel: CBAWKWebViewModel(cbaURL: URL(string: "https://isdkweb03.ssdevrd.com:8443/ia")!,
+                                                          secIdentity: nil))
                 .ignoresSafeArea(edges: .bottom)
-                .navigationTitle("CTK YubiKey WebView")
+                .navigationTitle(NavigationItem.wkWebViewCTKYubiKeyAuthentication.name)
                 .navigationBarTitleDisplayMode(.inline)
+            case .ctkTokenList:
+                CTKTokenListView()
             }
-        }
-        .onAppear {
-            refreshStoredIdentities()
-        }
-        .onDisappear() {
-            self.viewModel.shutdownYubiKit()
         }
         .onReceive(NotificationCenter.default.publisher(for: .cbaOpenAppFromLocalNotification)) {_ in
             print("YubiKeyJob: Notification received.")
@@ -191,10 +179,6 @@ struct HomeView: View {
                 handler.handleIncomingJobOperation(jobData: jobDetail)
             }
         }
-    }
-
-    private func refreshStoredIdentities() {
-        storedIdentities = KeychainCertificateManager.shared.listStoredIdentities()
     }
 
     func startConnectionAndActivateYubiKeySet() {

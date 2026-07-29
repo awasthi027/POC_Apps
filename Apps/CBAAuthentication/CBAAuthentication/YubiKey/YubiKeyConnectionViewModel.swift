@@ -344,7 +344,7 @@ extension YubiKeyConnectionViewModel {
 import Foundation
 import YubiKit
 
-/// Represent PIV-D error type.
+/// Represent error type.
 protocol CBAErrorType: Error {
     var errorTitle: String { get }
     var errorCode: Int { get }

@@ -62,12 +62,12 @@ enum CBATokenError {
         return NSError(domain: TKErrorDomain, code: self.tkErrorCode.rawValue, userInfo: [:])
     }
 }
-/// This Swift code extends our TokenSession class to interface to YubiKey in the main PIV-D application.
+/// This Swift code extends our TokenSession class to interface to YubiKey in the main   application.
 
 extension TokenSession {
     func signWithYubiKey(dataToSign: Data, algorithm: SecKeyAlgorithm, keyObjectID: String) throws -> Data {
         let operationID = "SignData_" + UUID().uuidString     // use a GUID to prevent possible overlapping operations
-        // Prompt user to tap banner so PIV-D can finish signing the data
+        // Prompt user to tap banner so   can finish signing the data
         let notificationTitle = "CBAAuthentication App"
         let notificationSubtitle = "Tap here to authenticate with a certificate from your accessory."
 
@@ -174,5 +174,15 @@ extension TokenSession {
                 return true
             }
         }
+    }
+
+    func readDataFromCompletedOperation() -> Data? {
+        // read operations object from user defaults
+        guard let returnedYubiKeyJobData = JobDataUtil.readFromSharedDefaults(),
+              returnedYubiKeyJobData.error == nil,
+              let ykResultData = returnedYubiKeyJobData.outputData else {
+            return nil
+        }
+        return ykResultData
     }
 }

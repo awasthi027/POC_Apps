@@ -61,14 +61,14 @@ class TokenSession: TKTokenSession, TKTokenSessionDelegate {
             throw NSError(domain: TKErrorDomain, code: TKError.Code.badParameter.rawValue,
                           userInfo: [NSLocalizedDescriptionKey: "Unsupported signing algorithm"])
         }
-
+        print("CBATokenKit: Request")
         // Check it Yubikey Certificate
         if let providerName = cbaToken?.providerName,
            providerName == "YubiKey",
             let certHash = cbaToken?.certHash {
             // we are using a YubiKey activation
             let signedData = try self.signWithYubiKey(dataToSign: dataToSign, algorithm: signingAlgorithm, keyObjectID: certHash)
-          //  print("Operation Completeted Signed Data: \(signedData.count)")
+            print("CBATokenKit: operation completed.")
             return signedData
         }
 

@@ -1,21 +1,17 @@
+//  CTKTokenListViewModel.swift
+//  CBAAuthentication
 //
-//  CertificateListingViewModel.swift
-//  SampleashiTokenApp
-//
-//  Copyright 2026 Ashi, Inc.
-//  SPDX-License-Identifier: BSD-2-Clause
+//  Created by Ashish Awasthi on 29/07/26.
 //
 
 import UIKit
 import Foundation
 import Security
-import CryptoTokenKit // To Handle error.
+import CryptoTokenKit
 import CommonCrypto
-
-import Foundation
 internal import Combine
 
-class CertificateObject: Identifiable {
+class CertificateInfo: Identifiable {
     let id = UUID()
     /// Provides the certificate common name.
     var commonName : String? {
@@ -87,18 +83,16 @@ enum IdentityType: Int {
     case all
 }
 
-class CertificateListingViewModel: ObservableObject {
+class CTKTokenListViewModel: ObservableObject {
     /// Holds all requested identities.
     var allIdentities: [SecIdentity] = []
-    /// Holds all selected identities.
-    var selectedIdentities: [SecIdentity] = []
-    /// Holds all certificates (x509).
+
     var allCertificates: [SecCertificate] = []
 
      init() {}
 
     /// local CertificateObjects
-    @Published var certificates: [CertificateObject] = []
+    @Published var certificates: [CertificateInfo] = []
 
     //MARK: Data source methods
     var numberOfCertificates: Int {
@@ -106,40 +100,27 @@ class CertificateListingViewModel: ObservableObject {
     }
 
 
-    func fetchCertificates(completion: (() -> Void)?) {
+    public func fetchCertificates(completion: (() -> Void)) {
         getAllIdentities(identityType: .all, completion: completion)
     }
 
-    /// Update selected identities for data source index.
-    func updateSelectedIdentities(dataSourceIndex: Int) {
-        guard self.allIdentities.count > dataSourceIndex else { return }
-        
-        let identity = self.allIdentities[dataSourceIndex]
-        if let indexPresent = selectedIdentities.firstIndex(of: identity) {
-            selectedIdentities.remove(at: indexPresent)
-        }
-        else {
-            selectedIdentities.append(identity)
-        }
+    //MARK:- Get all identities
+    public func getAllIdentities(identityType: IdentityType, completion: (() -> Void)) {
+
+        allIdentities = self.getAllTokens(type: identityType)
+
+        // To get identities based on application provider. Eg:   manager
+        // Uncomment below line and provide specific app ctk provider name.
+        // allIdentities = self.getFilteredTokens(type: identityType, providers: ["com.air-watch.ashi.ashitoken"])
+
+        populateCertObjectsToDisplay(completion: completion)
     }
 
-    func isIdentityAlreadySelected(dataSourceIndex: Int) -> Bool {
-        let identity = self.allIdentities[dataSourceIndex]
-        if let _ = selectedIdentities.firstIndex(of: identity) {
-            return true
-        }
-        return false
-    }
-
-    func cleanupSelectedIdentities() {
-        selectedIdentities.removeAll()
-    }
-
-    private func populateCertObjectsToDisplay(completion: (() -> Void)?) {
+    private func populateCertObjectsToDisplay(completion: (() -> Void)) {
         certificates = []
         guard allIdentities.count > 0 else {
             print("[Consumer] No Identity found")
-            completion?()
+            completion()
             return
         }
 
@@ -160,14 +141,14 @@ class CertificateListingViewModel: ObservableObject {
             }
 
             let x509Cert = SecCertificateCopyData(cert) as Data
-            certificates.append(CertificateObject(certificateData: x509Cert))
+            certificates.append(CertificateInfo(certificateData: x509Cert))
         }
-        completion?()
+        completion()
     }
 
 
 
-    /// Allows to get tokens from specific providers. for eg PIV-D only
+    /// Allows to get tokens from specific providers. for eg   only
     /// - Parameters:
     ///   - providers: provider list, If Provider list is empty then return all token id's
     /// - Returns: filter token id's list with provider list for bundle id availability
@@ -179,18 +160,6 @@ class CertificateListingViewModel: ObservableObject {
             filtered.append(contentsOf: tokenIds.filter { $0.lowercased().contains(token.lowercased()) })
         }
         return filtered
-    }
-
-    //MARK:- Get all identities
-    func getAllIdentities(identityType: IdentityType, completion: (() -> Void)?) {
-
-        allIdentities = self.getAllTokens(type: identityType)
-
-        // To get identities based on application provider. Eg: PIV-D manager
-        // Uncomment below line and provide specific app ctk provider name.
-        // allIdentities = self.getFilteredTokens(type: identityType, providers: ["com.air-watch.ashi.ashitoken"])
-
-        populateCertObjectsToDisplay(completion: completion)
     }
 
     /// Generic query for fetching data from keychain based on type
@@ -207,8 +176,7 @@ class CertificateListingViewModel: ObservableObject {
         case .authentication:
             /// Use application tag to identify the authentication certificate
             /// iOS provides queries to identify the sign and encrypt tokens but doesn't provide a way to identify auth tokens. For instance, If there are two tokens for signing and authentication CTK consumers won't be able to differentiate b/w those tokens. If CTKPovider can pass some info along with auth token to identify consumers can be resolved by adding query info to retrieve tokens.
-
-            // query[kSecAttrApplicationTag] = "authentication".data(using: .utf8)
+             query[kSecAttrApplicationTag] = "authentication".data(using: .utf8)
             break
             ///
         case .signing:
@@ -280,3 +248,4 @@ extension UIDevice {
         return userInterfaceIdiom == .pad
     }
 }
+

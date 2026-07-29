@@ -136,7 +136,6 @@ private struct WKPhaseView: UIViewRepresentable {
                 completionHandler(.performDefaultHandling, nil)
                 return
             }
-
             onStatus("WKWebView received client-cert challenge. Intentionally cancelling and handing off to ASWebAuthenticationSession.")
             completionHandler(.cancelAuthenticationChallenge, nil)
         }

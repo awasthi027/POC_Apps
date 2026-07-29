@@ -1,4 +1,11 @@
 # Table of Content
+
+** Important Notes for developer **
+1. Enabled Keychain group in consumber App "com.apple.token" This is madatory to get CTK certificates
+2. Enable Face id by adding key in CTK extesion app: (forKeychain access via biomatrix )
+3. Keychain sharing should be enabled  (Extension can access keychain data)
+4. NFC scan key should be present in CTK extesion app and enable in Signing & Capabilities(ForYubiKey)
+5. NFC Tag reading should enabled in CTK extesion app and check Tag(ForYubiKey)
 ** Safari can use certificate installed in Keychain **
 
 Safari and ASWebAuthenticationSession both can access certificate from CTK 

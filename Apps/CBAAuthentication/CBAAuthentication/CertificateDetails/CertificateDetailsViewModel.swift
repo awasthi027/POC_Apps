@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+internal import Combine
 import Security
 
 /// A single displayable attribute of a certificate.

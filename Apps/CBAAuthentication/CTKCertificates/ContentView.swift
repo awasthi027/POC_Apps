@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @StateObject var viewModel = CertificateListingViewModel()
+    @StateObject var viewModel = CTKTokenListViewModel()
     @State private var didLoad = true
 
     var body: some View {
@@ -55,7 +55,6 @@ struct ContentView: View {
 
     private func reload() {
         viewModel.getAllIdentities(identityType: .all) {
-            CTKCertificateReader.readFromPersistentTokens()
         }
     }
 }

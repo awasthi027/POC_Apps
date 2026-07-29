@@ -14,6 +14,10 @@ extension Notification.Name {
 final class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        // Start each launch from a clean, unauthenticated web state by wiping any persisted
+        // WKWebView session data (cookies, caches, local storage, etc.).
+        WebSessionCleaner.clearAllSessions()
+
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in

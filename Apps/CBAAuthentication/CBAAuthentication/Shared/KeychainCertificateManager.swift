@@ -29,6 +29,24 @@ final class KeychainCertificateManager {
     /// Private initializer to enforce singleton usage.
     private init() {}
 
+    func bundleCertificateSecIdentity(p12Path: String = "badssl.com-client",
+                                      password: String = "badssl.com") -> SecIdentity?{
+        let url = Bundle.main.url(forResource: p12Path, withExtension: "p12")!
+        let p12Data = try! Data(contentsOf: url)
+        let options = [kSecImportExportPassphrase as String: password]
+        var items: CFArray?
+        let status = SecPKCS12Import(p12Data as CFData, options as CFDictionary, &items)
+
+        guard status == errSecSuccess,
+              let itemArray = items as? [[String: Any]],
+              let firstItem = itemArray.first,
+              let identity = firstItem[kSecImportItemIdentity as String] else {
+            print("Failed to import p12")
+            return nil
+        }
+       return (identity as! SecIdentity)
+    }
+
     // MARK: - Import & Store
 
     /// Imports a `.p12` file's identity and stores it in the Keychain.
@@ -37,7 +55,8 @@ final class KeychainCertificateManager {
     ///   - password: Password protecting the `.p12`.
     /// - Returns: `true` if the identity was imported and stored successfully.
     @discardableResult
-    func storeIdentity(from p12Data: Data, password: String) -> Bool {
+    func storeIdentity(from p12Data: Data,
+                       password: String) -> Bool {
         let options = [kSecImportExportPassphrase as String: password]
         var items: CFArray?
         let importStatus = SecPKCS12Import(p12Data as CFData, options as CFDictionary, &items)

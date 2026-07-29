@@ -264,5 +264,33 @@ enum TokenPayloadUtility {
         }
         return data
     }
-}
 
+    /// Deletes a single biometric-protected private key record by account (cert hash).
+    /// - Returns: true if the entry was deleted or did not exist.
+    @discardableResult
+    static func deleteKeyDataUnderBiometrics(account: String) -> Bool {
+        let deleteQuery: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: biometricService,
+            kSecAttrAccount as String: account,
+            kSecAttrAccessGroup as String: biometricAccessGroup
+        ]
+        let status = SecItemDelete(deleteQuery as CFDictionary)
+        NSLog("TokenPayloadUtility: delete key data status \(status) (account \(account))")
+        return status == errSecSuccess || status == errSecItemNotFound
+    }
+
+    /// Deletes all biometric-protected private key records used by CTK tokens.
+    /// - Returns: true if deletion succeeded or no entries existed.
+    @discardableResult
+    static func deleteAllKeyDataUnderBiometrics() -> Bool {
+        let deleteQuery: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: biometricService,
+            kSecAttrAccessGroup as String: biometricAccessGroup
+        ]
+        let status = SecItemDelete(deleteQuery as CFDictionary)
+        NSLog("TokenPayloadUtility: delete all key data status \(status)")
+        return status == errSecSuccess || status == errSecItemNotFound
+    }
+}

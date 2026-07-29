@@ -100,28 +100,7 @@ final class CTKManager {
         return registerTokenConfiguration(certificate: certificate, payload: tokenPayload)
     }
 
-    /// Removes the published token identity.
-    func unpublishCertificateFromCTK() {
-        _ = removeAllOurTokenConfigurations()
-    }
 
-    /// Removes ALL token configurations our app has registered (e.g. stale
-    /// `demo-token-instance-01` and the current `cba-token-instance-01`).
-    /// System tokens (com.apple.setoken, com.apple.secelemtoken, …) are owned by iOS
-    /// and cannot be removed.
-    @discardableResult
-    func removeAllOurTokenConfigurations() -> [String] {
-        guard let driverConfig = TKTokenDriver.Configuration.driverConfigurations[tokenClassID] else {
-            print("CTKManager: not the hosting app / no driver configuration.")
-            return []
-        }
-        let instanceIDs = Array(driverConfig.tokenConfigurations.keys)
-        for instanceID in instanceIDs {
-            driverConfig.removeTokenConfiguration(for: instanceID)
-            print("CTKManager: removed token configuration '\(instanceID)'")
-        }
-        return instanceIDs.map { "\($0)" }
-    }
 
     // MARK: - Diagnostics
 
@@ -156,7 +135,7 @@ final class CTKManager {
         return text
     }
 
-    /// Reads items belonging to OUR token, scoped by `kSecAttrTokenID` (the PIV-D way).
+    /// Reads items belonging to OUR token, scoped by `kSecAttrTokenID` (the   way).
     /// We must NOT specify the `com.apple.token` access group here — doing so returns
     /// -34018 (missingEntitlement). Scoping by token ID avoids that.
     private func countAndStatus(for secClass: CFString) -> (count: Int, status: OSStatus) {
@@ -258,6 +237,65 @@ final class CTKManager {
 
     private func tokenInstanceID(for certHash: String) -> TKToken.InstanceID {
         "\(tokenInstancePrefix)-\(certHash)"
+    }
+}
+
+// MARK: - Clear token from CTK
+extension CTKManager {
+
+    /// Removes the published token identity.
+    func unpublishCertificateFromCTK() {
+        _ = clearAllTokensAndPrivateKeys()
+    }
+
+    /// Removes ALL token configurations our app has registered (e.g. stale
+    /// `demo-token-instance-01` and the current `cba-token-instance-01`).
+    /// System tokens (com.apple.setoken, com.apple.secelemtoken, …) are owned by iOS
+    /// and cannot be removed.
+    @discardableResult
+    func removeAllOurTokenConfigurations() -> [String] {
+        guard let driverConfig = TKTokenDriver.Configuration.driverConfigurations[tokenClassID] else {
+            print("CTKManager: not the hosting app / no driver configuration.")
+            return []
+        }
+        let instanceIDs = Array(driverConfig.tokenConfigurations.keys)
+        for instanceID in instanceIDs {
+            driverConfig.removeTokenConfiguration(for: instanceID)
+            print("CTKManager: removed token configuration '\(instanceID)'")
+        }
+        return instanceIDs.map { "\($0)" }
+    }
+
+    /// Public API: clears one token configuration and its associated private key.
+    /// - Parameter certHash: certificate hash used as objectID/account for the token key.
+    /// - Returns: true if the private key was deleted or did not exist.
+    @discardableResult
+    func clearTokenAndPrivateKey(certHash: String) -> Bool {
+        guard let driverConfig = TKTokenDriver.Configuration.driverConfigurations[tokenClassID] else {
+            print("CTKManager: not the hosting app / no driver configuration.")
+            return false
+        }
+
+        let instanceID = tokenInstanceID(for: certHash)
+        driverConfig.removeTokenConfiguration(for: instanceID)
+        print("CTKManager: removed token configuration '\(instanceID)'")
+
+        let keyDeleted = TokenPayloadUtility.deleteKeyDataUnderBiometrics(account: certHash)
+        if !keyDeleted {
+            print("CTKManager: failed to delete private key for cert hash '\(certHash)'")
+        }
+        return keyDeleted
+    }
+
+    /// Public API: clears all app-managed token configurations and all associated private keys.
+    /// - Returns: instance IDs removed from CTK.
+    @discardableResult
+    func clearAllTokensAndPrivateKeys() -> [String] {
+        let removed = removeAllOurTokenConfigurations()
+        if !TokenPayloadUtility.deleteAllKeyDataUnderBiometrics() {
+            print("CTKManager: failed deleting one or more private keys from shared keychain")
+        }
+        return removed
     }
 }
 
