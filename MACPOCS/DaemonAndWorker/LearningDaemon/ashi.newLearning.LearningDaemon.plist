@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ashi.newLearning.LearningDaemon</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/ashisha2/Desktop/DaemonAndWorker/LearningDaemon/.build/LearningDaemon</string>
+    </array>
+
+    <!-- Registers the Mach service name the app connects to via
+         NSXPCConnection(machServiceName:). Without this key, launchd never
+         associates the name with this job and the client's connect calls
+         just hang/fail. -->
+    <key>MachServices</key>
+    <dict>
+        <key>ashi.newLearning.LearningDaemon</key>
+        <true/>
+    </dict>
+
+    <!-- Start it the moment this LaunchAgent is loaded (e.g. at login),
+         without waiting for a client to show up. -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- The defining "daemon" behavior: if the process exits for any reason
+         (crash, `kill`, calling exit()), launchd starts a fresh copy. -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ashisha2/Library/Logs/LearningDaemon.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/ashisha2/Library/Logs/LearningDaemon.err.log</string>
+</dict>
+</plist>
