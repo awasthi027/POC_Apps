@@ -340,29 +340,73 @@ App Quit + "content-available": 1
 
 ## 🧪 Testing
 
-### Test 1: Simulator Testing (Xcode)
-```
-Xcode → Debug → Simulate Push Notification
+### ⚠️ SIMULATOR LIMITATION: Background Notifications NOT Supported
+
+**The iOS Simulator CANNOT test background notifications.** It does not support:
+- ❌ Waking a quit app with a push notification
+- ❌ Calling `didReceiveRemoteNotification()` when app is terminated
+- ❌ Full APNS infrastructure
+
+**To test background notifications, you MUST use a real device.**
+
+---
+
+### Testing in Simulator (Foreground Only)
+
+#### Step 1: Create JSON File
+
+Create a file named `test_notification.json`:
+
+```json
 {
-  "aps": {
-    "content-available": 1,
-    "badge": 1
-  },
-  "message": "Test data"
+    "Simulator Target Bundle": "ashi.com.newLearning.CBAAuthentication",
+    "aps": {
+        "alert": {
+            "title": "Test Notification",
+            "body": "This is a test"
+        },
+        "badge": 1,
+        "sound": "default"
+    },
+    "data": "test_data"
 }
 ```
 
-### Test 2: Background Mode Persistence
-```
-1. Close app completely (terminate)
-2. Send notification with content-available: 1
-3. Check Xcode Console
-4. Should see: "✅ Silent notification received"
-5. Open app → Data in Messages tab ✅
+#### Step 2: Run App in Simulator
+
+```bash
+# Run your app in Xcode simulator
 ```
 
-### Test 3: Real Device Testing via Apple Developer Portal ⭐
-**If you have Developer Credentials:**
+#### Step 3: Send Notification from Terminal
+
+```bash
+# List all simulators
+xcrun simctl list devices available
+
+# Send notification (replace SIMULATOR_ID with your simulator ID)
+xcrun simctl push SIMULATOR_ID ashi.com.newLearning.CBAAuthentication test_notification.json
+```
+
+#### Step 4: Verify in Console
+
+Check Xcode Console output:
+```
+✅ Notification received (foreground): {...}
+🔢 Badge count: 1
+```
+
+#### ⚠️ Limitations:
+- ❌ Only works when **app is running (foreground)**
+- ❌ Does NOT test background/quit scenarios
+- ❌ Does NOT call `didReceiveRemoteNotification()`
+- ❌ Does NOT persist data to CoreData
+
+---
+
+### Testing Background Notifications (Real Device Only) ⭐ REQUIRED
+
+**For true background notification testing, you MUST use a real iPhone:**
 
 #### Step 1: Get Device Token
 ```
@@ -371,116 +415,17 @@ Xcode → Debug → Simulate Push Notification
 3. Copy the token
 ```
 
-#### Step 2: Go to Apple Developer Portal
-```
-https://developer.apple.com
-  ↓
-Sign in with Apple ID
-  ↓
-Devices → All
-  ↓
-Search & select your device
-  ↓
-Copy UDID (if needed)
-```
-
-#### Step 3: Send Test Notification from Apple Portal
-```
-Apple Developer Portal
-  ↓
-Certificates, Identifiers & Profiles
-  ↓
-Identifiers
-  ↓
-Select your App ID
-  ↓
-Configure (if needed)
-  ↓
-Edit Capabilities → Push Notifications
-  ↓
-Download Certificate
-```
-
-#### Step 4: Use Push Notification Testing Service
-**Option A: Using Third-Party Tools**
+#### Step 2: Send Notification via Third-Party Tools
 - Pusher (pusher.app) - Mac app
 - Push Notifications Tester (web-based)
-- MobileToolGit
 - Simply Push (Mac app)
 
 **Steps:**
-1. Upload APNS certificate from Apple Portal
+1. Upload APNS certificate from Apple Developer Portal
 2. Enter device token
-3. Create payload:
-```json
-{
-  "aps": {
-    "content-available": 1,
-    "alert": {
-      "title": "Test Notification",
-      "body": "Sent from Apple Portal!"
-    },
-    "badge": 1,
-    "sound": "default"
-  }
-}
-```
+3. Create payload with `"content-available": 1`
 4. Send notification
-5. Check device for delivery
-
-**Option B: Using Command Line (Mac)**
-```bash
-# Install apns-cli (if available)
-npm install -g apns-cli
-
-# Or use Python
-pip install PyAPNs
-
-# Send test notification with certificate
-python -m pyapns_cli --certificate=/path/to/cert.p8 \
-  --token=YOUR_DEVICE_TOKEN \
-  --payload='{"aps":{"content-available":1}}'
-```
-
-### Test 4: What to Verify on Real Device
-
-✅ **With content-available: 1**
-```
-1. App quit/background
-2. Send notification
-3. Check Xcode Console → "✅ Silent notification received"
-4. Open app → Data appears in Messages tab
-5. Verify CoreData storage worked
-```
-
-✅ **Without content-available (Regular Push)**
-```
-1. App in foreground
-2. Send notification
-3. See banner on screen immediately
-4. willPresent() called
-```
-
-✅ **User Tap Test**
-```
-1. Send notification
-2. Lock device
-3. User taps notification from lock screen
-4. didReceive Response() called
-5. App opens/navigates correctly
-```
-
-### ⭐ Using Apple Developer Portal is BEST for Testing Because:
-
-| Advantage | Benefit |
-|-----------|---------|
-| **Real Device** | Tests actual APNS behavior |
-| **Official** | Uses Apple's official infrastructure |
-| **No Certificate Setup** | Easier than command line tools |
-| **Verified Delivery** | See if notification actually arrives |
-| **Production-like** | Closest to real server scenario |
-| **Support Multiple Devices** | Test on multiple devices at once |
-| **Developer Account Required** | Sign with your Apple developer credentials |
+5. Verify data persisted in CoreData
 
 ---
 

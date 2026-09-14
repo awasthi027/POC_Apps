@@ -1,0 +1,12 @@
+{
+    "Simulator Target Bundle": "ashi.com.newLearning.CBAAuthentication",
+    "data": "background_sync",
+    "aps": {
+        "alert": {
+            "title": "Hello World",
+            "body": "This is a simulated push notification!"
+        },
+        "sound": "default",
+        "badge": 1
+    }
+}
