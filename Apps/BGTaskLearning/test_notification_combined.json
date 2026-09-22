@@ -1,0 +1,15 @@
+{
+    "Simulator Target Bundle": "com.example.BGTaskLearning",
+    "aps": {
+        "alert": {
+            "title": "Task Complete",
+            "body": "Your background task has completed!"
+        },
+        "badge": 2,
+        "sound": "default",
+        "content-available": 1
+    },
+    "type": "task_update",
+    "sync": "tasks",
+    "action": "check_status"
+}

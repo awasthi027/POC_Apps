@@ -1,0 +1,13 @@
+{
+    "Simulator Target Bundle": "com.example.BGTaskLearning",
+    "aps": {
+        "alert": {
+            "title": "Download Started",
+            "body": "Your file download has started!"
+        },
+        "badge": 1,
+        "sound": "default"
+    },
+    "type": "download_update",
+    "data": "file_id_123"
+}

@@ -1,0 +1,8 @@
+{
+    "Simulator Target Bundle": "com.example.BGTaskLearning",
+    "aps": {
+        "content-available": 1
+    },
+    "sync": "downloads",
+    "action": "refresh_data"
+}
