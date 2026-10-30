@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: event-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/analytics}
+    username: ${DB_USER:analytics}
+    password: ${DB_PASSWORD:analytics}
+  jackson:
+    property-naming-strategy: SNAKE_CASE      # the SDK wire format uses snake_case (event_id, project_id ...)
+    default-property-inclusion: non_null
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+    producer:
+      acks: all                               # a send succeeds only when the broker has the event durably
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable.idempotence: true
+        delivery.timeout.ms: 10000
+        request.timeout.ms: 5000
+        max.block.ms: 5000                    # fail fast when Kafka is down, so the SDK gets a 503 and retries
+    consumer:
+      group-id: event-service-writer
+      auto-offset-reset: earliest
+      enable-auto-commit: false               # offsets are committed only after Postgres has the rows
+      max-poll-records: 500
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+analytics:
+  topic: analytics.events
+  partitions: 3
+  replicas: 1
+  # If set, POST /v1/analytics/events requires "Authorization: Bearer <token>". Empty = no auth (local dev only).
+  ingest-token: ${INGEST_TOKEN:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

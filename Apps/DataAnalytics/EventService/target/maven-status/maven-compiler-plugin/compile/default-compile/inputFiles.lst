@@ -1,0 +1,13 @@
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/EventServiceApplication.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/ingest/IngestController.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/ingest/IngestService.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/kafka/EventConsumer.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/kafka/EventPublisher.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/kafka/KafkaConfig.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/model/EventPayload.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/model/IngestRequest.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/model/IngestResponse.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/model/KafkaEvent.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/persistence/EventRepository.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/stats/StatsController.java
+/Users/ashisha2/Desktop/DataAnalytics/EventService/src/main/java/com/example/eventservice/stats/StatsRepository.java
